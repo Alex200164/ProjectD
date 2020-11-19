@@ -9,3 +9,5 @@ Prueba hecha por Tomás
 
 
 LINK PARA EL EQUIVALENTE L JAVADOC: https://www.neowin.net/forum/topic/160287-does-net-have-a-javadoc-equivalent-feature/
+
+Link para crear diagramas de Gantt: https://www.lucidchart.com/pages/es/ejemplos/diagrama-de-gantt-online
