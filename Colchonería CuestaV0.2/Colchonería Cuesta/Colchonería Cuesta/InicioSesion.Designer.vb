@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class InicioSesion
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,8 @@ Partial Class InicioSesion
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.btnLogoEmpresa = New System.Windows.Forms.Button()
         Me.lbNombre = New System.Windows.Forms.Label()
         Me.lbCodigo = New System.Windows.Forms.Label()
@@ -30,8 +29,6 @@ Partial Class InicioSesion
         Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.btnIniciarSesión = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
-        Me.ErrpNombre = New System.Windows.Forms.ErrorProvider(Me.components)
-        CType(Me.ErrpNombre, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnLogoEmpresa
@@ -92,12 +89,9 @@ Partial Class InicioSesion
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
-        'ErrpNombre
-        '
-        Me.ErrpNombre.ContainerControl = Me
-        '
         'InicioSesion
         '
+        Me.AcceptButton = Me.btnIniciarSesión
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
@@ -110,7 +104,6 @@ Partial Class InicioSesion
         Me.Controls.Add(Me.btnLogoEmpresa)
         Me.Name = "InicioSesion"
         Me.Text = "InicioSesion"
-        CType(Me.ErrpNombre, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -123,5 +116,4 @@ Partial Class InicioSesion
     Friend WithEvents txtCodigo As TextBox
     Friend WithEvents btnIniciarSesión As Button
     Friend WithEvents btnSalir As Button
-    Friend WithEvents ErrpNombre As ErrorProvider
 End Class

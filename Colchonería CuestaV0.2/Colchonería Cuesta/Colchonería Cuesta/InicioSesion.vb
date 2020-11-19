@@ -1,5 +1,8 @@
 ﻿Imports System.ComponentModel
+Imports libValidacionDatos.Validacion
 
+
+Imports System.IO
 Public Class InicioSesion
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtNombre.TextChanged
         Dim validarNombre As New libValidacionDatos.Validacion
@@ -60,6 +63,18 @@ Public Class InicioSesion
 
     ' Load
     Private Sub InicioSesion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'Estas lineas son de testeo (son para generar un txt con admin y 1111 para probar el acceso)
+        ' borrarlas cuando sea el momento. Por ahora no tocarlas.
+        '   Dim datosAcceso As New FileStream("datosAcceso.txt", FileMode.Append, FileAccess.write)
+        ' Dim sw As New StreamWriter(datosAcceso)
+        ' Añade el usuario admi si no existe
+        'sw.WriteLine("admin")
+        ' sw.WriteLine("1111")
+        ' sw.Close()
+        '  datosAcceso.Close()
+
+
         txtNombre.Focus()
         btnIniciarSesión.Enabled = False
     End Sub
@@ -77,14 +92,10 @@ Public Class InicioSesion
             End Try
 
             If valido Then
-
-
                 If txtNombre.Text <> "" And txtCodigo.Text <> "" Then
-
                     btnIniciarSesión.Enabled = True
                 Else
                     btnIniciarSesión.Enabled = False
-
                 End If
             Else
                 'Dejo esto aquí por si no usamos la excepción por algún motivo(pero al intentar ejecutar el método validarCodigo dará excepción, ojo):  MsgBox("Dato inválido." & Chr(13) & "Por favor, introduzca ´números enteros en este campo(sin comas o puntos)." & Chr(13) & "Evite usar caracteres o caracteres especiales." & Chr(13) & "Por ejemplo: %/()abcABC", 0, "Dato inválido")
@@ -112,6 +123,25 @@ Public Class InicioSesion
     End Sub
 
     Private Sub btnIniciarSesión_Click(sender As Object, e As EventArgs) Handles btnIniciarSesión.Click
+        Dim validarAcceso As New libValidacionDatos.Validacion
+        Dim valido As Boolean
+        ' Si todo es correcto, mostramos el siguiente formulario, la TPV en sí
+        ' y escondemos de vista el formulario de inicio de sesión. (no se puede hacer close porque es el formulario
+        ' con el que arranca la app.
+        If (validarAcceso.comprobarDatos("datosAcceso.txt", txtNombre.Text, txtCodigo.Text) = True) Then
+            ' MsgBox(txtNombre.Text & " " & txtCodigo.Text)
+            Me.Hide()
+            PantallaVentas.Show()
+        Else
+
+            ' No hace falta mostrar este mensaje porque de eso ya se encarga el método si el login/acceso falla.
+            ' MsgBox("No se han introducido datos correctos. Vuelva a intentarlo.", 0, "Datos de acceso incorrectos.")
+        End If
+
+
+
+
+
 
     End Sub
 

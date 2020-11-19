@@ -1,4 +1,6 @@
-﻿Public Class Validacion
+﻿Imports System.IO
+
+Public Class Validacion
 
 
     ' Función para ver si los datos (String) introducidos por el usuario son válidos para lo que se exige en
@@ -51,41 +53,68 @@
     End Function
 
 
-    Public Function validarCodigo(codigo As Integer) As Boolean
+    Public Function validarCodigo(codigo As String) As Boolean
+        Dim charsPosibles As String = "0123456789"
         Dim valido As Boolean = False
-        Dim s As String
-        Dim coincidencias As Integer
+        If codigo.Length > 4 Then
+            MsgBox("Por favor, introduzca una contraseña/código de 4 dígitos", 0, "Longitud incorrecta.")
 
-        ' Convertimos el codigo a String y lo guardamos en una variable tipo String para ver
-        ' si tiene comas o puntos, pues solo se aceptan enteros, mayores de 0 y menores de 10 000 (o sea, 9999)
-        s = codigo.ToString()
-        MsgBox(s)
-
-        For i = 1 To s.Length
-            ' Comprobamos que sea número.
-            If IsNumeric(codigo) Then
-                ' Comprobamos que sea mayor o igual que cero
-                If codigo >= 0 And codigo < 10000 Then
-                    If GetChar(s, i).Equals(".") Then
-                        coincidencias = coincidencias + 1
-
-
+        Else
+            For i = 1 To codigo.Length
+                For j = 1 To charsPosibles.Length
+                    If (GetChar(codigo, i) <> GetChar(charsPosibles, j)) Then
+                    Else
+                        valido = True
                     End If
-                    If GetChar(s, i).Equals(",") Then
-                        coincidencias = coincidencias + 1
+                Next j
 
-                    End If
-                    valido = True
-                End If
-            End If
-
-        Next i
-        If coincidencias >= 1 Then
-            valido = False
+            Next i
         End If
-
 
         Return valido
     End Function
 
+    Public Function comprobarDatos(fichero As String, nombreRecibido As String, codigoRecibido As String) As Boolean
+        ' variables (string) para guardar la lectura (se leerá por lineas) del fichero y poder compararlas con los parámetros recibidos.
+        Dim lineaNombre As String
+        Dim lineaCodigo As String
+        ' El booleano de retorno que indicará a la form que lo reciba si los datos son válidos o no (valor true en caso de que lo sean)
+        Dim valido As Boolean
+        ' Un booleano para poder frenar el while infinito.
+        Dim bandera As Boolean = False
+
+
+        Try
+            Dim accesoDatos As New FileStream(fichero, FileMode.Open, FileAccess.Read)
+            Dim sr As New StreamReader(accesoDatos)
+            ' lee por lineas hasta encontrar una coincidencia con un nombre
+            While (bandera = False)
+                lineaNombre = sr.ReadLine()
+                ' Si encuentra coincidencia (se compara el valor recibido con el valor leido (guardado en una variable del método) del fichero.
+                If lineaNombre.Equals(nombreRecibido) Then
+                    lineaCodigo = sr.ReadLine
+                    ' se comprueba si la siguiente linea, la contraseña aparejada al nombre, es igual a la contraseña
+                    ' recibida por parámetro.
+                    If lineaCodigo.Equals(codigoRecibido) Then
+                        valido = True
+                        bandera = True
+                    End If
+                Else
+                    MsgBox("No existe el usuario o ha introducido datos incorrectos. Por favor, inténtelo de nuevo.")
+                End If
+            End While
+            sr.Close()
+            accesoDatos.Close()
+        Catch ex As NullReferenceException
+            ' Llamamos a la función mensajeErrorDatos para mostrar el mensaje de error.
+            mensajeErrorDatos()
+
+        End Try
+        Return valido
+    End Function
+
+
+    Public Function mensajeErrorDatos()
+        MsgBox("Error en la comprobación de datos." & Chr(13) & "Detalle: " & Err.Description & Chr(13) & "Número de error: " & Err.Number)
+    End Function
 End Class
