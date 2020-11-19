@@ -14,4 +14,10 @@
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    ' Botón para pasar al formulario de confirmación ventas
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Hide()
+        Cobro.Show()
+    End Sub
 End Class
