@@ -1,0 +1,13 @@
+C:\Users\alexn\AppData\Local\Temporary Projects\Diseño base\bin\Debug\Diseño base.exe.config
+C:\Users\alexn\AppData\Local\Temporary Projects\Diseño base\bin\Debug\Diseño base.exe
+C:\Users\alexn\AppData\Local\Temporary Projects\Diseño base\bin\Debug\Diseño base.pdb
+C:\Users\alexn\AppData\Local\Temporary Projects\Diseño base\bin\Debug\Diseño base.xml
+C:\Users\alexn\AppData\Local\Temporary Projects\Diseño base\obj\Debug\Diseño base.vbprojAssemblyReference.cache
+C:\Users\alexn\AppData\Local\Temporary Projects\Diseño base\obj\Debug\Diseño_base.Form1.resources
+C:\Users\alexn\AppData\Local\Temporary Projects\Diseño base\obj\Debug\Diseño_base.Resources.resources
+C:\Users\alexn\AppData\Local\Temporary Projects\Diseño base\obj\Debug\Diseño base.vbproj.GenerateResource.cache
+C:\Users\alexn\AppData\Local\Temporary Projects\Diseño base\obj\Debug\Diseño base.vbproj.CoreCompileInputs.cache
+C:\Users\alexn\AppData\Local\Temporary Projects\Diseño base\obj\Debug\Diseño base.exe
+C:\Users\alexn\AppData\Local\Temporary Projects\Diseño base\obj\Debug\Diseño base.xml
+C:\Users\alexn\AppData\Local\Temporary Projects\Diseño base\obj\Debug\Diseño base.pdb
+C:\Users\alexn\AppData\Local\Temporary Projects\Diseño base\obj\Debug\Diseño_base.Form2.resources

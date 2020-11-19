@@ -1,0 +1,40 @@
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\Colchonería Cuesta.exe.config
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\Colchonería Cuesta.exe
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\Colchonería Cuesta.pdb
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\Colchonería Cuesta.xml
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\libValidacionDatos.dll
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\libValidacionDatos.pdb
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\libValidacionDatos.xml
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.vbprojAssemblyReference.cache
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.Form4.resources
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.Form1.resources
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.Cobro.resources
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.GestionPerfiles.resources
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.Resources.resources
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.vbproj.GenerateResource.cache
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.vbproj.CoreCompileInputs.cache
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.vbproj.CopyComplete
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.exe
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.xml
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.pdb
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.InicioSesion.resources
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\Colchonería Cuesta.exe.config
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\Colchonería Cuesta.exe
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\Colchonería Cuesta.pdb
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\Colchonería Cuesta.xml
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\libValidacionDatos.dll
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\libValidacionDatos.pdb
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\libValidacionDatos.xml
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.vbprojAssemblyReference.cache
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.Form4.resources
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.InicioSesion.resources
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.Form1.resources
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.Cobro.resources
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.GestionPerfiles.resources
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.Resources.resources
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.vbproj.GenerateResource.cache
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.vbproj.CoreCompileInputs.cache
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.vbproj.CopyComplete
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.exe
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.xml
+C:\Users\alexn\Desktop\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.pdb
