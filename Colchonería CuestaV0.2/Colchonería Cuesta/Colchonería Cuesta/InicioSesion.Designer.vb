@@ -86,7 +86,7 @@ Partial Class InicioSesion
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(112, 23)
         Me.btnSalir.TabIndex = 6
-        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.Text = "&Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
         'InicioSesion

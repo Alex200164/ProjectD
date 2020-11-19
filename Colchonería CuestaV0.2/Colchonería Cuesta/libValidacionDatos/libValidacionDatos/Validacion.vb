@@ -88,26 +88,35 @@ Public Class Validacion
             Dim accesoDatos As New FileStream(fichero, FileMode.Open, FileAccess.Read)
             Dim sr As New StreamReader(accesoDatos)
             ' lee por lineas hasta encontrar una coincidencia con un nombre
-            While (bandera = False)
-                lineaNombre = sr.ReadLine()
-                ' Si encuentra coincidencia (se compara el valor recibido con el valor leido (guardado en una variable del método) del fichero.
-                If lineaNombre.Equals(nombreRecibido) Then
-                    lineaCodigo = sr.ReadLine
-                    ' se comprueba si la siguiente linea, la contraseña aparejada al nombre, es igual a la contraseña
-                    ' recibida por parámetro.
-                    If lineaCodigo.Equals(codigoRecibido) Then
-                        valido = True
-                        bandera = True
+            Try
+                While (bandera = False)
+                    lineaNombre = sr.ReadLine()
+                    ' Si encuentra coincidencia (se compara el valor recibido con el valor leido (guardado en una variable del método) del fichero.
+                    If lineaNombre.Equals(nombreRecibido) Then
+                        lineaCodigo = sr.ReadLine
+                        ' se comprueba si la siguiente linea, la contraseña aparejada al nombre, es igual a la contraseña
+                        ' recibida por parámetro.
+                        If lineaCodigo.Equals(codigoRecibido) Then
+                            valido = True
+                            bandera = True
+                        End If
+
                     End If
-                Else
+
+                End While
+
+                If bandera = False Then
+                    ' Si no se encontró ningún nombre y contraseña, sacamos el mensaje.
                     MsgBox("No existe el usuario o ha introducido datos incorrectos. Por favor, inténtelo de nuevo.")
                 End If
-            End While
-            sr.Close()
-            accesoDatos.Close()
+                sr.Close()
+                accesoDatos.Close()
+            Catch ex As Exception
+                MsgBox("Error. No se encontró ningún usuario con esos datos.", 0, "Usuario inexistente.")
+            End Try
         Catch ex As NullReferenceException
-            ' Llamamos a la función mensajeErrorDatos para mostrar el mensaje de error.
-            mensajeErrorDatos()
+                ' Llamamos a la función mensajeErrorDatos para mostrar el mensaje de error.
+                mensajeErrorDatos()
 
         End Try
         Return valido

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form4
+Partial Class GestionPrecios
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -110,7 +110,7 @@ Partial Class Form4
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Label2"
         '
-        'Form4
+        'GestionPrecios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -124,7 +124,7 @@ Partial Class Form4
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox1)
-        Me.Name = "Form4"
+        Me.Name = "GestionPrecios"
         Me.Text = "Form4"
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -1,8 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports libValidacionDatos.Validacion
-
-
 Imports System.IO
+
 Public Class InicioSesion
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtNombre.TextChanged
         Dim validarNombre As New libValidacionDatos.Validacion
@@ -66,14 +65,19 @@ Public Class InicioSesion
 
         'Estas lineas son de testeo (son para generar un txt con admin y 1111 para probar el acceso)
         ' borrarlas cuando sea el momento. Por ahora no tocarlas.
-        '   Dim datosAcceso As New FileStream("datosAcceso.txt", FileMode.Append, FileAccess.write)
-        ' Dim sw As New StreamWriter(datosAcceso)
-        ' Añade el usuario admi si no existe
-        'sw.WriteLine("admin")
-        ' sw.WriteLine("1111")
-        ' sw.Close()
-        '  datosAcceso.Close()
+        If File.Exists("datosAcceso.txt") Then
+            ' Si el archivo ya existe significa que no hace falta añadir un admin.
+        Else
+            ' Si no existe, añadimos uno con append.
+            Dim datosAcceso As New FileStream("datosAcceso.txt", FileMode.Append, FileAccess.Write)
+            Dim sw As New StreamWriter(datosAcceso)
+            '  Añade el usuario admi si no existe
 
+            sw.WriteLine("admin")
+            sw.WriteLine("1111")
+            sw.Close()
+            datosAcceso.Close()
+        End If
 
         txtNombre.Focus()
         btnIniciarSesión.Enabled = False
@@ -112,9 +116,6 @@ Public Class InicioSesion
 
 
 
-
-
-
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
@@ -124,29 +125,25 @@ Public Class InicioSesion
 
     Private Sub btnIniciarSesión_Click(sender As Object, e As EventArgs) Handles btnIniciarSesión.Click
         Dim validarAcceso As New libValidacionDatos.Validacion
-        Dim valido As Boolean
+        ' Salía un aviso que decí que esta var booleana no se usaba. no la borro por las dudas.
+        ' Dim valido As Boolean
         ' Si todo es correcto, mostramos el siguiente formulario, la TPV en sí
         ' y escondemos de vista el formulario de inicio de sesión. (no se puede hacer close porque es el formulario
         ' con el que arranca la app.
-        If (validarAcceso.comprobarDatos("datosAcceso.txt", txtNombre.Text, txtCodigo.Text) = True) Then
-            ' MsgBox(txtNombre.Text & " " & txtCodigo.Text)
-            Me.Hide()
-            PantallaVentas.Show()
-        Else
+        Try
+            If (validarAcceso.comprobarDatos("datosAcceso.txt", txtNombre.Text, txtCodigo.Text) = True) Then
+                Me.Hide()
+                PantallaVentas.Show()
+            Else
 
-            ' No hace falta mostrar este mensaje porque de eso ya se encarga el método si el login/acceso falla.
-            ' MsgBox("No se han introducido datos correctos. Vuelva a intentarlo.", 0, "Datos de acceso incorrectos.")
-        End If
+                ' No hace falta mostrar este mensaje porque de eso ya se encarga el método si el login/acceso falla.
+                ' MsgBox("No se han introducido datos correctos. Vuelva a intentarlo.", 0, "Datos de acceso incorrectos.")
+            End If
 
-
-
-
-
-
+        Catch fnf As FileNotFoundException
+            MsgBox("No se ha encontrado el archivo donde se guardan los datos de acceso a la aplicación.", 0, "Archivo no existe.")
+        End Try
     End Sub
-
-
-
 
 
 End Class
