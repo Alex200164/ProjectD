@@ -1,9 +1,9 @@
-﻿Imports System.ComponentModel
-Imports libValidacionDatos.Validacion
+﻿' No hace falta hacer imports libValidaciones para instanciar sus clases porque está inlcuida en el proyecto.
 Imports System.IO
 
-Public Class InicioSesion
+Public Class ComprobarAdmin
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtNombre.TextChanged
+        ' Podemos instanciar una clase de la biblioteca libValidaciones de al siguiente manera
         Dim validarNombre As New libValidacionDatos.Validacion
         Dim valido As Boolean
         'Primero vemos que ni el campo del nombre ni el campo del código estén vacíos.
@@ -38,9 +38,9 @@ Public Class InicioSesion
                 ' sesión.
                 If txtNombre.Text <> "" And txtCodigo.Text <> "" Then
 
-                    btnIniciarSesión.Enabled = True
+                    btnAutenticar.Enabled = True
                 Else
-                    btnIniciarSesión.Enabled = False
+                    btnAutenticar.Enabled = False
                 End If
             Else
                 '
@@ -56,31 +56,7 @@ Public Class InicioSesion
         End If
     End Sub
 
-
-    ' Load
-    Private Sub InicioSesion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        'Estas lineas son de testeo (son para generar un txt con admin y 1111 para probar el acceso)
-        ' borrarlas cuando sea el momento. Por ahora no tocarlas.
-        If File.Exists("datosAcceso.txt") Then
-            ' Si el archivo ya existe significa que no hace falta añadir un admin.
-        Else
-            ' Si no existe, añadimos uno con append.
-            '   Dim datosAcceso As New FileStream("datosAcceso.txt", FileMode.Append, FileAccess.Write)
-            '  Dim sw As New StreamWriter(datosAcceso)
-            '  Añade el usuario admi si no existe
-
-            '  sw.WriteLine("admin")
-            '  sw.WriteLine("1111")
-            '  sw.Close()
-            '  datosAcceso.Close()
-        End If
-
-        txtNombre.Focus()
-        btnIniciarSesión.Enabled = False
-    End Sub
-
-    Private Sub txtCodigo_TextChanged(sender As Object, e As EventArgs) Handles txtCodigo.TextChanged
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles txtCodigo.TextChanged
         Dim validarCodigo As New libValidacionDatos.Validacion
         Dim valido As Boolean
 
@@ -94,9 +70,9 @@ Public Class InicioSesion
 
             If valido Then
                 If txtNombre.Text <> "" And txtCodigo.Text <> "" Then
-                    btnIniciarSesión.Enabled = True
+                    btnAutenticar.Enabled = True
                 Else
-                    btnIniciarSesión.Enabled = False
+                    btnAutenticar.Enabled = False
                 End If
             Else
                 'Dejo esto aquí por si no usamos la excepción por algún motivo(pero al intentar ejecutar el método validarCodigo dará excepción, ojo):  MsgBox("Dato inválido." & Chr(13) & "Por favor, introduzca ´números enteros en este campo(sin comas o puntos)." & Chr(13) & "Evite usar caracteres o caracteres especiales." & Chr(13) & "Por ejemplo: %/()abcABC", 0, "Dato inválido")
@@ -112,15 +88,9 @@ Public Class InicioSesion
         End If
 
 
-
     End Sub
 
-    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        End
-
-    End Sub
-
-    Private Sub btnIniciarSesión_Click(sender As Object, e As EventArgs) Handles btnIniciarSesión.Click
+    Private Sub btnAutenticar_Click(sender As Object, e As EventArgs) Handles btnAutenticar.Click
         Dim validarAcceso As New libValidacionDatos.Validacion
         ' Salía un aviso que decí que esta var booleana no se usaba. no la borro por las dudas.
         ' Dim valido As Boolean
@@ -130,7 +100,7 @@ Public Class InicioSesion
         Try
             ' Se le pasa el último parámetro false porque no estamos comprobando si es admin o no.
             ' El último parámetro sirve para eso.
-            If (validarAcceso.comprobarDatos("datosAcceso.txt", txtNombre.Text, txtCodigo.Text, False) = True) Then
+            If (validarAcceso.comprobarDatos("datosAcceso.txt", txtNombre.Text, txtCodigo.Text, True) = True) Then
 
                 ' Guardamos la hora de acceso del usuario (con sus datos):
                 Dim datosAcceso As New FileStream("logAcceso.txt", FileMode.Append, FileAccess.Write)
@@ -145,14 +115,9 @@ Public Class InicioSesion
                 sw.Close()
                 datosAcceso.Close()
 
-                Me.Hide()
-                ' El asterisco en el texto del label es para testea
-                ' es una posible idea: cuando el texto del label tenga un asterisco
-                ' significa que la persona se ha logeado como admin.
-                ' Se comprueba y ya está. Solo es una forma de ver si es admin o no.
-                ' PantallaVentas.lbAdmin.Text = "*"
-                PantallaVentas.Show()
-
+                Me.Close()
+                PantallaVentas.Hide()
+                GestionPerfiles.Show()
             Else
 
                 ' No hace falta mostrar este mensaje porque de eso ya se encarga el método si el login/acceso falla.
@@ -164,5 +129,7 @@ Public Class InicioSesion
         End Try
     End Sub
 
-
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Me.Close()
+    End Sub
 End Class

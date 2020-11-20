@@ -75,6 +75,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComprobarAdmin.Designer.vb">
+      <DependentUpon>ComprobarAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ComprobarAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GestionPrecios.Designer.vb">
       <DependentUpon>GestionPrecios.vb</DependentUpon>
     </Compile>
@@ -123,6 +129,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ComprobarAdmin.resx">
+      <DependentUpon>ComprobarAdmin.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionPrecios.resx">
       <DependentUpon>GestionPrecios.vb</DependentUpon>
     </EmbeddedResource>

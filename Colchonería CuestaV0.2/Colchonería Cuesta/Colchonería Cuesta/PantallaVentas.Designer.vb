@@ -39,8 +39,9 @@ Partial Class PantallaVentas
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
+        Me.btnGestionarPerfiles = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
+        Me.lbAdmin = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'ComboBox1
@@ -181,14 +182,14 @@ Partial Class PantallaVentas
         Me.Button5.Text = "Cerrar sesión"
         Me.Button5.UseVisualStyleBackColor = True
         '
-        'Button6
+        'btnGestionarPerfiles
         '
-        Me.Button6.Location = New System.Drawing.Point(164, 549)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(121, 37)
-        Me.Button6.TabIndex = 15
-        Me.Button6.Text = "Gestionar Perfiles"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.btnGestionarPerfiles.Location = New System.Drawing.Point(164, 549)
+        Me.btnGestionarPerfiles.Name = "btnGestionarPerfiles"
+        Me.btnGestionarPerfiles.Size = New System.Drawing.Size(121, 37)
+        Me.btnGestionarPerfiles.TabIndex = 15
+        Me.btnGestionarPerfiles.Text = "Gestionar Perfiles"
+        Me.btnGestionarPerfiles.UseVisualStyleBackColor = True
         '
         'Button7
         '
@@ -199,14 +200,24 @@ Partial Class PantallaVentas
         Me.Button7.Text = "Gestionar Productos"
         Me.Button7.UseVisualStyleBackColor = True
         '
+        'lbAdmin
+        '
+        Me.lbAdmin.AutoSize = True
+        Me.lbAdmin.Location = New System.Drawing.Point(664, 560)
+        Me.lbAdmin.Name = "lbAdmin"
+        Me.lbAdmin.Size = New System.Drawing.Size(0, 13)
+        Me.lbAdmin.TabIndex = 17
+        Me.lbAdmin.Visible = False
+        '
         'PantallaVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDark
         Me.ClientSize = New System.Drawing.Size(708, 598)
+        Me.Controls.Add(Me.lbAdmin)
         Me.Controls.Add(Me.Button7)
-        Me.Controls.Add(Me.Button6)
+        Me.Controls.Add(Me.btnGestionarPerfiles)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Label6)
@@ -245,6 +256,7 @@ Partial Class PantallaVentas
     Friend WithEvents Label6 As Label
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
-    Friend WithEvents Button6 As Button
+    Friend WithEvents btnGestionarPerfiles As Button
     Friend WithEvents Button7 As Button
+    Friend WithEvents lbAdmin As Label
 End Class

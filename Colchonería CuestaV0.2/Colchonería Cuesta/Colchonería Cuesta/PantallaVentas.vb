@@ -7,12 +7,19 @@
 
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btnGestionarPerfiles.Click
+        ComprobarAdmin.Show()
+
+
 
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        If lbAdmin.Text.Equals("*") Then
+            btnGestionarPerfiles.Enabled = True
+        Else
+            btnGestionarPerfiles.Enabled = False
+        End If
     End Sub
 
     ' Botón para pasar al formulario de confirmación ventas
