@@ -1,4 +1,7 @@
 ﻿Imports System.IO
+Imports LecturaEscrituraArchivos.Lectura
+Imports LecturaEscrituraArchivos.Escritura
+
 
 Public Class PantallaVentas
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -27,8 +30,44 @@ Public Class PantallaVentas
             btnGestionarPerfiles.Enabled = False
         End If
 
-        ' Accedemos al archivo auxiliar "PedidoDatosAuxiliar" para leer
-        Dim fichero As New FileStream("Productos.txt", FileMode.OpenOrCreate, FileAccess.Read)
+        ' Instanciamos la clase Lectura para acceder a los métodos que nos permitirán leer desde ficheros
+        Dim lectura As New LecturaEscrituraArchivos.Lectura
+
+        Dim escritura As New LecturaEscrituraArchivos.Escritura
+
+        escritura.escribirProducto(1, "Productos.txt", "Colchón", "", "", 0)
+        escritura.escribirProducto(2, "Productos.txt", "Canapé", "", "", 0)
+        escritura.escribirProducto(3, "Productos.txt", "Estructura", "", "", 0)
+
+
+
+
+
+        Dim aux As String = ""
+        Dim categoria As String = ""
+        Dim nombre As String = ""
+        Dim tamaño As String = ""
+        Dim precio As Integer = 0
+
+
+        ' Accedemos al archivo "Productos.txt" y extraemos el número de registros con los que cuenta
+        Dim numeroRegistros As Integer = lectura.numeroRegistros("Productos.txt")
+
+        ' Hacemos una lectura inicial para tener en aux una variable para comparar y evitar duplicidades
+        lectura.leerProducto(1, "Productos.txt", categoria, nombre, tamaño, precio)
+        aux = categoria
+        ComboBox1.Items.Add(aux)
+        ' Bucle for para leer e introducir todos las categorias existentes en 
+        For contador As Integer = 2 To numeroRegistros
+            ' Leemos
+            lectura.leerProducto(contador, "Productos.txt", categoria, nombre, tamaño, precio)
+            If (aux <> categoria) Then
+                ComboBox1.Items.Add(categoria)
+                aux = categoria
+            End If
+
+        Next
+
         ' Iniciamos StreamReader para leer del fichero
         '  Dim sr As New StreamReader(fs) o (fichero)
         ' Introducimos dentro de los ComboBox los datos actuales de productos.
@@ -56,24 +95,7 @@ Public Class PantallaVentas
         Dim sw As New StreamWriter(fichero)
 
 
-
-
-
-
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
 
-
-
-
-
-
-
-
-
-
-
-
-    End Sub
 End Class

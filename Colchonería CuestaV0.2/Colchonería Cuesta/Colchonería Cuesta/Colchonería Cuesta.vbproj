@@ -47,6 +47,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LecturaEscrituraArchivos">
+      <HintPath>..\LecturaEscrituraArchivos.dll</HintPath>
+    </Reference>
     <Reference Include="libValidacionDatos">
       <HintPath>..\libValidacionDatos\libValidacionDatos\bin\Debug\libValidacionDatos.dll</HintPath>
     </Reference>
