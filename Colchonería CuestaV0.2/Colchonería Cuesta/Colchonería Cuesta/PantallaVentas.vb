@@ -1,6 +1,5 @@
 ﻿Imports System.IO
-Imports LecturaEscrituraArchivos.Lectura
-Imports LecturaEscrituraArchivos.Escritura
+Imports LecturaEscrituraArchivos
 
 
 Public Class PantallaVentas
