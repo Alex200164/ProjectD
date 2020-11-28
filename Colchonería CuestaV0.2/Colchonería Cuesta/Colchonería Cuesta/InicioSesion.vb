@@ -150,7 +150,7 @@ Public Class InicioSesion
                 ' es una posible idea: cuando el texto del label tenga un asterisco
                 ' significa que la persona se ha logeado como admin.
                 ' Se comprueba y ya está. Solo es una forma de ver si es admin o no.
-                ' PantallaVentas.lbAdmin.Text = "*"
+                PantallaVentas.lbAdmin.Text = "*"
                 PantallaVentas.Show()
 
             Else

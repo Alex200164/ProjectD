@@ -51,14 +51,20 @@ Public Class GestionPerfiles
         Dim texto As String
         ' Booleano usado para salir de bucle infinito.
         Dim bool As Boolean = False
+        ' Vamos a ver si el nombre seleccionado del listbox tiene una coincidencia en el archivo
+        ' datosAcceso. Si la tiene, leemos hasta la marca que marca el final de los datos de ese usuario.
         While sr.Peek > 0
             nombre = sr.ReadLine
             If (nombre.Equals(listboxUsuarios.SelectedItem)) Then
                 While bool = False
+                    texto = sr.ReadLine
+
                     If texto.Equals("^") Then
                         ' Si encontramos el carácter especial que marca el final de la información del usuario
                         ' nos salimos del bucle.
                         bool = True
+                    Else
+                        txtDetalles.Text = texto
                     End If
                 End While
             End If

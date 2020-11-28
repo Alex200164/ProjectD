@@ -30,9 +30,9 @@ Public Class PantallaVentas
         ' Accedemos al archivo auxiliar "PedidoDatosAuxiliar" para leer
         Dim fichero As New FileStream("Productos.txt", FileMode.OpenOrCreate, FileAccess.Read)
         ' Iniciamos StreamReader para leer del fichero
-        Dim sr As New StreamReader(fs) o (fichero)
+        '  Dim sr As New StreamReader(fs) o (fichero)
         ' Introducimos dentro de los ComboBox los datos actuales de productos.
-        ComboBox1.Items.Add()
+        '  ComboBox1.Items.Add()
 
 
     End Sub

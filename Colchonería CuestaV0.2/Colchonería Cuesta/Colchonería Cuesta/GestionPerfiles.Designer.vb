@@ -28,16 +28,16 @@ Partial Class GestionPerfiles
         Me.lbNombre = New System.Windows.Forms.Label()
         Me.lbCodigo = New System.Windows.Forms.Label()
         Me.txtCodigo = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtDetalles = New System.Windows.Forms.TextBox()
         Me.lbDetalles = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevoUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GuardarComoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AbrirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GuardarComoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
@@ -46,7 +46,7 @@ Partial Class GestionPerfiles
         'lbUsuarios
         '
         Me.lbUsuarios.AutoSize = True
-        Me.lbUsuarios.Location = New System.Drawing.Point(104, 36)
+        Me.lbUsuarios.Location = New System.Drawing.Point(233, 24)
         Me.lbUsuarios.Name = "lbUsuarios"
         Me.lbUsuarios.Size = New System.Drawing.Size(48, 13)
         Me.lbUsuarios.TabIndex = 8
@@ -55,14 +55,14 @@ Partial Class GestionPerfiles
         'listboxUsuarios
         '
         Me.listboxUsuarios.FormattingEnabled = True
-        Me.listboxUsuarios.Location = New System.Drawing.Point(107, 68)
+        Me.listboxUsuarios.Location = New System.Drawing.Point(236, 56)
         Me.listboxUsuarios.Name = "listboxUsuarios"
         Me.listboxUsuarios.Size = New System.Drawing.Size(120, 95)
         Me.listboxUsuarios.TabIndex = 9
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(236, 29)
+        Me.txtNombre.Location = New System.Drawing.Point(532, 60)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(100, 20)
         Me.txtNombre.TabIndex = 10
@@ -70,40 +70,40 @@ Partial Class GestionPerfiles
         'lbNombre
         '
         Me.lbNombre.AutoSize = True
-        Me.lbNombre.Location = New System.Drawing.Point(233, 13)
+        Me.lbNombre.Location = New System.Drawing.Point(462, 63)
         Me.lbNombre.Name = "lbNombre"
-        Me.lbNombre.Size = New System.Drawing.Size(44, 13)
+        Me.lbNombre.Size = New System.Drawing.Size(47, 13)
         Me.lbNombre.TabIndex = 11
-        Me.lbNombre.Text = "Nombre"
+        Me.lbNombre.Text = "Nombre:"
         '
         'lbCodigo
         '
         Me.lbCodigo.AutoSize = True
-        Me.lbCodigo.Location = New System.Drawing.Point(237, 52)
+        Me.lbCodigo.Location = New System.Drawing.Point(466, 97)
         Me.lbCodigo.Name = "lbCodigo"
-        Me.lbCodigo.Size = New System.Drawing.Size(40, 13)
+        Me.lbCodigo.Size = New System.Drawing.Size(43, 13)
         Me.lbCodigo.TabIndex = 12
-        Me.lbCodigo.Text = "Código"
+        Me.lbCodigo.Text = "Código:"
         '
         'txtCodigo
         '
-        Me.txtCodigo.Location = New System.Drawing.Point(236, 68)
+        Me.txtCodigo.Location = New System.Drawing.Point(532, 97)
         Me.txtCodigo.Name = "txtCodigo"
         Me.txtCodigo.Size = New System.Drawing.Size(100, 20)
         Me.txtCodigo.TabIndex = 13
         '
-        'TextBox1
+        'txtDetalles
         '
-        Me.TextBox1.Location = New System.Drawing.Point(236, 94)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(396, 224)
-        Me.TextBox1.TabIndex = 14
+        Me.txtDetalles.Location = New System.Drawing.Point(236, 157)
+        Me.txtDetalles.Multiline = True
+        Me.txtDetalles.Name = "txtDetalles"
+        Me.txtDetalles.Size = New System.Drawing.Size(396, 177)
+        Me.txtDetalles.TabIndex = 14
         '
         'lbDetalles
         '
         Me.lbDetalles.AutoSize = True
-        Me.lbDetalles.Location = New System.Drawing.Point(233, 125)
+        Me.lbDetalles.Location = New System.Drawing.Point(412, 141)
         Me.lbDetalles.Name = "lbDetalles"
         Me.lbDetalles.Size = New System.Drawing.Size(45, 13)
         Me.lbDetalles.TabIndex = 15
@@ -128,46 +128,46 @@ Partial Class GestionPerfiles
         'NuevoUsuarioToolStripMenuItem
         '
         Me.NuevoUsuarioToolStripMenuItem.Name = "NuevoUsuarioToolStripMenuItem"
-        Me.NuevoUsuarioToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NuevoUsuarioToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.NuevoUsuarioToolStripMenuItem.Text = "Nuevo usuario"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
-        '
-        'GuardarToolStripMenuItem
-        '
-        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.GuardarToolStripMenuItem.Text = "Guardar"
-        '
-        'GuardarComoToolStripMenuItem
-        '
-        Me.GuardarComoToolStripMenuItem.Name = "GuardarComoToolStripMenuItem"
-        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.GuardarComoToolStripMenuItem.Text = "Guardar Como..."
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(158, 6)
         '
         'AbrirToolStripMenuItem
         '
         Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
-        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.AbrirToolStripMenuItem.Text = "Abrir"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(158, 6)
+        '
+        'GuardarToolStripMenuItem
+        '
+        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.GuardarToolStripMenuItem.Text = "Guardar"
+        '
+        'GuardarComoToolStripMenuItem
+        '
+        Me.GuardarComoToolStripMenuItem.Name = "GuardarComoToolStripMenuItem"
+        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.GuardarComoToolStripMenuItem.Text = "Guardar Como..."
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(158, 6)
         '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'GestionPerfiles
@@ -176,7 +176,7 @@ Partial Class GestionPerfiles
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(664, 399)
         Me.Controls.Add(Me.lbDetalles)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtDetalles)
         Me.Controls.Add(Me.txtCodigo)
         Me.Controls.Add(Me.lbCodigo)
         Me.Controls.Add(Me.lbNombre)
@@ -199,7 +199,7 @@ Partial Class GestionPerfiles
     Friend WithEvents lbNombre As Label
     Friend WithEvents lbCodigo As Label
     Friend WithEvents txtCodigo As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtDetalles As TextBox
     Friend WithEvents lbDetalles As Label
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents ArchivoToolStripMenuItem As ToolStripMenuItem
