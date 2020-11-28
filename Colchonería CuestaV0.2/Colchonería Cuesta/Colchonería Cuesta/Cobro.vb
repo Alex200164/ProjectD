@@ -1,4 +1,6 @@
-﻿Public Class Cobro
+﻿Imports System.IO
+
+Public Class Cobro
     ' Botón cero
     Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
         TextBox_importe.Text = TextBox_importe.Text + "0"
@@ -67,5 +69,21 @@
     ' Botón para finalizar e imprimir el recibo
     Private Sub btn_finalizarImprimir_Click(sender As Object, e As EventArgs) Handles btn_finalizarImprimir.Click
 
+        ' Comprobamos que el cliente ha pagado lo suficiente para cubrir el precio.
+        ' En caso contrario avisamos con un mensaje 
+        If (Val(Label_devolver.Text) = 0) Then
+            MsgBox("El dinero aportado por el cliente es insuficiente.", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "Aviso")
+
+            Return
+        End If
+
+        ' Conexión con el archivo 
+        ' Dim Variable As New FileStream("")
+        ' Imprimir...
+
+        ' Cerramos la pantalla de gestión de cobros
+        Me.Close()
+        ' Volvemos a la pantalla de ventas.
+        PantallaVentas.Show()
     End Sub
 End Class

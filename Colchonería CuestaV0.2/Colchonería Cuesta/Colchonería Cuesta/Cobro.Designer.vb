@@ -225,9 +225,9 @@ Partial Class Cobro
         Me.Label_numDevolver.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_numDevolver.Location = New System.Drawing.Point(134, 135)
         Me.Label_numDevolver.Name = "Label_numDevolver"
-        Me.Label_numDevolver.Size = New System.Drawing.Size(54, 24)
+        Me.Label_numDevolver.Size = New System.Drawing.Size(20, 24)
         Me.Label_numDevolver.TabIndex = 19
-        Me.Label_numDevolver.Text = "vacio"
+        Me.Label_numDevolver.Text = "0"
         '
         'Cobro
         '
