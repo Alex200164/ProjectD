@@ -16,71 +16,112 @@
 ' podrían existir dos iguales.
 
 Public Class GestionPerfiles
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
 
-    End Sub
 
     Private Sub GestionPerfiles_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim fichero As String = "datosAcceso.txt"
-        Dim accesoDatos As New FileStream(fichero, FileMode.Open, FileAccess.Read)
-        Dim sr As New StreamReader(accesoDatos)
-        Dim bool As Boolean = False
-        Dim nombre As String
-        ' Vamos a colocar de forma dinámica los nombres de los usuarios. 
-        ' El admin podrá hacer click en items la lista creada, esto habilitará
-        ' los botones del menuStrip pertinentes.
-        ' Bucle "infinito" hasta que sea true.
-        While sr.Peek > 0
-            nombre = sr.ReadLine
+        '  Dim fichero As String = "datosAcceso.txt"
+        '  Dim accesoDatos As New FileStream(fichero, FileMode.Open, FileAccess.Read)
+        '  Dim sr As New StreamReader(accesoDatos)
+        '   Dim bool As Boolean = False
+        '  Dim nombre As String
+        ' todo lo de arriba está comentado por obsoleto para esta pantalla, pero quizás sirva en otro momento.
+        If listboxUsuarios.Items.Count <> 0 Then
+        Else
+            stripAbrir.Enabled = False
+        End If
+        stripAbrir.Enabled = True
 
-            ' Se añade al listbox el nombre del usuario.
-            If Not IsNumeric(nombre) Then
-                If Not nombre.Equals("*") Then
-                    listboxUsuarios.Items.Add(nombre)
-                End If
-            End If
 
-        End While
+
 
     End Sub
 
     Private Sub listboxUsuarios_SelectedIndexChanged(sender As Object, e As EventArgs) Handles listboxUsuarios.SelectedIndexChanged
-        Dim fichero As String = "datosAcceso.txt"
-        Dim accesoDatos As New FileStream(fichero, FileMode.Open, FileAccess.Read)
-        Dim sr As New StreamReader(accesoDatos)
-        Dim texto As String
-        ' Booleano usado para salir de bucle infinito.
-        Dim bool As Boolean = False
-        ' Vamos a ver si el nombre seleccionado del listbox tiene una coincidencia en el archivo
+        Try
+            ' Dejamos esto aquí, aunque resulte en la apertura repetida del archivo.
+            ' No se sabe si el archivo puede ser borrado o modificado de alguna forma
+            ' mientras se tiene abierta la aplicación. 
+            ' Más vale comprobar siempre que se puede acceder al archivo.
+            ' (la otra opción era poner esta apertura en form_load y dejarlo abierto
+            ' hasta que se saliera de la pantalla de gestión de usuarios, pero se ha decidido
+            ' hacerlo de esta otra forma porque es bastante más segura).
+            FileOpen(1, "usuarios.txt", OpenMode.Input)
 
-        ' datosAcceso. Si la tiene, leemos hasta la marca que marca el final de los datos de ese usuario.
+            While Not EOF(1)
 
-        ' datosAcceso. Si la tiene, leemos hasta le marca que marca el final de los datos de ese usuario.
+                Input(1, usuario.usuario)
+                If (usuario.usuario.Equals(listboxUsuarios.GetItemText(listboxUsuarios.SelectedItem))) Then
 
-        While sr.Peek > 0
-            nombre = sr.ReadLine
-            If (nombre.Equals(listboxUsuarios.SelectedItem)) Then
-                While bool = False
-                    texto = sr.ReadLine
+                    Input(1, usuario.contrasena)
+                    Input(1, usuario.nombre)
+                    Input(1, usuario.apellidos)
+                    Input(1, usuario.direccion)
+                    Input(1, usuario.telefono)
+                    Input(1, usuario.admin)
+                    txtUsuario.Text = usuario.usuario
+                    txtContrasena.Text = usuario.contrasena
+                    txtTelefono.Text = usuario.nombre
+                    txtNombre.Text = usuario.apellidos
+                    txtApellidos.Text = usuario.direccion
+                    txtDireccion.Text = usuario.telefono
+                    checkboxAdmin.Checked = True
+                End If
 
-                    If texto.Equals("^") Then
-                        ' Si encontramos el carácter especial que marca el final de la información del usuario
-                        ' nos salimos del bucle.
-                        bool = True
-                    Else
-                        txtDetalles.Text = texto
-                    End If
-                End While
-            End If
+            End While
+
+            FileClose(1)
+        Catch ex As Exception
+
+        End Try
 
 
-            ' Se añade al listbox el nombre del usuario.
-            listboxUsuarios.Items.Add(nombre)
-
-        End While
     End Sub
 
     Private Sub lbUsuarios_Click(sender As Object, e As EventArgs) Handles lbUsuarios.Click
+
+    End Sub
+
+    Private Sub NuevoUsuarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles stripNuevo.Click
+        txtUsuario.Clear()
+        txtContrasena.Clear()
+        txtTelefono.Clear()
+        txtNombre.Clear()
+        txtApellidos.Clear()
+        txtDireccion.Clear()
+
+
+    End Sub
+
+    Private Sub AbrirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles stripAbrir.Click
+        FileOpen(1, "usuarios.txt", OpenMode.Input)
+
+        While Not EOF(1)
+            Input(1, usuario.usuario)
+            Input(1, usuario.contrasena)
+            Input(1, usuario.nombre)
+            Input(1, usuario.apellidos)
+            Input(1, usuario.direccion)
+            Input(1, usuario.telefono)
+            Input(1, usuario.admin)
+            listboxUsuarios.Items.Add(usuario.usuario)
+
+            '   If (usuario.contrasena = 1111) Then
+            ' MsgBox("Premio", 0, "Premio")
+            '  End If
+
+
+        End While
+        FileClose(1)
+        stripAbrir.Enabled = False
+    End Sub
+
+    Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles stripGuardar.Click
+        FileOpen(1, "usuarios.txt", OpenMode.Append)
+        Write(1, txtUsuario.Text, CInt(txtContrasena.Text), txtTelefono.Text, txtNombre.Text, txtApellidos.Text, CInt(txtDireccion.Text), checkboxAdmin.Checked.ToString)
+        FileClose(1)
+    End Sub
+
+    Private Sub txtUsuario_TextChanged(sender As Object, e As EventArgs) Handles txtUsuario.TextChanged
 
     End Sub
 End Class
