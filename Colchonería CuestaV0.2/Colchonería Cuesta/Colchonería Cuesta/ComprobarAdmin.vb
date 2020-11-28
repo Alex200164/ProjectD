@@ -2,7 +2,7 @@
 Imports System.IO
 
 Public Class ComprobarAdmin
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtNombre.TextChanged
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtUsuario.TextChanged
         ' Podemos instanciar una clase de la biblioteca libValidaciones de al siguiente manera
         Dim validarNombre As New libValidacionDatos.Validacion
         Dim valido As Boolean
@@ -14,11 +14,11 @@ Public Class ComprobarAdmin
         ' (El espacio en blanco no está incluido en el String(campo de la clase validarNombre) con todos los caracteres
         ' permitidos en el campo nombre).
         ' Si ponemos este "si el campo está vacío no se ejecute el método" evitamos que nos salga dos veces un mensaje de error.
-        If txtNombre.Text <> "" Then
+        If txtUsuario.Text <> "" Then
             ' Tomamos el último carácter introducido (hay que poner -1 o da Overflow exception)
             ' para compararlo con la lista de caracteres permitidos.
             ' valido = validarNombre.validarNombre(txtNombre.Text.Chars(txtNombre.Text.Length - 1))
-            valido = validarNombre.validarNombre(txtNombre.Text)
+            valido = validarNombre.validarNombre(txtUsuario.Text)
             ' Aún se puede introducir esto: "Hola" volver atrás e introducir un número entre los caracteres,
             ' Así que hay que solucionarlo.
             If valido Then
@@ -36,7 +36,7 @@ Public Class ComprobarAdmin
 
                 ' Finalmente si ambos campos tienen datos válidos introducidos, habilitamos el botón de iniciar
                 ' sesión.
-                If txtNombre.Text <> "" And txtCodigo.Text <> "" Then
+                If txtUsuario.Text <> "" And txtCodigo.Text <> "" Then
 
                     btnAutenticar.Enabled = True
                 Else
@@ -47,10 +47,10 @@ Public Class ComprobarAdmin
                 MsgBox("Carácter inválido." & Chr(13) & "Por favor, introduzca caracteres en este campo." & Chr(13) & "Evite usar números o caracteres especiales." & Chr(13) & "Por ejemplo: %/()&1274", 0, "Carácter inválido")
                 ' Limpiamos el campo de texto. Si me da tiempo, borrar solamente el último carácter para que el usuario
                 ' no tenga que volver a escribir todo.
-                txtNombre.Clear()
+                txtUsuario.Clear()
 
                 ' Ponemos el focus en el nombre para que le sea cómodo al usuario volver a escribir.
-                txtNombre.Focus()
+                txtUsuario.Focus()
 
             End If
         End If
@@ -69,7 +69,7 @@ Public Class ComprobarAdmin
             End Try
 
             If valido Then
-                If txtNombre.Text <> "" And txtCodigo.Text <> "" Then
+                If txtUsuario.Text <> "" And txtCodigo.Text <> "" Then
                     btnAutenticar.Enabled = True
                 Else
                     btnAutenticar.Enabled = False
@@ -92,41 +92,33 @@ Public Class ComprobarAdmin
 
     Private Sub btnAutenticar_Click(sender As Object, e As EventArgs) Handles btnAutenticar.Click
         Dim validarAcceso As New libValidacionDatos.Validacion
-        ' Salía un aviso que decí que esta var booleana no se usaba. no la borro por las dudas.
-        ' Dim valido As Boolean
+
         ' Si todo es correcto, mostramos el siguiente formulario, la TPV en sí
         ' y escondemos de vista el formulario de inicio de sesión. (no se puede hacer close porque es el formulario
         ' con el que arranca la app.
-        Try
-            ' Se le pasa el último parámetro false porque no estamos comprobando si es admin o no.
-            ' El último parámetro sirve para eso.
-            If (validarAcceso.comprobarDatos("datosAcceso.txt", txtNombre.Text, txtCodigo.Text, True) = True) Then
+        If (validarAcceso.comprobarDatosSecuencial("usuarios.txt", txtUsuario.Text, CInt(txtCodigo.Text))) Then
+            ' Guardamos la hora de acceso del usuario (con sus datos):
+            Dim datosAcceso As New FileStream("logAcceso.txt", FileMode.Append, FileAccess.Write)
+            Dim sw As New StreamWriter(datosAcceso)
+            sw.WriteLine(txtUsuario.Text)
+            sw.WriteLine(txtCodigo.Text)
+            sw.WriteLine("Acceso en: " & Now)
 
-                ' Guardamos la hora de acceso del usuario (con sus datos):
-                Dim datosAcceso As New FileStream("logAcceso.txt", FileMode.Append, FileAccess.Write)
-                Dim sw As New StreamWriter(datosAcceso)
-                '  Añade el usuario admi si no existe
+            ' Cerramos los flujos.
+            sw.Close()
+            datosAcceso.Close()
+            ' Escondemos esta pantalla. No se puede cerrar dado que es con la que se inicia.
+            Me.Close()
+            ' El asterisco en el texto del label es para testea
+            ' es una posible idea: cuando el texto del label tenga un asterisco
+            ' significa que la persona se ha logeado como admin.
+            ' Se comprueba y ya está. Solo es una forma de ver si es admin o no.
+            GestionPerfiles.Show()
 
-                sw.WriteLine(txtNombre.Text)
-                sw.WriteLine(txtCodigo.Text)
-                sw.WriteLine("Acceso en: " & Now)
+        End If
 
-                ' Cerramos los flujos.
-                sw.Close()
-                datosAcceso.Close()
 
-                Me.Close()
-                PantallaVentas.Hide()
-                GestionPerfiles.Show()
-            Else
 
-                ' No hace falta mostrar este mensaje porque de eso ya se encarga el método si el login/acceso falla.
-                ' MsgBox("No se han introducido datos correctos. Vuelva a intentarlo.", 0, "Datos de acceso incorrectos.")
-            End If
-
-        Catch fnf As FileNotFoundException
-            MsgBox("No se ha encontrado el archivo donde se guardan los datos de acceso a la aplicación.", 0, "Archivo no existe.")
-        End Try
     End Sub
 
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click

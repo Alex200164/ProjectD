@@ -23,9 +23,9 @@ Partial Class InicioSesion
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.btnLogoEmpresa = New System.Windows.Forms.Button()
-        Me.lbNombre = New System.Windows.Forms.Label()
+        Me.lbUsuario = New System.Windows.Forms.Label()
         Me.lbCodigo = New System.Windows.Forms.Label()
-        Me.txtNombre = New System.Windows.Forms.TextBox()
+        Me.txtUsuario = New System.Windows.Forms.TextBox()
         Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.btnIniciarSesión = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
@@ -39,30 +39,30 @@ Partial Class InicioSesion
         Me.btnLogoEmpresa.TabIndex = 0
         Me.btnLogoEmpresa.UseVisualStyleBackColor = True
         '
-        'lbNombre
+        'lbUsuario
         '
-        Me.lbNombre.AutoSize = True
-        Me.lbNombre.Location = New System.Drawing.Point(269, 293)
-        Me.lbNombre.Name = "lbNombre"
-        Me.lbNombre.Size = New System.Drawing.Size(44, 13)
-        Me.lbNombre.TabIndex = 1
-        Me.lbNombre.Text = "Nombre"
+        Me.lbUsuario.AutoSize = True
+        Me.lbUsuario.Location = New System.Drawing.Point(269, 293)
+        Me.lbUsuario.Name = "lbUsuario"
+        Me.lbUsuario.Size = New System.Drawing.Size(46, 13)
+        Me.lbUsuario.TabIndex = 1
+        Me.lbUsuario.Text = "Usuario:"
         '
         'lbCodigo
         '
         Me.lbCodigo.AutoSize = True
         Me.lbCodigo.Location = New System.Drawing.Point(269, 329)
         Me.lbCodigo.Name = "lbCodigo"
-        Me.lbCodigo.Size = New System.Drawing.Size(40, 13)
+        Me.lbCodigo.Size = New System.Drawing.Size(43, 13)
         Me.lbCodigo.TabIndex = 2
-        Me.lbCodigo.Text = "Código"
+        Me.lbCodigo.Text = "Código:"
         '
-        'txtNombre
+        'txtUsuario
         '
-        Me.txtNombre.Location = New System.Drawing.Point(337, 290)
-        Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(100, 20)
-        Me.txtNombre.TabIndex = 3
+        Me.txtUsuario.Location = New System.Drawing.Point(337, 290)
+        Me.txtUsuario.Name = "txtUsuario"
+        Me.txtUsuario.Size = New System.Drawing.Size(100, 20)
+        Me.txtUsuario.TabIndex = 3
         '
         'txtCodigo
         '
@@ -98,9 +98,9 @@ Partial Class InicioSesion
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnIniciarSesión)
         Me.Controls.Add(Me.txtCodigo)
-        Me.Controls.Add(Me.txtNombre)
+        Me.Controls.Add(Me.txtUsuario)
         Me.Controls.Add(Me.lbCodigo)
-        Me.Controls.Add(Me.lbNombre)
+        Me.Controls.Add(Me.lbUsuario)
         Me.Controls.Add(Me.btnLogoEmpresa)
         Me.Name = "InicioSesion"
         Me.Text = "InicioSesion"
@@ -110,9 +110,9 @@ Partial Class InicioSesion
     End Sub
 
     Friend WithEvents btnLogoEmpresa As Button
-    Friend WithEvents lbNombre As Label
+    Friend WithEvents lbUsuario As Label
     Friend WithEvents lbCodigo As Label
-    Friend WithEvents txtNombre As TextBox
+    Friend WithEvents txtUsuario As TextBox
     Friend WithEvents txtCodigo As TextBox
     Friend WithEvents btnIniciarSesión As Button
     Friend WithEvents btnSalir As Button

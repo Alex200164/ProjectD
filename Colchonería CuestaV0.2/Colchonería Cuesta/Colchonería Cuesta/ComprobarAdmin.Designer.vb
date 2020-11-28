@@ -22,32 +22,32 @@ Partial Class ComprobarAdmin
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.lbNombreUsuario = New System.Windows.Forms.Label()
-        Me.lbCodigo = New System.Windows.Forms.Label()
+        Me.lbUsuario = New System.Windows.Forms.Label()
+        Me.lbContrasena = New System.Windows.Forms.Label()
         Me.lbTitulo = New System.Windows.Forms.Label()
-        Me.txtNombre = New System.Windows.Forms.TextBox()
+        Me.txtUsuario = New System.Windows.Forms.TextBox()
         Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.btnAutenticar = New System.Windows.Forms.Button()
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'lbNombreUsuario
+        'lbUsuario
         '
-        Me.lbNombreUsuario.AutoSize = True
-        Me.lbNombreUsuario.Location = New System.Drawing.Point(117, 36)
-        Me.lbNombreUsuario.Name = "lbNombreUsuario"
-        Me.lbNombreUsuario.Size = New System.Drawing.Size(44, 13)
-        Me.lbNombreUsuario.TabIndex = 0
-        Me.lbNombreUsuario.Text = "Nombre"
+        Me.lbUsuario.AutoSize = True
+        Me.lbUsuario.Location = New System.Drawing.Point(117, 36)
+        Me.lbUsuario.Name = "lbUsuario"
+        Me.lbUsuario.Size = New System.Drawing.Size(46, 13)
+        Me.lbUsuario.TabIndex = 0
+        Me.lbUsuario.Text = "Usuario:"
         '
-        'lbCodigo
+        'lbContrasena
         '
-        Me.lbCodigo.AutoSize = True
-        Me.lbCodigo.Location = New System.Drawing.Point(117, 64)
-        Me.lbCodigo.Name = "lbCodigo"
-        Me.lbCodigo.Size = New System.Drawing.Size(40, 13)
-        Me.lbCodigo.TabIndex = 1
-        Me.lbCodigo.Text = "Codigo"
+        Me.lbContrasena.AutoSize = True
+        Me.lbContrasena.Location = New System.Drawing.Point(54, 66)
+        Me.lbContrasena.Name = "lbContrasena"
+        Me.lbContrasena.Size = New System.Drawing.Size(102, 13)
+        Me.lbContrasena.TabIndex = 1
+        Me.lbContrasena.Text = "Código/Contraseña:"
         '
         'lbTitulo
         '
@@ -58,12 +58,12 @@ Partial Class ComprobarAdmin
         Me.lbTitulo.TabIndex = 2
         Me.lbTitulo.Text = "Introduzca nombre de usuario y contraseña"
         '
-        'txtNombre
+        'txtUsuario
         '
-        Me.txtNombre.Location = New System.Drawing.Point(162, 33)
-        Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(100, 20)
-        Me.txtNombre.TabIndex = 3
+        Me.txtUsuario.Location = New System.Drawing.Point(162, 33)
+        Me.txtUsuario.Name = "txtUsuario"
+        Me.txtUsuario.Size = New System.Drawing.Size(100, 20)
+        Me.txtUsuario.TabIndex = 3
         '
         'txtCodigo
         '
@@ -92,16 +92,17 @@ Partial Class ComprobarAdmin
         '
         'ComprobarAdmin
         '
+        Me.AcceptButton = Me.btnAutenticar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(401, 139)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.btnAutenticar)
         Me.Controls.Add(Me.txtCodigo)
-        Me.Controls.Add(Me.txtNombre)
+        Me.Controls.Add(Me.txtUsuario)
         Me.Controls.Add(Me.lbTitulo)
-        Me.Controls.Add(Me.lbCodigo)
-        Me.Controls.Add(Me.lbNombreUsuario)
+        Me.Controls.Add(Me.lbContrasena)
+        Me.Controls.Add(Me.lbUsuario)
         Me.Name = "ComprobarAdmin"
         Me.Text = "ComprobarAdmin"
         Me.ResumeLayout(False)
@@ -109,10 +110,10 @@ Partial Class ComprobarAdmin
 
     End Sub
 
-    Friend WithEvents lbNombreUsuario As Label
-    Friend WithEvents lbCodigo As Label
+    Friend WithEvents lbUsuario As Label
+    Friend WithEvents lbContrasena As Label
     Friend WithEvents lbTitulo As Label
-    Friend WithEvents txtNombre As TextBox
+    Friend WithEvents txtUsuario As TextBox
     Friend WithEvents txtCodigo As TextBox
     Friend WithEvents btnAutenticar As Button
     Friend WithEvents btnVolver As Button

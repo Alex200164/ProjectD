@@ -81,3 +81,4 @@ E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyec
 E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyecto_desarrollo_interfaces_1\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.GestionPrecios.resources
 E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyecto_desarrollo_interfaces_1\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.PantallaVentas.resources
 E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyecto_desarrollo_interfaces_1\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\LecturaEscrituraArchivos.dll
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\LecturaEscrituraArchivos.dll
