@@ -52,7 +52,11 @@ Public Class GestionPerfiles
         ' Booleano usado para salir de bucle infinito.
         Dim bool As Boolean = False
         ' Vamos a ver si el nombre seleccionado del listbox tiene una coincidencia en el archivo
+<<<<<<< Updated upstream
         ' datosAcceso. Si la tiene, leemos hasta la marca que marca el final de los datos de ese usuario.
+=======
+        ' datosAcceso. Si la tiene, leemos hasta le marca que marca el final de los datos de ese usuario.
+>>>>>>> Stashed changes
         While sr.Peek > 0
             nombre = sr.ReadLine
             If (nombre.Equals(listboxUsuarios.SelectedItem)) Then

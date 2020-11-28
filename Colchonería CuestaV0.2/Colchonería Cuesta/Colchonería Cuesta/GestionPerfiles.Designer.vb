@@ -94,10 +94,17 @@ Partial Class GestionPerfiles
         '
         'txtDetalles
         '
+<<<<<<< Updated upstream
         Me.txtDetalles.Location = New System.Drawing.Point(236, 157)
         Me.txtDetalles.Multiline = True
         Me.txtDetalles.Name = "txtDetalles"
         Me.txtDetalles.Size = New System.Drawing.Size(396, 177)
+=======
+        Me.txtDetalles.Location = New System.Drawing.Point(236, 94)
+        Me.txtDetalles.Multiline = True
+        Me.txtDetalles.Name = "txtDetalles"
+        Me.txtDetalles.Size = New System.Drawing.Size(396, 224)
+>>>>>>> Stashed changes
         Me.txtDetalles.TabIndex = 14
         '
         'lbDetalles
