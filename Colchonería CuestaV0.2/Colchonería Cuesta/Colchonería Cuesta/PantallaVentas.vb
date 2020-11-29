@@ -34,16 +34,16 @@ Public Class PantallaVentas
         Dim escritura As New LecturaEscrituraArchivos.Escritura
 
         ' Escribimos en el fichero una serie de productos de prueba
-        escritura.escribirProducto(1, "Productos.txt", "Colchón", "Colchón deluxe", "1.9", 0)
-        escritura.escribirProducto(2, "Productos.txt", "Canapé", "Canape deluxe", "2.0", 0)
-        escritura.escribirProducto(3, "Productos.txt", "Estructura", "Estructura deluxe", "1.5", 0)
-        escritura.escribirProducto(4, "Productos.txt", "miau", "Miau deluxe", "0.5", 0)
-        escritura.escribirProducto(5, "Productos.txt", "miau", "Miau deluxe", "0.6", 0)
-        escritura.escribirProducto(6, "Productos.txt", "miau", "Miau deluxe", "0.9", 0)
-        escritura.escribirProducto(7, "Productos.txt", "miau", "Miau básico", "0.3", 0)
-        escritura.escribirProducto(8, "Productos.txt", "Estructura", "Estructura básica", "1.3", 0)
-        escritura.escribirProducto(9, "Productos.txt", "Canapé", "Canape deluxe", "1.8", 0)
-        escritura.escribirProducto(10, "Productos.txt", "Colchón", "Colchón deluxe", "2.3", 0)
+        escritura.escribirProducto(1, "Productos.txt", "Colchón", "Colchón deluxe", "1.9", 400)
+        escritura.escribirProducto(2, "Productos.txt", "Canapé", "Canape deluxe", "2.0", 600)
+        escritura.escribirProducto(3, "Productos.txt", "Estructura", "Estructura deluxe", "1.5", 400)
+        escritura.escribirProducto(4, "Productos.txt", "miau", "Miau deluxe", "0.5", 300)
+        escritura.escribirProducto(5, "Productos.txt", "miau", "Miau deluxe", "0.6", 350)
+        escritura.escribirProducto(6, "Productos.txt", "miau", "Miau deluxe", "0.9", 400)
+        escritura.escribirProducto(7, "Productos.txt", "miau", "Miau básico", "0.3", 250)
+        escritura.escribirProducto(8, "Productos.txt", "Estructura", "Estructura básica", "1.3", 100)
+        escritura.escribirProducto(9, "Productos.txt", "Canapé", "Canape deluxe", "1.8", 540)
+        escritura.escribirProducto(10, "Productos.txt", "Colchón", "Colchón deluxe", "2.3", 500)
 
         ' Variables auxiliares para recoger los datos de lectura
         Dim aux As String = ""

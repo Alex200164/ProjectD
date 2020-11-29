@@ -22,123 +22,249 @@ Partial Class GestionPrecios
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.comboCategoria = New System.Windows.Forms.ComboBox()
+        Me.comboProducto = New System.Windows.Forms.ComboBox()
+        Me.comboTamano = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.txtPrecio = New System.Windows.Forms.TextBox()
+        Me.txtTamano = New System.Windows.Forms.TextBox()
+        Me.txtNombre = New System.Windows.Forms.TextBox()
+        Me.txtCategoria = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.btnAñadir = New System.Windows.Forms.Button()
+        Me.btnModificar = New System.Windows.Forms.Button()
+        Me.btnRetirar = New System.Windows.Forms.Button()
+        Me.btnBorrar = New System.Windows.Forms.Button()
+        Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
-        'TextBox1
+        'comboCategoria
         '
-        Me.TextBox1.Location = New System.Drawing.Point(33, 92)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(587, 20)
-        Me.TextBox1.TabIndex = 0
+        Me.comboCategoria.FormattingEnabled = True
+        Me.comboCategoria.Location = New System.Drawing.Point(13, 26)
+        Me.comboCategoria.Name = "comboCategoria"
+        Me.comboCategoria.Size = New System.Drawing.Size(163, 21)
+        Me.comboCategoria.TabIndex = 0
         '
-        'ListBox1
+        'comboProducto
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(33, 177)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(587, 238)
-        Me.ListBox1.TabIndex = 2
+        Me.comboProducto.FormattingEnabled = True
+        Me.comboProducto.Location = New System.Drawing.Point(223, 26)
+        Me.comboProducto.Name = "comboProducto"
+        Me.comboProducto.Size = New System.Drawing.Size(163, 21)
+        Me.comboProducto.TabIndex = 1
         '
-        'Button1
+        'comboTamano
         '
-        Me.Button1.Location = New System.Drawing.Point(33, 129)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(101, 33)
-        Me.Button1.TabIndex = 3
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(33, 437)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(101, 41)
-        Me.Button2.TabIndex = 4
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(156, 437)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(101, 41)
-        Me.Button3.TabIndex = 5
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(275, 437)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(101, 41)
-        Me.Button4.TabIndex = 6
-        Me.Button4.Text = "Button4"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(33, 33)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 7
+        Me.comboTamano.FormattingEnabled = True
+        Me.comboTamano.Location = New System.Drawing.Point(422, 26)
+        Me.comboTamano.Name = "comboTamano"
+        Me.comboTamano.Size = New System.Drawing.Size(163, 21)
+        Me.comboTamano.TabIndex = 2
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(30, 66)
+        Me.Label1.Location = New System.Drawing.Point(10, 10)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 13)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(54, 13)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Categoría"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(30, 9)
+        Me.Label2.Location = New System.Drawing.Point(220, 10)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(39, 13)
-        Me.Label2.TabIndex = 8
-        Me.Label2.Text = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(50, 13)
+        Me.Label2.TabIndex = 4
+        Me.Label2.Text = "Producto"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(419, 10)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(46, 13)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Tamaño"
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.comboCategoria)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.comboTamano)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.comboProducto)
+        Me.Panel1.Location = New System.Drawing.Point(25, 12)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(684, 67)
+        Me.Panel1.TabIndex = 6
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.btnBorrar)
+        Me.Panel2.Controls.Add(Me.btnRetirar)
+        Me.Panel2.Controls.Add(Me.btnModificar)
+        Me.Panel2.Controls.Add(Me.btnAñadir)
+        Me.Panel2.Controls.Add(Me.txtPrecio)
+        Me.Panel2.Controls.Add(Me.txtTamano)
+        Me.Panel2.Controls.Add(Me.txtNombre)
+        Me.Panel2.Controls.Add(Me.txtCategoria)
+        Me.Panel2.Controls.Add(Me.Label7)
+        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.Label5)
+        Me.Panel2.Controls.Add(Me.Label4)
+        Me.Panel2.Location = New System.Drawing.Point(25, 86)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(613, 246)
+        Me.Panel2.TabIndex = 7
+        '
+        'txtPrecio
+        '
+        Me.txtPrecio.Location = New System.Drawing.Point(94, 139)
+        Me.txtPrecio.Name = "txtPrecio"
+        Me.txtPrecio.Size = New System.Drawing.Size(126, 20)
+        Me.txtPrecio.TabIndex = 11
+        '
+        'txtTamano
+        '
+        Me.txtTamano.Location = New System.Drawing.Point(94, 99)
+        Me.txtTamano.Name = "txtTamano"
+        Me.txtTamano.Size = New System.Drawing.Size(126, 20)
+        Me.txtTamano.TabIndex = 10
+        '
+        'txtNombre
+        '
+        Me.txtNombre.Location = New System.Drawing.Point(94, 60)
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.Size = New System.Drawing.Size(126, 20)
+        Me.txtNombre.TabIndex = 9
+        '
+        'txtCategoria
+        '
+        Me.txtCategoria.Location = New System.Drawing.Point(94, 20)
+        Me.txtCategoria.Name = "txtCategoria"
+        Me.txtCategoria.Size = New System.Drawing.Size(126, 20)
+        Me.txtCategoria.TabIndex = 8
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(10, 139)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(46, 13)
+        Me.Label7.TabIndex = 7
+        Me.Label7.Text = "Precio ="
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(3, 99)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(55, 13)
+        Me.Label6.TabIndex = 6
+        Me.Label6.Text = "Tamaño ="
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(10, 60)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(53, 13)
+        Me.Label5.TabIndex = 6
+        Me.Label5.Text = "Nombre ="
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(10, 20)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(63, 13)
+        Me.Label4.TabIndex = 6
+        Me.Label4.Text = "Categoría ="
+        '
+        'btnAñadir
+        '
+        Me.btnAñadir.Location = New System.Drawing.Point(342, 20)
+        Me.btnAñadir.Name = "btnAñadir"
+        Me.btnAñadir.Size = New System.Drawing.Size(185, 53)
+        Me.btnAñadir.TabIndex = 12
+        Me.btnAñadir.Text = "Añadir producto"
+        Me.btnAñadir.UseVisualStyleBackColor = True
+        '
+        'btnModificar
+        '
+        Me.btnModificar.Location = New System.Drawing.Point(342, 82)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(185, 53)
+        Me.btnModificar.TabIndex = 13
+        Me.btnModificar.Text = "Modificar Producto"
+        Me.btnModificar.UseVisualStyleBackColor = True
+        '
+        'btnRetirar
+        '
+        Me.btnRetirar.Location = New System.Drawing.Point(342, 141)
+        Me.btnRetirar.Name = "btnRetirar"
+        Me.btnRetirar.Size = New System.Drawing.Size(185, 53)
+        Me.btnRetirar.TabIndex = 14
+        Me.btnRetirar.Text = "Retirar producto"
+        Me.btnRetirar.UseVisualStyleBackColor = True
+        '
+        'btnBorrar
+        '
+        Me.btnBorrar.Location = New System.Drawing.Point(94, 187)
+        Me.btnBorrar.Name = "btnBorrar"
+        Me.btnBorrar.Size = New System.Drawing.Size(128, 43)
+        Me.btnBorrar.TabIndex = 15
+        Me.btnBorrar.Text = "Borrar campos"
+        Me.btnBorrar.UseVisualStyleBackColor = True
         '
         'GestionPrecios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(732, 500)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel1)
         Me.Name = "GestionPrecios"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form4"
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents ListBox1 As ListBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents comboCategoria As ComboBox
+    Friend WithEvents comboProducto As ComboBox
+    Friend WithEvents comboTamano As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents txtPrecio As TextBox
+    Friend WithEvents txtTamano As TextBox
+    Friend WithEvents txtNombre As TextBox
+    Friend WithEvents txtCategoria As TextBox
+    Friend WithEvents btnRetirar As Button
+    Friend WithEvents btnModificar As Button
+    Friend WithEvents btnAñadir As Button
+    Friend WithEvents btnBorrar As Button
 End Class
