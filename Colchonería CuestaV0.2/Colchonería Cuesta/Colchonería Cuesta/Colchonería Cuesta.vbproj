@@ -96,6 +96,12 @@
     <Compile Include="InicioSesion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PantallaNotas.Designer.vb">
+      <DependentUpon>PantallaNotas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PantallaNotas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PantallaVentas.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Productos.vb" />
     <Compile Include="Usuarios.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InicioSesion.resx">
       <DependentUpon>InicioSesion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PantallaNotas.resx">
+      <DependentUpon>PantallaNotas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PantallaVentas.resx">
       <DependentUpon>PantallaVentas.vb</DependentUpon>
@@ -178,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\abort-146096_640.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quill-311597_960_720.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -3,31 +3,49 @@ Imports LecturaEscrituraArchivos
 
 
 Public Class PantallaVentas
+
+    ' No podemos poner este precio en los métodos porque si no se reiniciará cada vez que ejecutemos el método.
+    ' Si declaramos precioTotal en un método, se inica como 0. Luego se le pone el valor del producto que
+    ' se añadó al listbox. Al darle al botón de añadir de nuevo, se reinicia el código asociado a ése botón
+    ' y la variable está a 0 otra vez, por tanto no se produce la suma.
+    ' HAY QUE CAMBIAR EL PRECIO A SINGLE, NO OLVIDAR!!!
+    Dim precioTotal As Integer = 0
+    Dim arrayPreciosLista As New ArrayList
+
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
     End Sub
 
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles lbPrecioTotal.Click
 
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btnGestionarPerfiles.Click
-        ComprobarAdmin.Show()
 
-
-
-    End Sub
 
     ' Método que se ejecuta al cargarse el formulario por primera vez
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Dependiendo de si el usuario inicia como admin o no, se habilita o deshabilita el botón de gestión
+        ' Activamos el reloj.
+        lbTiempoText.Text = Now
+
+        ' Dependiendo de si el usuario inicia como admin o no, se habilitan ciertas órdenes del menu strip 
+        '(opciones en la barra de herramientas)
+        ' Por ejemplo: el guardar caja y gestión de perfiles.
         If lbAdmin.Text.Equals("*") Then
             ' Habilitamos botón de gestión
-            btnGestionarPerfiles.Enabled = True
+            stripGestionPerfiles.Enabled = True
+
+            ' Si se inició la sesión como admin, permitimos guardar.
+            stripGuardarCaja.Enabled = True
         Else
-            ' Deshabilitamos botón de gestión
-            btnGestionarPerfiles.Enabled = False
+            ' Deshabilitamos botón de gestión y guardar caja.
+            stripGuardarCaja.Enabled = False
+            stripGestionPerfiles.Enabled = False
         End If
+
+        '
+
+
 
         ' Cargamos el comboBox1 con las categorías actualmente disponibles de productos del fichero "Productos.txt"
         ' Instanciamos la clase Escritura para acceder a los métodos que nos permiten escribir en ficheros.
@@ -99,10 +117,10 @@ Public Class PantallaVentas
 
     End Sub
 
-    ' Botón para pasar al formulario de confirmación ventas
+    ' Botón para pasar al formulario de confirmación ventas. A eliminar y poner en menustrip
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnCobro.Click
         ' Accedemos al archivo auxiliar "PedidoDatosAuxiliar"
-        Dim fichero As New FileStream("PedidoDatosAuxiliar.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite)
+        '  Dim fichero As New FileStream("PedidoDatosAuxiliar.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite)
 
 
         ' Escondemos esté formulario. 
@@ -114,28 +132,78 @@ Public Class PantallaVentas
     ' Botón para añadir productos al listBox
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnAnadirprod.Click
         ' Accedemos al archivo auxiliar "PedidoDatosAuxiliar"
-        Dim fichero As New FileStream("PedidoDatosAuxiliar.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite)
-        Dim sw As New StreamWriter(fichero)
+        ' Dim fichero As New FileStream("PedidoDatosAuxiliar.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite)
+        ' Dim sw As New StreamWriter(fichero)
+        FileOpen(1, "Productos.txt", OpenMode.Random, OpenShare.Shared, OpenAccess.Read, 42)
+        Dim lectura As New LecturaEscrituraArchivos.Lectura
+        Dim posicion As Integer = 0
+        Dim categoria As String = comboCategoria.GetItemText(comboCategoria.SelectedItem)
+        Dim linea As String = ""
 
+        While Not EOF(1)
+            ' No hace falta poner el último parámetro 
+            FileGet(1, producto)
+            '  MsgBox(comboCategoria.GetItemText(comboCategoria.SelectedItem))
+            '   MsgBox("categoria: " & producto.Categoria)
+            '  MsgBox("nombre producto: " & producto.NombreProducto)
+            '  MsgBox("tamaño: " & producto.Tamaño)
+            '  MsgBox("precio: " & producto.Precio)
+
+            If producto.Categoria.Equals(comboCategoria.GetItemText(comboCategoria.SelectedItem)) Then
+                If producto.NombreProducto.Equals(comboNombreProd.GetItemText(comboNombreProd.SelectedItem)) Then
+                    If producto.Tamaño = comboTamano.GetItemText(comboTamano.SelectedItem) Then
+                        ' Guardamos todos los campos del producto en un string
+                        linea = linea & producto.Categoria & " "
+                        linea = linea & producto.NombreProducto & " "
+                        linea = linea & producto.Tamaño & " "
+                        linea = linea & producto.Precio & " "
+                        ' que es lo que añadiremos al listbox.
+
+                        ' Como lo que se guarda en el listbox es una linea de producto
+                        ' como string, con varios campos, creamos un arrayList solo para los productos.
+                        ' Para cuando tengamos que eliminar items del listbox.
+
+                        ' Añadimos al arrayList el precio. Como los productos
+                        ' y por tanto sus precios se añaden de forma paralela
+                        ' en el array se guardan los precios con el índice
+                        ' correspondiente al producto en el listbox.
+                        arrayPreciosLista.Add(producto.Precio)
+
+                        ' Añadimos el item al listbox, con el string con todos los datos del producto elegido.
+                        listboxCarrito.Items.Add(linea)
+
+                        ' comentado:
+                        ' listboxCarrito.Items.Add(producto.Categoria)
+                        ' listboxCarrito.Items.Add(producto.NombreProducto)
+                        ' listboxCarrito.Items.Add(producto.Tamaño)
+                        ' listboxCarrito.Items.Add(producto.Precio)
+
+                        ' Actualizamos la variable precioTotal.
+                        precioTotal = precioTotal + producto.Precio
+                        ' Usamos la variable precioTotal para poner texto acualizado en el label donde se muestra
+                        ' el precio total de los productos sumados en el carrito.
+                        lbPrecioTotalText.Text = precioTotal
+                    End If
+                End If
+            End If
+        End While
+
+        FileClose(1)
+    End Sub
+
+    Private Sub listboxProductos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles listboxCarrito.SelectedIndexChanged
 
     End Sub
 
-    Private Sub listboxProductos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles listboxProductos.SelectedIndexChanged
 
-    End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnCerrarSesion.Click
-        lbAdmin.Text = ""
-        Me.Close()
-        InicioSesion.Show()
-    End Sub
-
+    ' Categoría
     ' Método ejecutado cuando se produce un cambio en el comboBox (Normalmente el usuario seleccionando un indice)
     Private Sub comboCategoria_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboCategoria.SelectedIndexChanged
 
         ' Borramos los items que estuvieran relacionados con el primer combobox debido al cambio de categoria
-        comboProducto.Items.Clear()
-        comboProducto.Text = ""
+        comboNombreProd.Items.Clear()
+        comboNombreProd.Text = ""
         comboTamano.Items.Clear()
         comboTamano.Text = ""
 
@@ -167,7 +235,7 @@ Public Class PantallaVentas
             If (aux = categoria) Then
                 ' Añadimos al arrayList
                 listaNombre.Add(nombre)
-                comboProducto.Items.Add(nombre)
+                comboNombreProd.Items.Add(nombre)
                 doble = False
                 Exit For
             End If
@@ -196,7 +264,7 @@ Public Class PantallaVentas
                 ' Introducimos en el comboBox el nombre de producto si se nos permite
                 If (doble = False) Then
 
-                    comboProducto.Items.Add(nombre)
+                    comboNombreProd.Items.Add(nombre)
                 End If
             End If
 
@@ -204,8 +272,9 @@ Public Class PantallaVentas
 
     End Sub
 
+    ' Producto
     ' Método ejecutado cuando se produce un cambio en el comboBox (Normalmente el usuario seleccionando un indice)
-    Private Sub comboProducto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboProducto.SelectedIndexChanged
+    Private Sub comboProducto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboNombreProd.SelectedIndexChanged
 
         ' Borramos los items que estuvieran relacionados con el primer combobox debido al cambio de categoria
         comboTamano.Items.Clear()
@@ -215,7 +284,7 @@ Public Class PantallaVentas
         Dim aux As String = ""
         Dim categoria As String = ""
         Dim nombre As String = ""
-        Dim tamanno As String = ""
+        Dim tamano As String = ""
         Dim precio As Integer = 0
 
         ' Instanciamos la clase Lectura para acceder a los métodos que nos permitirán leer desde ficheros
@@ -225,19 +294,82 @@ Public Class PantallaVentas
         Dim numeroRegistros As Integer = lectura.numeroRegistros("Productos.txt")
 
         ' Introducimos el nombre seleccionado en el segundo comboBox
-        aux = comboProducto.SelectedItem
+        aux = comboNombreProd.SelectedItem
 
         ' Bucle for para leer e introducir todos las categorias existentes en 
         For contador As Integer = 1 To numeroRegistros
             ' Leemos
-            lectura.leerProducto(contador, "Productos.txt", categoria, nombre, tamanno, precio)
+            lectura.leerProducto(contador, "Productos.txt", categoria, nombre, tamano, precio)
             ' Si el nombre coincide, lo introducimos
             If (aux = nombre) Then
-                comboTamano.Items.Add(tamanno)
+                comboTamano.Items.Add(tamano)
             End If
 
         Next
 
     End Sub
 
+    ' Botón tamaño.
+    Private Sub comboTamano_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboTamano.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub GestionarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles stripGestionProductos.Click
+
+        GestionPrecios.Show()
+
+    End Sub
+
+
+
+    Private Sub GestionarPerfilesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles stripGestionPerfiles.Click
+        ComprobarAdmin.Show()
+    End Sub
+
+    Private Sub stripCerrarSesion_Click(sender As Object, e As EventArgs) Handles stripCerrarSesion.Click
+        lbAdmin.Text = ""
+        Me.Close()
+        InicioSesion.Show()
+    End Sub
+
+
+    'Quitar, eliminar
+    Private Sub btnQuitarProd_Click(sender As Object, e As EventArgs) Handles btnQuitarProd.Click
+        ' Si hay items en el listbox entonces se procede a eliminar.
+        If listboxCarrito.Items.Count > 0 And listboxCarrito.SelectedIndex >= 0 Then
+            ' Actualizamos el precio total y el label donde mostramos el texto:        
+            precioTotal = precioTotal - arrayPreciosLista(listboxCarrito.SelectedIndex)
+            lbPrecioTotalText.Text = precioTotal
+            ' Quitamos el precio del arraylist también, dado que el item ya no estará en el listbox.
+            arrayPreciosLista.RemoveAt(listboxCarrito.SelectedIndex)
+            ' Quiamos el producto del listbox, efectivamente quitando un item.
+            listboxCarrito.Items.Remove(listboxCarrito.SelectedItem)
+        Else
+        End If
+
+
+    End Sub
+
+    ' Notas
+    Private Sub btnNotas_Click(sender As Object, e As EventArgs) Handles btnNotas.Click
+        ' System.Diagnostics.Process.Start("notepad.exe", System.IO.Directory.GetCurrentDirectory)
+        PantallaNotas.Show()
+
+
+    End Sub
+
+    Private Sub stripGuardarCaja_Click(sender As Object, e As EventArgs) Handles stripGuardarCaja.Click
+        Try
+            Dim datosAcceso As New FileStream("cajaDiaria.txt", FileMode.Append, FileAccess.Write)
+            Dim sw As New StreamWriter(datosAcceso)
+            sw.WriteLine(lbCajaDiariaText.Text)
+            sw.WriteLine("Guardada la caja diaria en: " & Now)
+            ' Cerramos los flujos para escribir en el log de acceso.
+            sw.Close()
+            datosAcceso.Close()
+            MsgBox("Caja diaria guardada correctamente.")
+        Catch ex As exception
+        End Try
+
+    End Sub
 End Class

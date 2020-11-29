@@ -42,8 +42,14 @@ Partial Class GestionPrecios
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.VolverAVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnNotas = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'comboCategoria
@@ -105,7 +111,7 @@ Partial Class GestionPrecios
         Me.Panel1.Controls.Add(Me.comboTamano)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.comboProducto)
-        Me.Panel1.Location = New System.Drawing.Point(25, 12)
+        Me.Panel1.Location = New System.Drawing.Point(21, 83)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(684, 67)
         Me.Panel1.TabIndex = 6
@@ -124,7 +130,7 @@ Partial Class GestionPrecios
         Me.Panel2.Controls.Add(Me.Label6)
         Me.Panel2.Controls.Add(Me.Label5)
         Me.Panel2.Controls.Add(Me.Label4)
-        Me.Panel2.Location = New System.Drawing.Point(25, 86)
+        Me.Panel2.Location = New System.Drawing.Point(21, 157)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(613, 246)
         Me.Panel2.TabIndex = 7
@@ -229,13 +235,51 @@ Partial Class GestionPrecios
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Categoría ="
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VolverAVentasToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(732, 24)
+        Me.MenuStrip1.TabIndex = 8
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'VolverAVentasToolStripMenuItem
+        '
+        Me.VolverAVentasToolStripMenuItem.Name = "VolverAVentasToolStripMenuItem"
+        Me.VolverAVentasToolStripMenuItem.Size = New System.Drawing.Size(98, 20)
+        Me.VolverAVentasToolStripMenuItem.Text = "Volver a ventas"
+        '
+        'btnNotas
+        '
+        Me.btnNotas.Location = New System.Drawing.Point(253, 442)
+        Me.btnNotas.Name = "btnNotas"
+        Me.btnNotas.Size = New System.Drawing.Size(181, 34)
+        Me.btnNotas.TabIndex = 28
+        Me.btnNotas.Text = "Notas"
+        Me.btnNotas.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Diseño_base.My.Resources.Resources.quill_311597_960_720
+        Me.PictureBox1.Location = New System.Drawing.Point(443, 441)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(43, 35)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 29
+        Me.PictureBox1.TabStop = False
+        '
         'GestionPrecios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(732, 500)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.btnNotas)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "GestionPrecios"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form4"
@@ -243,7 +287,11 @@ Partial Class GestionPrecios
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -267,4 +315,8 @@ Partial Class GestionPrecios
     Friend WithEvents btnModificar As Button
     Friend WithEvents btnAñadir As Button
     Friend WithEvents btnBorrar As Button
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents VolverAVentasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btnNotas As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

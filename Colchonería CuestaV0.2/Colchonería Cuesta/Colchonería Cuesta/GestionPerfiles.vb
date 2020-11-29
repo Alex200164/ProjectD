@@ -137,7 +137,7 @@ Public Class GestionPerfiles
                     Input(1, coincidencia)
                     ' MsgBox("Coincidencia: " & coincidencia & " lo otro: " & listboxUsuarios.GetItemText(listboxUsuarios.SelectedItem))
                     If listboxUsuarios.GetItemText(listboxUsuarios.SelectedItem).Equals(coincidencia) Or txtUsuario.Text.Equals(coincidencia) Then
-                        MsgBox("Ya existe ese usuario. Por favor bórrelo y cree uno nuevo si quiere cambiar datos.")
+                        MsgBox("El usuario ya existe. Por favor, bórrelo y cree uno nuevo si desea hacer cambios.", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "Aviso")
                         FileClose(1)
                         libre = False
                         Exit While
@@ -229,5 +229,9 @@ Public Class GestionPerfiles
         PantallaVentas.Show()
         Me.Close()
 
+    End Sub
+
+    Private Sub btnNotas_Click(sender As Object, e As EventArgs) Handles btnNotas.Click
+        PantallaNotas.Show()
     End Sub
 End Class

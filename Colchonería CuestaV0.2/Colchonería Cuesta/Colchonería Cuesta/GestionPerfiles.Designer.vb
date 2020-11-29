@@ -48,7 +48,10 @@ Partial Class GestionPerfiles
         Me.lbTelefono = New System.Windows.Forms.Label()
         Me.checkboxAdmin = New System.Windows.Forms.CheckBox()
         Me.lbAdmin = New System.Windows.Forms.Label()
+        Me.btnNotas = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbUsuarios
@@ -128,46 +131,46 @@ Partial Class GestionPerfiles
         'stripNuevo
         '
         Me.stripNuevo.Name = "stripNuevo"
-        Me.stripNuevo.Size = New System.Drawing.Size(180, 22)
+        Me.stripNuevo.Size = New System.Drawing.Size(151, 22)
         Me.stripNuevo.Text = "Nuevo usuario"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(148, 6)
         '
         'stripAbrir
         '
         Me.stripAbrir.Name = "stripAbrir"
-        Me.stripAbrir.Size = New System.Drawing.Size(180, 22)
+        Me.stripAbrir.Size = New System.Drawing.Size(151, 22)
         Me.stripAbrir.Text = "Abrir"
         '
         'stripEliminar
         '
         Me.stripEliminar.Name = "stripEliminar"
-        Me.stripEliminar.Size = New System.Drawing.Size(180, 22)
+        Me.stripEliminar.Size = New System.Drawing.Size(151, 22)
         Me.stripEliminar.Text = "Eliminar"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(148, 6)
         '
         'stripGuardar
         '
         Me.stripGuardar.Name = "stripGuardar"
-        Me.stripGuardar.Size = New System.Drawing.Size(180, 22)
+        Me.stripGuardar.Size = New System.Drawing.Size(151, 22)
         Me.stripGuardar.Text = "Guardar"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(148, 6)
         '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'txtUsuario
@@ -243,11 +246,32 @@ Partial Class GestionPerfiles
         Me.lbAdmin.TabIndex = 25
         Me.lbAdmin.Text = "Admin"
         '
+        'btnNotas
+        '
+        Me.btnNotas.Location = New System.Drawing.Point(229, 325)
+        Me.btnNotas.Name = "btnNotas"
+        Me.btnNotas.Size = New System.Drawing.Size(181, 34)
+        Me.btnNotas.TabIndex = 28
+        Me.btnNotas.Text = "Notas"
+        Me.btnNotas.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Diseño_base.My.Resources.Resources.quill_311597_960_720
+        Me.PictureBox1.Location = New System.Drawing.Point(416, 324)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(43, 35)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 30
+        Me.PictureBox1.TabStop = False
+        '
         'GestionPerfiles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(664, 399)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.btnNotas)
         Me.Controls.Add(Me.lbAdmin)
         Me.Controls.Add(Me.checkboxAdmin)
         Me.Controls.Add(Me.lbTelefono)
@@ -271,6 +295,7 @@ Partial Class GestionPerfiles
         Me.Text = "Form4"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -301,4 +326,6 @@ Partial Class GestionPerfiles
     Friend WithEvents lbAdmin As Label
     Friend WithEvents stripEliminar As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents btnNotas As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

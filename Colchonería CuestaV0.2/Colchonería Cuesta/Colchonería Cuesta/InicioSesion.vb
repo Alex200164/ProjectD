@@ -148,7 +148,7 @@ Public Class InicioSesion
             datosAcceso.Close()
             ' Si devuelve 2 se entra como admin.
         ElseIf (resultado = 2) Then
-            PantallaVentas.btnGestionarPerfiles.Enabled = True
+            PantallaVentas.stripGestionPerfiles.Enabled = True
             PantallaVentas.lbAdmin.Text = "*"
             Me.Hide()
             PantallaVentas.Show()

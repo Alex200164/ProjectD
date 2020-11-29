@@ -97,21 +97,13 @@ Public Class ComprobarAdmin
     ' Botón autenticar
     Private Sub btnAutenticar_Click(sender As Object, e As EventArgs) Handles btnAutenticar.Click
         Dim validarAcceso As New libValidacionDatos.Validacion
-
+        Dim resultado As Integer
         ' Si todo es correcto, mostramos el siguiente formulario, la TPV en sí
         ' y escondemos de vista el formulario de inicio de sesión. (no se puede hacer close porque es el formulario
         ' con el que arranca la app.
-        If (validarAcceso.comprobarDatosSecuencial("usuarios.txt", txtUsuario.Text, CInt(txtCodigo.Text))) Then
-            ' Guardamos la hora de acceso del usuario (con sus datos):
-            Dim datosAcceso As New FileStream("logAcceso.txt", FileMode.Append, FileAccess.Write)
-            Dim sw As New StreamWriter(datosAcceso)
-            sw.WriteLine(txtUsuario.Text)
-            sw.WriteLine(txtCodigo.Text)
-            sw.WriteLine("Acceso en: " & Now)
+        resultado = validarAcceso.comprobarDatosSecuencial("usuarios.txt", txtUsuario.Text, CInt(txtCodigo.Text))
+        If (resultado = 2) Then
 
-            ' Cerramos los flujos.
-            sw.Close()
-            datosAcceso.Close()
             ' Escondemos esta pantalla. No se puede cerrar dado que es con la que se inicia.
             Me.Close()
             ' El asterisco en el texto del label es para testea
@@ -119,8 +111,11 @@ Public Class ComprobarAdmin
             ' significa que la persona se ha logeado como admin.
             ' Se comprueba y ya está. Solo es una forma de ver si es admin o no.
             GestionPerfiles.Show()
+        ElseIf resultado = 1 Then
+            MsgBox("Debe ser adminsitrador para entrar en la gesión de usuarios.", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "Aviso")
         Else
-            MsgBox("Pues no hay coincidencias.")
+            ' Si da tiempo, poner este tipo de mensajes en un método en una de las clases de una de las bibliotecas.
+            MsgBox("No se encontró el usuario en el fichero de usuarios.", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "Aviso")
         End If
 
 

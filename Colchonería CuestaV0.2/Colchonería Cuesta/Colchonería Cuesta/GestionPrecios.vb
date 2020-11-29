@@ -505,4 +505,13 @@
         txtPrecio.Clear()
     End Sub
 
+    Private Sub VolverAVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VolverAVentasToolStripMenuItem.Click
+        Me.Close()
+        PantallaVentas.Show()
+
+    End Sub
+
+    Private Sub btnNotas_Click(sender As Object, e As EventArgs) Handles btnNotas.Click
+        PantallaNotas.Show()
+    End Sub
 End Class
