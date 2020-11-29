@@ -2,6 +2,8 @@
 Imports System.IO
 
 Public Class ComprobarAdmin
+
+    ' Textbox usuario
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtUsuario.TextChanged
         ' Podemos instanciar una clase de la biblioteca libValidaciones de al siguiente manera
         Dim validarNombre As New libValidacionDatos.Validacion
@@ -56,6 +58,8 @@ Public Class ComprobarAdmin
         End If
     End Sub
 
+
+    ' Textbox codigo
     Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles txtCodigo.TextChanged
         Dim validarCodigo As New libValidacionDatos.Validacion
         Dim valido As Boolean
@@ -90,6 +94,7 @@ Public Class ComprobarAdmin
 
     End Sub
 
+    ' Botón autenticar
     Private Sub btnAutenticar_Click(sender As Object, e As EventArgs) Handles btnAutenticar.Click
         Dim validarAcceso As New libValidacionDatos.Validacion
 
@@ -114,7 +119,8 @@ Public Class ComprobarAdmin
             ' significa que la persona se ha logeado como admin.
             ' Se comprueba y ya está. Solo es una forma de ver si es admin o no.
             GestionPerfiles.Show()
-
+        Else
+            MsgBox("Pues no hay coincidencias.")
         End If
 
 
@@ -126,6 +132,6 @@ Public Class ComprobarAdmin
     End Sub
 
     Private Sub ComprobarAdmin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        btnAutenticar.Enabled = False
     End Sub
 End Class

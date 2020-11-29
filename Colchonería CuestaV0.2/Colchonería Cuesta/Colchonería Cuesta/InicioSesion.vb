@@ -123,11 +123,19 @@ Public Class InicioSesion
 
     Private Sub btnIniciarSesión_Click(sender As Object, e As EventArgs) Handles btnIniciarSesión.Click
         Dim validarAcceso As New libValidacionDatos.Validacion
+        Dim resultado As Integer
+        Dim coincidencia As String = ""
+        ' Llamamos al método para comprobar los datos y guardamo el resultado en una variable tipo integer
+        resultado = validarAcceso.comprobarDatosSecuencial("usuarios.txt", txtUsuario.Text, CInt(txtCodigo.Text))
 
-        ' Si todo es correcto, mostramos el siguiente formulario, la TPV en sí
-        ' y escondemos de vista el formulario de inicio de sesión. (no se puede hacer close porque es el formulario
-        ' con el que arranca la app.
-        If (validarAcceso.comprobarDatosSecuencial("usuarios.txt", txtUsuario.Text, CInt(txtCodigo.Text))) Then
+        ' Si devuelve 0, no son correctos los datos.
+        If (resultado = 0) Then
+            MsgBox("Los datos no son correctos.")
+
+            ' Si devuelve 1 se entra como usuario sin privilegios de admin.
+        ElseIf (resultado = 1) Then
+            Me.Hide()
+            PantallaVentas.Show()
             ' Guardamos la hora de acceso del usuario (con sus datos):
             Dim datosAcceso As New FileStream("logAcceso.txt", FileMode.Append, FileAccess.Write)
             Dim sw As New StreamWriter(datosAcceso)
@@ -135,19 +143,30 @@ Public Class InicioSesion
             sw.WriteLine(txtCodigo.Text)
             sw.WriteLine("Acceso en: " & Now)
 
-            ' Cerramos los flujos.
+            ' Cerramos los flujos para escribir en el log de acceso.
             sw.Close()
             datosAcceso.Close()
-            ' Escondemos esta pantalla. No se puede cerrar dado que es con la que se inicia.
-            Me.Hide()
-            ' El asterisco en el texto del label es para testea
-            ' es una posible idea: cuando el texto del label tenga un asterisco
-            ' significa que la persona se ha logeado como admin.
-            ' Se comprueba y ya está. Solo es una forma de ver si es admin o no.
+            ' Si devuelve 2 se entra como admin.
+        ElseIf (resultado = 2) Then
+            PantallaVentas.btnGestionarPerfiles.Enabled = True
             PantallaVentas.lbAdmin.Text = "*"
+            Me.Hide()
             PantallaVentas.Show()
-        End If
+            ' Guardamos la hora de acceso del usuario (con sus datos):
+            Dim datosAcceso As New FileStream("logAcceso.txt", FileMode.Append, FileAccess.Write)
+            Dim sw As New StreamWriter(datosAcceso)
+            sw.WriteLine(txtUsuario.Text)
+            sw.WriteLine(txtCodigo.Text)
+            sw.WriteLine("Acceso en: " & Now)
 
+            ' Cerramos los flujos para escribir en el log de acceso.
+            sw.Close()
+            datosAcceso.Close()
+
+
+
+        End If
+        FileClose(1)
 
     End Sub
 

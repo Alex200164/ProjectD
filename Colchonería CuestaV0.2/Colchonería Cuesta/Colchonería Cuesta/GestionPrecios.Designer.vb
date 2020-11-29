@@ -125,6 +125,7 @@ Partial Class GestionPrecios
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox1)
         Me.Name = "GestionPrecios"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form4"
         Me.ResumeLayout(False)
         Me.PerformLayout()

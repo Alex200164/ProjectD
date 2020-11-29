@@ -23,34 +23,35 @@ Partial Class PantallaVentas
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PantallaVentas))
+        Me.comboCategoria = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.lbCategoria = New System.Windows.Forms.Label()
+        Me.comboProducto = New System.Windows.Forms.ComboBox()
+        Me.lbProducto = New System.Windows.Forms.Label()
+        Me.comboTamano = New System.Windows.Forms.ComboBox()
+        Me.lbTamano = New System.Windows.Forms.Label()
+        Me.listboxProductos = New System.Windows.Forms.ListBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnCobro = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.btnQuitarProd = New System.Windows.Forms.Button()
+        Me.btnCerrarSesion = New System.Windows.Forms.Button()
         Me.btnGestionarPerfiles = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
+        Me.btnGestionarProductos = New System.Windows.Forms.Button()
         Me.lbAdmin = New System.Windows.Forms.Label()
+        Me.btnAnadirprod = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'ComboBox1
+        'comboCategoria
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(21, 35)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 0
+        Me.comboCategoria.FormattingEnabled = True
+        Me.comboCategoria.Location = New System.Drawing.Point(21, 35)
+        Me.comboCategoria.Name = "comboCategoria"
+        Me.comboCategoria.Size = New System.Drawing.Size(121, 21)
+        Me.comboCategoria.TabIndex = 0
         '
         'Button1
         '
@@ -64,69 +65,62 @@ Partial Class PantallaVentas
         '
         'ImageList1
         '
-        Me.ImageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
-        Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "abort-146096_640.png")
+        Me.ImageList1.Images.SetKeyName(1, "design-2381160_960_720.png")
+        Me.ImageList1.Images.SetKeyName(2, "ltipo.png")
         '
-        'Label1
+        'lbCategoria
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(21, 13)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(52, 13)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Categoria"
+        Me.lbCategoria.AutoSize = True
+        Me.lbCategoria.Location = New System.Drawing.Point(21, 13)
+        Me.lbCategoria.Name = "lbCategoria"
+        Me.lbCategoria.Size = New System.Drawing.Size(52, 13)
+        Me.lbCategoria.TabIndex = 2
+        Me.lbCategoria.Text = "Categoria"
         '
-        'ComboBox2
+        'comboProducto
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(164, 35)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox2.TabIndex = 3
+        Me.comboProducto.FormattingEnabled = True
+        Me.comboProducto.Location = New System.Drawing.Point(164, 35)
+        Me.comboProducto.Name = "comboProducto"
+        Me.comboProducto.Size = New System.Drawing.Size(121, 21)
+        Me.comboProducto.TabIndex = 3
         '
-        'Label2
+        'lbProducto
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(161, 9)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(50, 13)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Producto"
+        Me.lbProducto.AutoSize = True
+        Me.lbProducto.Location = New System.Drawing.Point(161, 9)
+        Me.lbProducto.Name = "lbProducto"
+        Me.lbProducto.Size = New System.Drawing.Size(50, 13)
+        Me.lbProducto.TabIndex = 4
+        Me.lbProducto.Text = "Producto"
         '
-        'ComboBox3
+        'comboTamano
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(307, 35)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox3.TabIndex = 5
+        Me.comboTamano.FormattingEnabled = True
+        Me.comboTamano.Location = New System.Drawing.Point(307, 35)
+        Me.comboTamano.Name = "comboTamano"
+        Me.comboTamano.Size = New System.Drawing.Size(121, 21)
+        Me.comboTamano.TabIndex = 5
         '
-        'Label3
+        'lbTamano
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(304, 9)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(46, 13)
-        Me.Label3.TabIndex = 6
-        Me.Label3.Text = "Tamaño"
+        Me.lbTamano.AutoSize = True
+        Me.lbTamano.Location = New System.Drawing.Point(304, 9)
+        Me.lbTamano.Name = "lbTamano"
+        Me.lbTamano.Size = New System.Drawing.Size(46, 13)
+        Me.lbTamano.TabIndex = 6
+        Me.lbTamano.Text = "Tamaño"
         '
-        'ListBox1
+        'listboxProductos
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(491, 35)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(170, 264)
-        Me.ListBox1.TabIndex = 7
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(505, 350)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(136, 62)
-        Me.Button2.TabIndex = 8
-        Me.Button2.Text = "Añadir producto"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.listboxProductos.FormattingEnabled = True
+        Me.listboxProductos.Location = New System.Drawing.Point(491, 35)
+        Me.listboxProductos.Name = "listboxProductos"
+        Me.listboxProductos.Size = New System.Drawing.Size(170, 264)
+        Me.listboxProductos.TabIndex = 7
         '
         'Label4
         '
@@ -137,14 +131,14 @@ Partial Class PantallaVentas
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Precio Total:"
         '
-        'Button3
+        'btnCobro
         '
-        Me.Button3.Location = New System.Drawing.Point(505, 513)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(136, 61)
-        Me.Button3.TabIndex = 10
-        Me.Button3.Text = "Proceder a realizar pago"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnCobro.Location = New System.Drawing.Point(491, 513)
+        Me.btnCobro.Name = "btnCobro"
+        Me.btnCobro.Size = New System.Drawing.Size(136, 61)
+        Me.btnCobro.TabIndex = 10
+        Me.btnCobro.Text = "Proceder a realizar pago"
+        Me.btnCobro.UseVisualStyleBackColor = True
         '
         'Label5
         '
@@ -164,23 +158,24 @@ Partial Class PantallaVentas
         Me.Label6.TabIndex = 12
         Me.Label6.Text = "Tiempo/Hora:"
         '
-        'Button4
+        'btnQuitarProd
         '
-        Me.Button4.Location = New System.Drawing.Point(505, 434)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(136, 62)
-        Me.Button4.TabIndex = 13
-        Me.Button4.Text = "Quitar producto"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnQuitarProd.ImageIndex = 0
+        Me.btnQuitarProd.ImageList = Me.ImageList1
+        Me.btnQuitarProd.Location = New System.Drawing.Point(491, 434)
+        Me.btnQuitarProd.Name = "btnQuitarProd"
+        Me.btnQuitarProd.Size = New System.Drawing.Size(136, 62)
+        Me.btnQuitarProd.TabIndex = 13
+        Me.btnQuitarProd.UseVisualStyleBackColor = True
         '
-        'Button5
+        'btnCerrarSesion
         '
-        Me.Button5.Location = New System.Drawing.Point(21, 549)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(121, 37)
-        Me.Button5.TabIndex = 14
-        Me.Button5.Text = "Cerrar sesión"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnCerrarSesion.Location = New System.Drawing.Point(21, 549)
+        Me.btnCerrarSesion.Name = "btnCerrarSesion"
+        Me.btnCerrarSesion.Size = New System.Drawing.Size(121, 37)
+        Me.btnCerrarSesion.TabIndex = 14
+        Me.btnCerrarSesion.Text = "Cerrar sesión"
+        Me.btnCerrarSesion.UseVisualStyleBackColor = True
         '
         'btnGestionarPerfiles
         '
@@ -191,14 +186,14 @@ Partial Class PantallaVentas
         Me.btnGestionarPerfiles.Text = "Gestionar Perfiles"
         Me.btnGestionarPerfiles.UseVisualStyleBackColor = True
         '
-        'Button7
+        'btnGestionarProductos
         '
-        Me.Button7.Location = New System.Drawing.Point(307, 549)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(121, 37)
-        Me.Button7.TabIndex = 16
-        Me.Button7.Text = "Gestionar Productos"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.btnGestionarProductos.Location = New System.Drawing.Point(307, 549)
+        Me.btnGestionarProductos.Name = "btnGestionarProductos"
+        Me.btnGestionarProductos.Size = New System.Drawing.Size(121, 37)
+        Me.btnGestionarProductos.TabIndex = 16
+        Me.btnGestionarProductos.Text = "Gestionar Productos"
+        Me.btnGestionarProductos.UseVisualStyleBackColor = True
         '
         'lbAdmin
         '
@@ -209,6 +204,16 @@ Partial Class PantallaVentas
         Me.lbAdmin.TabIndex = 17
         Me.lbAdmin.Visible = False
         '
+        'btnAnadirprod
+        '
+        Me.btnAnadirprod.ImageKey = "design-2381160_960_720.png"
+        Me.btnAnadirprod.ImageList = Me.ImageList1
+        Me.btnAnadirprod.Location = New System.Drawing.Point(491, 349)
+        Me.btnAnadirprod.Name = "btnAnadirprod"
+        Me.btnAnadirprod.Size = New System.Drawing.Size(136, 70)
+        Me.btnAnadirprod.TabIndex = 8
+        Me.btnAnadirprod.UseVisualStyleBackColor = True
+        '
         'PantallaVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -216,47 +221,48 @@ Partial Class PantallaVentas
         Me.BackColor = System.Drawing.SystemColors.ControlDark
         Me.ClientSize = New System.Drawing.Size(708, 598)
         Me.Controls.Add(Me.lbAdmin)
-        Me.Controls.Add(Me.Button7)
+        Me.Controls.Add(Me.btnGestionarProductos)
         Me.Controls.Add(Me.btnGestionarPerfiles)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.btnCerrarSesion)
+        Me.Controls.Add(Me.btnQuitarProd)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.btnCobro)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.ComboBox3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.btnAnadirprod)
+        Me.Controls.Add(Me.listboxProductos)
+        Me.Controls.Add(Me.lbTamano)
+        Me.Controls.Add(Me.comboTamano)
+        Me.Controls.Add(Me.lbProducto)
+        Me.Controls.Add(Me.comboProducto)
+        Me.Controls.Add(Me.lbCategoria)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.comboCategoria)
         Me.Name = "PantallaVentas"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents comboCategoria As ComboBox
     Friend WithEvents Button1 As Button
     Friend WithEvents ImageList1 As ImageList
-    Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents ListBox1 As ListBox
-    Friend WithEvents Button2 As Button
+    Friend WithEvents lbCategoria As Label
+    Friend WithEvents comboProducto As ComboBox
+    Friend WithEvents lbProducto As Label
+    Friend WithEvents comboTamano As ComboBox
+    Friend WithEvents lbTamano As Label
+    Friend WithEvents listboxProductos As ListBox
+    Friend WithEvents btnAnadirprod As Button
     Friend WithEvents Label4 As Label
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btnCobro As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents btnQuitarProd As Button
+    Friend WithEvents btnCerrarSesion As Button
     Friend WithEvents btnGestionarPerfiles As Button
-    Friend WithEvents Button7 As Button
+    Friend WithEvents btnGestionarProductos As Button
     Friend WithEvents lbAdmin As Label
 End Class

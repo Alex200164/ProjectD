@@ -18,7 +18,7 @@ Public Class PantallaVentas
 
     End Sub
 
-    ' Primera líneas de código en ejecutarse al iniciarse el formulario por primera vez
+    ' Load
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Dependiendo de si el usuario inicia como admin o no, se habilita o deshabilita el botón de gestión
         If lbAdmin.Text.Equals("*") Then
@@ -55,13 +55,13 @@ Public Class PantallaVentas
         ' Hacemos una lectura inicial para tener en aux una variable para comparar y evitar duplicidades
         lectura.leerProducto(1, "Productos.txt", categoria, nombre, tamaño, precio)
         aux = categoria
-        ComboBox1.Items.Add(aux)
+        comboCategoria.Items.Add(aux)
         ' Bucle for para leer e introducir todos las categorias existentes en 
         For contador As Integer = 2 To numeroRegistros
             ' Leemos
             lectura.leerProducto(contador, "Productos.txt", categoria, nombre, tamaño, precio)
             If (aux <> categoria) Then
-                ComboBox1.Items.Add(categoria)
+                comboCategoria.Items.Add(categoria)
                 aux = categoria
             End If
 
@@ -76,7 +76,7 @@ Public Class PantallaVentas
     End Sub
 
     ' Botón para pasar al formulario de confirmación ventas
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnCobro.Click
         ' Accedemos al archivo auxiliar "PedidoDatosAuxiliar"
         Dim fichero As New FileStream("PedidoDatosAuxiliar.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite)
 
@@ -88,7 +88,7 @@ Public Class PantallaVentas
     End Sub
 
     ' Botón para añadir productos al listBox
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnAnadirprod.Click
         ' Accedemos al archivo auxiliar "PedidoDatosAuxiliar"
         Dim fichero As New FileStream("PedidoDatosAuxiliar.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite)
         Dim sw As New StreamWriter(fichero)
@@ -96,5 +96,13 @@ Public Class PantallaVentas
 
     End Sub
 
+    Private Sub listboxProductos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles listboxProductos.SelectedIndexChanged
 
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnCerrarSesion.Click
+        lbAdmin.Text = ""
+        Me.Close()
+        InicioSesion.Show()
+    End Sub
 End Class

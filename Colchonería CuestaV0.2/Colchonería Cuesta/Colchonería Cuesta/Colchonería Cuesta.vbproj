@@ -170,5 +170,14 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ltipo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\design-2381160_960_720.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\abort-146096_640.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -52,7 +52,7 @@ Public Class Validacion
 
     End Function
 
-
+    ' Método usado en la pantalla de inicio de sesión para ver que se introducen solo números en el campo de contraseña.
     Public Function validarCodigo(codigo As String) As Boolean
         ' Se opta de nuevo por la solución de poner en un String los valores permitidos.
         Dim charsPosibles As String = "0123456789"
@@ -148,6 +148,8 @@ Public Class Validacion
         Catch ex As NullReferenceException
             ' Llamamos a la función mensajeErrorDatos para mostrar el mensaje de error.
             mensajeErrorDatos()
+            ' Y escribimos el error en el fichero de errores.
+            errorLogWrite()
 
         End Try
 
@@ -156,10 +158,14 @@ Public Class Validacion
 
     ' Método para comprobar que usuario y contraseña introducidos en la pantalla de inicio
     ' coinciden con datos guardados en el fichero secuencial usuarios.txt
-    Public Function comprobarDatosSecuencial(file As String, usuario As String, contrasena As Integer) As Boolean
+    Public Function comprobarDatosSecuencial(file As String, usuario As String, contrasena As Integer) As Integer
+        'si devuelve 0 los datos están mal, si devuelve 1 están bien, y si 2 es el admin el que se está conectando.
         Dim coincidenciaNombre As String = ""
         Dim coincidenciaContrasena As Integer = 0
-        Dim correcto As Boolean = False
+        Dim correcto As Integer = 0
+        Dim coincidencia As String
+        Dim admin As Boolean
+        MsgBox("Hola")
         Try
             ' Este método es como el de coprobar datos para archivos de texto, pero para archivos secuenciales.
             ' Devuelve un booleano, true si los datos coinciden, false si los datos no son correctos.
@@ -167,23 +173,44 @@ Public Class Validacion
 
             While Not EOF(1)
                 Input(1, coincidenciaNombre)
+                '  MsgBox("coincidenciaNombre:" & coincidenciaNombre & " y parámetro: " & usuario)
                 If coincidenciaNombre.Equals(usuario) Then
                     ' Si mientras se lee el archivo secuencial se encuentra un nombre que coincida con el
                     ' pasado por parámetro, se pasa a leer el siguiente campo(la contraseña).
                     Input(1, coincidenciaContrasena)
+                    MsgBox("coincidenciaContrasena:" & coincidenciaContrasena & " y parámetro: " & contrasena)
                     ' Si la contraseña coincide con la pasada por parámetro, entonces se valida el acceso a la aplicación.
                     If coincidenciaContrasena = contrasena Then
-                        correcto = True
+                        '  FileOpen(1, "usuarios.txt", OpenMode.Input)
+                        Input(1, coincidencia)
+                        Input(1, coincidencia)
+                        Input(1, coincidencia)
+                        Input(1, coincidencia)
+                        Input(1, admin)
+                        If admin = True Then
+                            correcto = 2
+                            ' Salimos del  while porque ya encontramos al usuario.
+                            Exit While
+                        Else
+                            ' Salimos del  while porque ya encontramos al usuario.
+                            correcto = 1
+                            Exit While
+                        End If
+                    Else
+
                     End If
+
 
                 End If
 
             End While
 
+
             FileClose(1)
         Catch ex As Exception
-
+            MsgBox(Err.Description)
         End Try
+
         Return correcto
     End Function
 

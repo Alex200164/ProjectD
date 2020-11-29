@@ -22,22 +22,18 @@ Partial Class InicioSesion
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.btnLogoEmpresa = New System.Windows.Forms.Button()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(InicioSesion))
         Me.lbUsuario = New System.Windows.Forms.Label()
         Me.lbCodigo = New System.Windows.Forms.Label()
         Me.txtUsuario = New System.Windows.Forms.TextBox()
         Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.btnIniciarSesión = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'btnLogoEmpresa
-        '
-        Me.btnLogoEmpresa.Location = New System.Drawing.Point(236, 45)
-        Me.btnLogoEmpresa.Name = "btnLogoEmpresa"
-        Me.btnLogoEmpresa.Size = New System.Drawing.Size(310, 211)
-        Me.btnLogoEmpresa.TabIndex = 0
-        Me.btnLogoEmpresa.UseVisualStyleBackColor = True
         '
         'lbUsuario
         '
@@ -89,31 +85,50 @@ Partial Class InicioSesion
         Me.btnSalir.Text = "&Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "abort-146096_640.png")
+        Me.ImageList1.Images.SetKeyName(1, "design-2381160_960_720.png")
+        Me.ImageList1.Images.SetKeyName(2, "ltipo.png")
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Diseño_base.My.Resources.Resources.ltipo
+        Me.PictureBox1.Location = New System.Drawing.Point(117, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(610, 272)
+        Me.PictureBox1.TabIndex = 7
+        Me.PictureBox1.TabStop = False
+        '
         'InicioSesion
         '
         Me.AcceptButton = Me.btnIniciarSesión
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnIniciarSesión)
         Me.Controls.Add(Me.txtCodigo)
         Me.Controls.Add(Me.txtUsuario)
         Me.Controls.Add(Me.lbCodigo)
         Me.Controls.Add(Me.lbUsuario)
-        Me.Controls.Add(Me.btnLogoEmpresa)
         Me.Name = "InicioSesion"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "InicioSesion"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents btnLogoEmpresa As Button
     Friend WithEvents lbUsuario As Label
     Friend WithEvents lbCodigo As Label
     Friend WithEvents txtUsuario As TextBox
     Friend WithEvents txtCodigo As TextBox
     Friend WithEvents btnIniciarSesión As Button
     Friend WithEvents btnSalir As Button
+    Friend WithEvents ImageList1 As ImageList
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

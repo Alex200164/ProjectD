@@ -254,6 +254,7 @@ Partial Class Cobro
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btn_finalizarImprimir)
         Me.Name = "Cobro"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form3"
         Me.ResumeLayout(False)
         Me.PerformLayout()
