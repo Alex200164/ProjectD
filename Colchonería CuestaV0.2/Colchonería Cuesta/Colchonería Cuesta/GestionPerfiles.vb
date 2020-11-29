@@ -18,6 +18,7 @@
 Public Class GestionPerfiles
 
 
+    ' Load
     Private Sub GestionPerfiles_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         '  Dim fichero As String = "datosAcceso.txt"
         '  Dim accesoDatos As New FileStream(fichero, FileMode.Open, FileAccess.Read)
@@ -36,6 +37,8 @@ Public Class GestionPerfiles
 
     End Sub
 
+
+    ' Listbox
     Private Sub listboxUsuarios_SelectedIndexChanged(sender As Object, e As EventArgs) Handles listboxUsuarios.SelectedIndexChanged
         Try
             ' Dejamos esto aquí, aunque resulte en la apertura repetida del archivo.
@@ -47,29 +50,35 @@ Public Class GestionPerfiles
             ' hacerlo de esta otra forma porque es bastante más segura).
             FileOpen(1, "usuarios.txt", OpenMode.Input)
 
+            ' Rellenamos el ListBox.
             While Not EOF(1)
-
                 Input(1, usuario.usuario)
                 If (usuario.usuario.Equals(listboxUsuarios.GetItemText(listboxUsuarios.SelectedItem))) Then
-
                     Input(1, usuario.contrasena)
                     Input(1, usuario.nombre)
                     Input(1, usuario.apellidos)
                     Input(1, usuario.direccion)
                     Input(1, usuario.telefono)
                     Input(1, usuario.admin)
+
+
                     txtUsuario.Text = usuario.usuario
                     txtContrasena.Text = usuario.contrasena
-                    txtTelefono.Text = usuario.nombre
-                    txtNombre.Text = usuario.apellidos
-                    txtApellidos.Text = usuario.direccion
-                    txtDireccion.Text = usuario.telefono
-                    checkboxAdmin.Checked = True
+                    txtNombre.Text = usuario.nombre
+                    txtApellidos.Text = usuario.apellidos
+                    txtDireccion.Text = usuario.direccion
+                    txtTelefono.Text = usuario.telefono
+                    If (usuario.admin = True) Then
+                        checkboxAdmin.Checked = True
+                    Else
+                        checkboxAdmin.Checked = False
+                    End If
                 End If
 
             End While
 
             FileClose(1)
+
         Catch ex As Exception
 
         End Try
@@ -81,6 +90,8 @@ Public Class GestionPerfiles
 
     End Sub
 
+
+    ' Nuevo
     Private Sub NuevoUsuarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles stripNuevo.Click
         txtUsuario.Clear()
         txtContrasena.Clear()
@@ -92,6 +103,8 @@ Public Class GestionPerfiles
 
     End Sub
 
+
+    ' Abrir
     Private Sub AbrirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles stripAbrir.Click
         FileOpen(1, "usuarios.txt", OpenMode.Input)
 
@@ -104,24 +117,111 @@ Public Class GestionPerfiles
             Input(1, usuario.telefono)
             Input(1, usuario.admin)
             listboxUsuarios.Items.Add(usuario.usuario)
+        End While
 
-            '   If (usuario.contrasena = 1111) Then
-            ' MsgBox("Premio", 0, "Premio")
-            '  End If
+        FileClose(1)
+
+        stripAbrir.Enabled = False
+    End Sub
+
+    'Guardar
+    Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles stripGuardar.Click
+        FileOpen(1, "usuarios.txt", OpenMode.Input)
+
+        ' Variables usadas para comprobar si existe o no el usuario antes de guardar.
+        ' en coincidencia guardamos el resultado de la lectura del archivo secuencial
+        Dim coincidencia As String = ""
+        ' El booleano "libre" lo usamos para cambiarlo a false (no está libre el nombre de usuario) si no se puede
+        ' grabar el usuario que se acaba de introducir.
+        Dim libre As Boolean = True
+
+        'Comprobamos si ya existe el usuario.
+        While Not EOF(1)
+            Input(1, coincidencia)
+            '  MsgBox("Coincidencia: " & coincidencia & " lo otro: " & listboxUsuarios.GetItemText(listboxUsuarios.SelectedItem))
+            If listboxUsuarios.GetItemText(listboxUsuarios.SelectedItem).Equals(coincidencia) Then
+                MsgBox("Ya existe ese usuario. Por favor bórrelo y cree uno nuevo si quiere cambiar datos.")
+                FileClose(1)
+                libre = False
+                Exit While
+            End If
+        End While
+
+        ' Si en el while loop no se cambió el booleano a false, significa que no hay un usuario con el mismo nomre
+        ' y se puede grabar.
+        If (libre = True) Then
+            FileClose(1)
+
+            FileOpen(1, "usuarios.txt", OpenMode.Append)
+
+            Write(1, txtUsuario.Text, CInt(txtContrasena.Text), txtNombre.Text, txtApellidos.Text, txtDireccion.Text, CInt(txtTelefono.Text), checkboxAdmin.Checked.ToString)
+            FileClose(1)
+
+        End If
+
+        ' Limpiamos el listbox y volvemos a rellenarlo, actualizando la lista de usuarios.
+        listboxUsuarios.Items.Clear()
+        AbrirToolStripMenuItem_Click(sender, e)
+    End Sub
+
+
+    ' Eliminar
+    Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles stripEliminar.Click
+        FileOpen(1, "usuarios.txt", OpenMode.Input)
+
+        Dim coincidencia As String = ""
+        Dim datos As New ArrayList
+
+        While Not EOF(1)
+            Input(1, coincidencia)
+            ' Una vez encontraodo el usuario, empezamos a iterar desde el principio, por eso cerramos
+            ' y volvemos a abrir el archivo.
+            If listboxUsuarios.GetItemText(listboxUsuarios.SelectedItem).Equals(coincidencia) Then
+                ' Nos saltamos el añadir estos datos al nuevo fichero     
+                MsgBox(" Esto no se graba: " & coincidencia)
+                Input(1, usuario.contrasena)
+                Input(1, usuario.nombre)
+                Input(1, usuario.apellidos)
+                Input(1, usuario.direccion)
+                Input(1, usuario.telefono)
+                Input(1, usuario.admin)
+            Else
+                MsgBox("Guardando")
+                MsgBox("Esto es graba " & coincidencia)
+                Input(1, usuario.contrasena)
+                Input(1, usuario.nombre)
+                Input(1, usuario.apellidos)
+                Input(1, usuario.direccion)
+                Input(1, usuario.telefono)
+                Input(1, usuario.admin)
+
+                ' Añadimos los datos al array
+                datos.Add(coincidencia)
+                MsgBox("El primer dato: " & datos.Item(0))
+                datos.Add(usuario.contrasena)
+                datos.Add(usuario.nombre)
+                datos.Add(usuario.apellidos)
+                datos.Add(usuario.direccion)
+                datos.Add(usuario.telefono)
+                datos.Add(usuario.admin)
+            End If
 
 
         End While
         FileClose(1)
-        stripAbrir.Enabled = False
-    End Sub
 
-    Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles stripGuardar.Click
-        FileOpen(1, "usuarios.txt", OpenMode.Append)
-        Write(1, txtUsuario.Text, CInt(txtContrasena.Text), txtTelefono.Text, txtNombre.Text, txtApellidos.Text, CInt(txtDireccion.Text), checkboxAdmin.Checked.ToString)
+        ' Pasamos a sobreescribir el archivo con los datos menos el que se quería borrar.
+        FileOpen(1, "usuarios.txt", OpenMode.Output)
+        '  MsgBox(datos(2))
+        For i = 0 To datos.Count - 1
+            MsgBox("Pasamos a ver los datos del arraylist")
+            MsgBox(datos.Item(i))
+            Write(1, datos.Item(i))
+        Next i
         FileClose(1)
-    End Sub
 
-    Private Sub txtUsuario_TextChanged(sender As Object, e As EventArgs) Handles txtUsuario.TextChanged
-
+        ' Limpiamos el listbox y volvemos a rellenarlo, actualizando la lista de usuarios.
+        listboxUsuarios.Items.Clear()
+        AbrirToolStripMenuItem_Click(sender, e)
     End Sub
 End Class

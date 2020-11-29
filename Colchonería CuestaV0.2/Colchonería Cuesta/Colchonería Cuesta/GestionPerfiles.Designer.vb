@@ -34,7 +34,8 @@ Partial Class GestionPerfiles
         Me.stripNuevo = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.stripAbrir = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.stripEliminar = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.stripGuardar = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -119,7 +120,7 @@ Partial Class GestionPerfiles
         '
         'stripMenu
         '
-        Me.stripMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.stripNuevo, Me.ToolStripSeparator1, Me.stripAbrir, Me.ToolStripSeparator2, Me.stripGuardar, Me.ToolStripSeparator3, Me.SalirToolStripMenuItem})
+        Me.stripMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.stripNuevo, Me.ToolStripSeparator1, Me.stripAbrir, Me.stripEliminar, Me.ToolStripSeparator4, Me.stripGuardar, Me.ToolStripSeparator3, Me.SalirToolStripMenuItem})
         Me.stripMenu.Name = "stripMenu"
         Me.stripMenu.Size = New System.Drawing.Size(60, 20)
         Me.stripMenu.Text = "Archivo"
@@ -141,10 +142,16 @@ Partial Class GestionPerfiles
         Me.stripAbrir.Size = New System.Drawing.Size(180, 22)
         Me.stripAbrir.Text = "Abrir"
         '
-        'ToolStripSeparator2
+        'stripEliminar
         '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
+        Me.stripEliminar.Name = "stripEliminar"
+        Me.stripEliminar.Size = New System.Drawing.Size(180, 22)
+        Me.stripEliminar.Text = "Eliminar"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(177, 6)
         '
         'stripGuardar
         '
@@ -279,7 +286,6 @@ Partial Class GestionPerfiles
     Friend WithEvents stripNuevo As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents stripAbrir As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents stripGuardar As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
@@ -292,4 +298,6 @@ Partial Class GestionPerfiles
     Friend WithEvents lbTelefono As Label
     Friend WithEvents checkboxAdmin As CheckBox
     Friend WithEvents lbAdmin As Label
+    Friend WithEvents stripEliminar As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
 End Class
