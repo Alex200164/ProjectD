@@ -22,6 +22,16 @@ Colchonería Cuesta
   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
 </summary>
 </member>
+<member name="P:Diseño_base.My.Resources.Resources.abort_146096_640">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Diseño_base.My.Resources.Resources.design_2381160_960_720">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Diseño_base.My.Resources.Resources.ltipo">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
