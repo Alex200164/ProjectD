@@ -271,6 +271,7 @@
         ' Instanciamos la clase Escritura para acceder a los métodos que nos permiten escribir en ficheros.
         Dim escritura As New LecturaEscrituraArchivos.Escritura
 
+        ' Bandera para saber si se ha encontrado un valor duplicado o no
         Dim duplicado As Boolean = False
         ' Bucle for para leer y identificar si hay registros que coincidan con el registro que se quiere introducir nuevo 
         For contador As Integer = 1 To numeroRegistros
@@ -297,65 +298,7 @@
         End If
 
         ' Actualizamos los comboBox
-
-        ' Borramos los elementos del comoBox 1 
-        comboCategoria.Items.Clear()
-
-        ' Accedemos al archivo "Productos.txt" y extraemos el número de registros con los que cuenta
-        Dim numeroRegistros2 As Integer = lectura.numeroRegistros("Productos.txt")
-
-        ' Creamos un arrayList que se encarga de guardar los valores ya introducidos para así evitar duplicidades
-        Dim listaCategoria As New ArrayList
-        ' Creamos una bandera para conocer si el valor es aceptado o no.
-        Dim doble As Boolean
-
-        ' Hacemos una lectura inicial para tener en aux una variable para comparar y evitar duplicidades
-        lectura.leerProducto(1, "Productos.txt", categoria, nombre, tamano, precio)
-
-        ' Añadimos al arrayList
-        listaCategoria.Add(categoria)
-
-        ' Añadimos al comboBox
-        comboCategoria.Items.Add(categoria)
-
-        ' Bucle for para leer e introducir todos las categorias existentes en 
-        For contador As Integer = 2 To numeroRegistros2
-
-            ' Leemos
-            lectura.leerProducto(contador, "Productos.txt", categoria, nombre, tamano, precio)
-            ' Comprobamos el valor de categoria obtenido tantas veces como posiciones haya dentro del arrayList
-            For contador2 As Integer = 0 To listaCategoria.Count - 1
-                ' Comprobamos si el valor recibido se encuentra ya en el arrayList, en caso contrario se le da luz verde para ser introducido
-                ' En el comboBox
-                If (categoria = listaCategoria.Item(contador2)) Then
-                    doble = True
-                    Exit For
-                Else
-                    ' Añadimos al arrayList
-                    listaCategoria.Add(categoria)
-                    doble = False
-                End If
-            Next
-            ' Añadimos al comboBox el valor si se nos permite
-            If (doble = False) Then
-                comboCategoria.Items.Add(categoria)
-            End If
-
-        Next
-
-        ' Cambiamos el texto de los comboBox
-        comboCategoria.Text = ""
-        comboProducto.Items.Clear()
-        comboProducto.Text = ""
-        comboTamano.Items.Clear()
-        comboTamano.Text = ""
-
-        ' Vaciamos los textBox
-        txtCategoria.Clear()
-        txtNombre.Clear()
-        txtPrecio.Clear()
-        txtTamano.Clear()
-        txtPrecio.Clear()
+        actualizarDatosComboBox()
 
     End Sub
 
@@ -428,12 +371,85 @@
         My.Computer.FileSystem.DeleteFile("Productos_Auxiliar.txt")
 
         ' Actualizamos los comboBox
+        actualizarDatosComboBox()
 
-        ' Borramos los elementos del comboBox 1 
+    End Sub
+
+    ' Método que se ejecuta al presionar el botón de "Modificar producto"
+    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+
+        ' Instanciamos la clase Lectura para acceder a los métodos que nos permitirán leer desde ficheros
+        Dim lectura As New LecturaEscrituraArchivos.Lectura
+
+        ' Accedemos al archivo "Productos.txt" y extraemos el número de registros con los que cuenta
+        Dim numeroRegistros As Integer = lectura.numeroRegistros("Productos.txt")
+
+        ' Instanciamos la clase Escritura para acceder a los métodos que nos permiten escribir en ficheros.
+        Dim escritura As New LecturaEscrituraArchivos.Escritura
+
+        ' Variables auxiliares para recoger los datos de lectura
+        Dim aux As String = ""
+        Dim categoria As String = ""
+        Dim nombre As String = ""
+        Dim tamano As String = ""
+        Dim precio As Integer = 0
+
+
+        ' Bandera para saber si se ha encontrado el registro original o no
+        Dim encontradoID As Boolean = False
+        ' Bucle for para leer y identificar si hay registros que coincidan con el registro que se quiere introducir nuevo 
+        For contador As Integer = 1 To numeroRegistros
+
+            ' Leemos del archivo Productos.txt
+            lectura.leerProducto(contador, "Productos.txt", categoria, nombre, tamano, precio)
+
+            ' Si los datos coinciden, escribimos
+            If (categoria = comboCategoria.SelectedItem) Then
+                If (nombre = comboProducto.SelectedItem) Then
+                    If (tamano = comboTamano.SelectedItem) Then
+                        ' Escribimos en el fichero el registro
+                        escritura.escribirProducto(contador, "Productos.txt", txtCategoria.Text, txtNombre.Text, txtTamano.Text, Val(txtPrecio.Text))
+                        ' Cambiamos el estado de la bandera
+                        encontradoID = True
+                    End If
+                End If
+            End If
+        Next
+
+        ' En caso de no haber encontrado la ID del registro a modificar...
+        If (encontradoID = False) Then
+            MsgBox("El producto que intenta modificar no existe, operación abortada.", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "Aviso")
+        End If
+
+        ' Actualizamos los comboBox con la información nueva
+        actualizarDatosComboBox()
+
+    End Sub
+
+    Private Sub actualizarDatosComboBox()
+        ' Actualizamos los comboBox
+
+        ' Variables auxiliares para recoger los datos de lectura
+        Dim aux As String = ""
+        Dim categoria As String = ""
+        Dim nombre As String = ""
+        Dim tamano As String = ""
+        Dim precio As Integer = 0
+
+        ' Instanciamos la clase Lectura para acceder a los métodos que nos permitirán leer desde ficheros
+        Dim lectura As New LecturaEscrituraArchivos.Lectura
+
+        ' Accedemos al archivo "Productos.txt" y extraemos el número de registros con los que cuenta
+        Dim numeroRegistros As Integer = lectura.numeroRegistros("Productos.txt")
+
+        ' Instanciamos la clase Escritura para acceder a los métodos que nos permiten escribir en ficheros.
+        Dim escritura As New LecturaEscrituraArchivos.Escritura
+
+        ' Borramos los elementos del comoBox 1 
         comboCategoria.Items.Clear()
 
         ' Accedemos al archivo "Productos.txt" y extraemos el número de registros con los que cuenta
-        Dim numeroRegistros3 As Integer = lectura.numeroRegistros("Productos.txt")
+        Dim numeroRegistros2 As Integer = lectura.numeroRegistros("Productos.txt")
 
         ' Creamos un arrayList que se encarga de guardar los valores ya introducidos para así evitar duplicidades
         Dim listaCategoria As New ArrayList
@@ -450,7 +466,7 @@
         comboCategoria.Items.Add(categoria)
 
         ' Bucle for para leer e introducir todos las categorias existentes en 
-        For contador As Integer = 2 To numeroRegistros3
+        For contador As Integer = 2 To numeroRegistros2
 
             ' Leemos
             lectura.leerProducto(contador, "Productos.txt", categoria, nombre, tamano, precio)
@@ -487,8 +503,6 @@
         txtPrecio.Clear()
         txtTamano.Clear()
         txtPrecio.Clear()
-
-
     End Sub
 
 End Class

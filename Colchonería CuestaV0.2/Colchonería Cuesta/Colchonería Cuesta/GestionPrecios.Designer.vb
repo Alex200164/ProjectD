@@ -153,7 +153,7 @@ Partial Class GestionPrecios
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(185, 53)
         Me.btnModificar.TabIndex = 13
-        Me.btnModificar.Text = "Modificar Producto"
+        Me.btnModificar.Text = "Modificar producto"
         Me.btnModificar.UseVisualStyleBackColor = True
         '
         'btnAñadir
