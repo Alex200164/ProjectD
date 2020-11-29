@@ -30,6 +30,10 @@ Partial Class GestionPrecios
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnBorrar = New System.Windows.Forms.Button()
+        Me.btnRetirar = New System.Windows.Forms.Button()
+        Me.btnModificar = New System.Windows.Forms.Button()
+        Me.btnAñadir = New System.Windows.Forms.Button()
         Me.txtPrecio = New System.Windows.Forms.TextBox()
         Me.txtTamano = New System.Windows.Forms.TextBox()
         Me.txtNombre = New System.Windows.Forms.TextBox()
@@ -38,10 +42,6 @@ Partial Class GestionPrecios
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.btnAñadir = New System.Windows.Forms.Button()
-        Me.btnModificar = New System.Windows.Forms.Button()
-        Me.btnRetirar = New System.Windows.Forms.Button()
-        Me.btnBorrar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -129,6 +129,42 @@ Partial Class GestionPrecios
         Me.Panel2.Size = New System.Drawing.Size(613, 246)
         Me.Panel2.TabIndex = 7
         '
+        'btnBorrar
+        '
+        Me.btnBorrar.Location = New System.Drawing.Point(94, 187)
+        Me.btnBorrar.Name = "btnBorrar"
+        Me.btnBorrar.Size = New System.Drawing.Size(128, 43)
+        Me.btnBorrar.TabIndex = 15
+        Me.btnBorrar.Text = "Borrar campos"
+        Me.btnBorrar.UseVisualStyleBackColor = True
+        '
+        'btnRetirar
+        '
+        Me.btnRetirar.Location = New System.Drawing.Point(342, 141)
+        Me.btnRetirar.Name = "btnRetirar"
+        Me.btnRetirar.Size = New System.Drawing.Size(185, 53)
+        Me.btnRetirar.TabIndex = 14
+        Me.btnRetirar.Text = "Retirar producto"
+        Me.btnRetirar.UseVisualStyleBackColor = True
+        '
+        'btnModificar
+        '
+        Me.btnModificar.Location = New System.Drawing.Point(342, 82)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(185, 53)
+        Me.btnModificar.TabIndex = 13
+        Me.btnModificar.Text = "Modificar Producto"
+        Me.btnModificar.UseVisualStyleBackColor = True
+        '
+        'btnAñadir
+        '
+        Me.btnAñadir.Location = New System.Drawing.Point(342, 20)
+        Me.btnAñadir.Name = "btnAñadir"
+        Me.btnAñadir.Size = New System.Drawing.Size(185, 53)
+        Me.btnAñadir.TabIndex = 12
+        Me.btnAñadir.Text = "Añadir producto"
+        Me.btnAñadir.UseVisualStyleBackColor = True
+        '
         'txtPrecio
         '
         Me.txtPrecio.Location = New System.Drawing.Point(94, 139)
@@ -192,42 +228,6 @@ Partial Class GestionPrecios
         Me.Label4.Size = New System.Drawing.Size(63, 13)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Categoría ="
-        '
-        'btnAñadir
-        '
-        Me.btnAñadir.Location = New System.Drawing.Point(342, 20)
-        Me.btnAñadir.Name = "btnAñadir"
-        Me.btnAñadir.Size = New System.Drawing.Size(185, 53)
-        Me.btnAñadir.TabIndex = 12
-        Me.btnAñadir.Text = "Añadir producto"
-        Me.btnAñadir.UseVisualStyleBackColor = True
-        '
-        'btnModificar
-        '
-        Me.btnModificar.Location = New System.Drawing.Point(342, 82)
-        Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(185, 53)
-        Me.btnModificar.TabIndex = 13
-        Me.btnModificar.Text = "Modificar Producto"
-        Me.btnModificar.UseVisualStyleBackColor = True
-        '
-        'btnRetirar
-        '
-        Me.btnRetirar.Location = New System.Drawing.Point(342, 141)
-        Me.btnRetirar.Name = "btnRetirar"
-        Me.btnRetirar.Size = New System.Drawing.Size(185, 53)
-        Me.btnRetirar.TabIndex = 14
-        Me.btnRetirar.Text = "Retirar producto"
-        Me.btnRetirar.UseVisualStyleBackColor = True
-        '
-        'btnBorrar
-        '
-        Me.btnBorrar.Location = New System.Drawing.Point(94, 187)
-        Me.btnBorrar.Name = "btnBorrar"
-        Me.btnBorrar.Size = New System.Drawing.Size(128, 43)
-        Me.btnBorrar.TabIndex = 15
-        Me.btnBorrar.Text = "Borrar campos"
-        Me.btnBorrar.UseVisualStyleBackColor = True
         '
         'GestionPrecios
         '
