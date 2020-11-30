@@ -44,6 +44,8 @@ Partial Class Cobro
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MenúToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -88,7 +90,8 @@ Partial Class Cobro
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(64, 224)
+        Me.ComboBox1.Items.AddRange(New Object() {"Tarjeta", "Efectivo"})
+        Me.ComboBox1.Location = New System.Drawing.Point(134, 134)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox1.TabIndex = 5
@@ -217,7 +220,7 @@ Partial Class Cobro
         '
         Me.Label_devolver.AutoSize = True
         Me.Label_devolver.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_devolver.Location = New System.Drawing.Point(12, 135)
+        Me.Label_devolver.Location = New System.Drawing.Point(-4, 171)
         Me.Label_devolver.Name = "Label_devolver"
         Me.Label_devolver.Size = New System.Drawing.Size(116, 24)
         Me.Label_devolver.TabIndex = 18
@@ -227,11 +230,10 @@ Partial Class Cobro
         '
         Me.Label_numDevolver.AutoSize = True
         Me.Label_numDevolver.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_numDevolver.Location = New System.Drawing.Point(134, 135)
+        Me.Label_numDevolver.Location = New System.Drawing.Point(130, 171)
         Me.Label_numDevolver.Name = "Label_numDevolver"
-        Me.Label_numDevolver.Size = New System.Drawing.Size(20, 24)
+        Me.Label_numDevolver.Size = New System.Drawing.Size(0, 24)
         Me.Label_numDevolver.TabIndex = 19
-        Me.Label_numDevolver.Text = "0"
         '
         'MenuStrip1
         '
@@ -255,12 +257,33 @@ Partial Class Cobro
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(96, 22)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(150, 67)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(39, 13)
+        Me.Label3.TabIndex = 21
+        Me.Label3.Text = "Label3"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(-4, 135)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(129, 20)
+        Me.Label4.TabIndex = 22
+        Me.Label4.Text = "Método de pago:"
+        '
         'Cobro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(609, 410)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label_numDevolver)
         Me.Controls.Add(Me.Label_devolver)
         Me.Controls.Add(Me.btn_ponerPunto)
@@ -314,4 +337,6 @@ Partial Class Cobro
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents MenúToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
 End Class

@@ -121,9 +121,33 @@ Public Class PantallaVentas
 
     ' Botón para pasar al formulario de confirmación ventas. A eliminar y poner en menustrip
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnCobro.Click
-        ' Accedemos al archivo auxiliar "PedidoDatosAuxiliar"
-        '  Dim fichero As New FileStream("PedidoDatosAuxiliar.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite)
+        If (listboxCarrito.Items.Count <> 0) Then
+            ' Recogemos los datos del label precio
+            Dim precioTotal As Single = lbPrecioTotalText.Text
+        End If
 
+
+        ' Instanciamos la clase Escritura para acceder a los métodos que nos permiten escribir en ficheros.
+        Dim escritura As New LecturaEscrituraArchivos.Escritura
+
+        Dim numeroRegistros As Single = listboxCarrito.Items.Count
+
+        ' Utilizado para introducir los valores en las ID correctas
+        Dim contadorAux As Single = 1
+
+        ' Y los contenidos del listBox y los añadimos a un archivo auxiliar "Cobro_Aux.txt"
+        For contador As Integer = 0 To numeroRegistros - 1
+
+            ' Recogemos los datos de la columna
+            Dim columna As String = listboxCarrito.Items.Item(contador)
+            'Introducimos la columna
+            escritura.escribirListaListBox(contadorAux, "Cobro_Aux.txt", columna)
+
+            contadorAux = contadorAux + 1
+        Next
+
+        ' Introducimos el precio total al final del fichero.
+        escritura.escribirListaListBox(contadorAux, "Cobro_Aux.txt", precioTotal)
 
         ' Escondemos esté formulario. 
         Me.Hide()
