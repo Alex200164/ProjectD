@@ -190,6 +190,7 @@
         Dim valido As Boolean
         If txtCategoria.Text <> "" Then
             ' Llamamos al método para validar, y le pasamos el valor 0 como argumento porque estamos comprobando la categoría
+            '   MsgBox(txtCategoria.Text)
             valido = validacion.validarCampoProducto(txtCategoria.Text, 0)
 
             If valido Then
@@ -220,9 +221,9 @@
     Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles txtNombre.TextChanged
         Dim validacion As New libValidacionDatos.Validacion
         Dim valido As Boolean
-        If txtCategoria.Text <> "" Then
+        If txtNombre.Text <> "" Then
             ' Llamamos al método para validar, y le pasamos el valor 1 como argumento porque estamos comprobando el nombre.
-            valido = validacion.validarCampoProducto(txtCategoria.Text, 1)
+            valido = validacion.validarCampoProducto(txtNombre.Text, 1)
 
             If valido Then
 
@@ -240,10 +241,10 @@
                 MsgBox("Carácter inválido." & Chr(13) & "Por favor, introduzca caracteres en este campo." & Chr(13) & "Evite usar números o caracteres especiales." & Chr(13) & "Por ejemplo: %/()&1274", MsgBoxStyle.Exclamation, "Carácter inválido")
                 ' Limpiamos el campo de texto. Si me da tiempo, borrar solamente el último carácter para que el usuario
                 ' no tenga que volver a escribir todo.
-                txtCategoria.Clear()
+                txtNombre.Clear()
 
                 ' Ponemos el focus en el nombre para que le sea cómodo al usuario volver a escribir.
-                txtCategoria.Focus()
+                txtNombre.Focus()
 
             End If
         End If
@@ -252,9 +253,9 @@
     Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles txtTamano.TextChanged
         Dim validacion As New libValidacionDatos.Validacion
         Dim valido As Boolean
-        If txtCategoria.Text <> "" Then
+        If txtTamano.Text <> "" Then
             ' Llamamos al método para validar, y le pasamos el valor 2 como argumento porque estamos comprobando el tamaño.
-            valido = validacion.validarCampoProducto(txtCategoria.Text, 2)
+            valido = validacion.validarCampoProducto(txtTamano.Text, 2)
 
             If valido Then
 
@@ -272,20 +273,47 @@
                 MsgBox("Carácter inválido." & Chr(13) & "Por favor, introduzca caracteres en este campo." & Chr(13) & "Evite usar números o caracteres especiales." & Chr(13) & "Por ejemplo: %/()&1274", MsgBoxStyle.Exclamation, "Carácter inválido")
                 ' Limpiamos el campo de texto. Si me da tiempo, borrar solamente el último carácter para que el usuario
                 ' no tenga que volver a escribir todo.
-                txtCategoria.Clear()
+                txtTamano.Clear()
 
                 ' Ponemos el focus en el nombre para que le sea cómodo al usuario volver a escribir.
-                txtCategoria.Focus()
+                txtTamano.Focus()
 
             End If
         End If
     End Sub
 
     Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles txtPrecio.TextChanged
-        If Not txtPrecio.Text.Equals("") And txtCategoria.Text.Equals("") And txtNombre.Text.Equals("") And txtTamano.Text.Equals("") Then
+        Dim validarCodigo As New libValidacionDatos.Validacion
+        Dim valido As Boolean
+        If Not (txtCategoria.Text.Equals("") And txtNombre.Text.Equals("") And txtTamano.Text.Equals("")) Then
             btnAñadir.Enabled = True
             btnModificar.Enabled = True
             btnRetirar.Enabled = True
+            MsgBox("hey")
+        End If
+        If txtPrecio.Text <> "" Then
+            Try
+                valido = validarCodigo.validarCodigo(txtPrecio.Text, 2)
+            Catch ex As Exception
+                MsgBox("Se ha producido una excepción." & Chr(13) & ex.Message & Chr(13) & "Es probable que haya intentado introducir un carácter. Por favor, introduzca un número.")
+                ' No hace falta guardar este dato en el errorLog. Se ha decidido simplemente mostrarle el mensaje
+                ' al usuario.
+            End Try
+            If valido Then
+
+            Else
+                'Dejo esto aquí por si no usamos la excepción por algún motivo(pero al intentar ejecutar el método validarCodigo dará excepción, ojo):  MsgBox("Dato inválido." & Chr(13) & "Por favor, introduzca ´números enteros en este campo(sin comas o puntos)." & Chr(13) & "Evite usar caracteres o caracteres especiales." & Chr(13) & "Por ejemplo: %/()abcABC", 0, "Dato inválido")
+
+
+                ' Limpiamos el campo de texto. Si me da tiempo, borrar solamente el último carácter para que el usuario
+                ' no tenga que volver a escribir todo.
+                txtPrecio.Clear()
+
+                ' Ponemos el focus en el nombre para que le sea cómodo al usuario volver a escribir.
+                txtPrecio.Focus()
+
+            End If
+
         End If
 
     End Sub
@@ -610,5 +638,9 @@
 
     Private Sub btnNotas_Click(sender As Object, e As EventArgs) Handles btnNotas.Click
         PantallaNotas.Show()
+    End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
     End Sub
 End Class

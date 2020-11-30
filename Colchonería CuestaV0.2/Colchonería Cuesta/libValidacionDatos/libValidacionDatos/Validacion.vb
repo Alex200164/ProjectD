@@ -117,7 +117,7 @@ Public Class Validacion
         Dim charsPosibles As String = "0123456789"
         ' Para el campo de teléfono se permite usar el carácter especial +.
         Dim charsPosiblesTelefono As String = "0123456789+"
-        Dim charsPosiblesPrecio As String = "0123456789."
+        Dim charsPosiblesPrecio As String = "0123456789. "
         Dim valido As Boolean = False
         Dim coincidencias As Integer = 0
         Dim valorMaximo As Integer
@@ -125,6 +125,8 @@ Public Class Validacion
             valorMaximo = 4
         ElseIf tipo = 1 Then
             valorMaximo = 9
+        ElseIf tipo = 2 Then
+            valorMaximo = 5
         End If
         ' Solo se permiten códigos de hasta 4 números.
         ' La validación de que sean 4 se hace en otro método, porque eso depende de la creación de usuarios.
@@ -262,8 +264,9 @@ Public Class Validacion
     Public Function validarCampoProducto(stringRecibido As String, tipo As Integer) As Boolean
         ' Entorno:
         ' Creamos una lista de caracteres permitidos.
-        Dim charsPosibles As String = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
-        Dim charsposiblesTamano As String = "0123456789'"
+        Dim charsPosibles As String = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚ "
+        Dim charsPosiblesCategoria As String = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚ "
+        Dim charsposiblesTamano As String = "0123456789'. "
         ' Las variables donde guardaremos los caracteres para compararlos.
         Dim chDeLista As Char
         Dim chRecibido As Char
@@ -294,22 +297,32 @@ Public Class Validacion
                 ' Guardamos el carácter en chRecibido.
                 chRecibido = GetChar(stringRecibido, i)
                 ' Comprobamos si el carácter que acabamos de guardar es igual a los caracteres del string(charsPosibles).
-                ' Iteramos un número de veces igual al tamaño de charsPosibles (dos veces el abecedario, una en minúsculas y otra mayúsculas)
+                ' Iteramos un número de veces igual al tamaño del string usado para comparar los caracteres en el campo.
 
 
                 ' Con esta estructura vemos qué estamos validando
                 ' Solo si es el tamaño (parámetro con valor 2) se usa la lista charsPosiblesTamano 
                 ' Que solo permite números y punto
                 If tipo = 2 Then
-                    For j = 1 To charsPosibles.Length
+                    For j = 1 To charsposiblesTamano.Length
                         If chRecibido = GetChar(charsposiblesTamano, j) Then
                             ' Comparamos los caracteres. Si son iguales, se suma 1 al buchón
                             coincidencias = coincidencias + 1
                         End If
                     Next j
-                Else
+                ElseIf tipo = 1 Then
+                    ' Si estamos validando nombre:
                     For j = 1 To charsPosibles.Length
                         If chRecibido = GetChar(charsPosibles, j) Then
+                            ' Comparamos los caracteres. Si son iguales, se suma 1 al buchón
+                            coincidencias = coincidencias + 1
+                        End If
+                    Next j
+                    ' Si estamos validando categoría:
+                ElseIf tipo = 0 Then
+
+                    For j = 1 To charsPosiblesCategoria.Length
+                        If chRecibido = GetChar(charsPosiblesCategoria, j) Then
                             ' Comparamos los caracteres. Si son iguales, se suma 1 al buchón
                             coincidencias = coincidencias + 1
                         End If

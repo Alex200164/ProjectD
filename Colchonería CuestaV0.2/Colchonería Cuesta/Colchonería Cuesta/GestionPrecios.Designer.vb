@@ -202,7 +202,7 @@ Partial Class GestionPrecios
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(10, 139)
+        Me.Label7.Location = New System.Drawing.Point(27, 139)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(46, 13)
         Me.Label7.TabIndex = 7
@@ -211,7 +211,7 @@ Partial Class GestionPrecios
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(3, 99)
+        Me.Label6.Location = New System.Drawing.Point(18, 99)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(55, 13)
         Me.Label6.TabIndex = 6
@@ -220,7 +220,7 @@ Partial Class GestionPrecios
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(10, 60)
+        Me.Label5.Location = New System.Drawing.Point(18, 60)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(53, 13)
         Me.Label5.TabIndex = 6
