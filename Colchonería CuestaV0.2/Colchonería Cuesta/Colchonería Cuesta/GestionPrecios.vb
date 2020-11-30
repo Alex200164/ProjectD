@@ -190,7 +190,7 @@
         Dim valido As Boolean
         If txtCategoria.Text <> "" Then
             ' Llamamos al método para validar, y le pasamos el valor 0 como argumento porque estamos comprobando la categoría
-            valido = validacion.validarCampoProducto(txtCategoria.Text, 0)
+            valido = validacion.validarCampoProducto(txtCategoria.Text, 1)
 
             If valido Then
 

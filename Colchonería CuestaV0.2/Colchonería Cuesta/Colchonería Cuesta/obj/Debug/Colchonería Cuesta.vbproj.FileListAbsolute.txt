@@ -46,7 +46,6 @@ E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyec
 E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyecto_desarrollo_interfaces_1\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\libValidacionDatos.pdb
 E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyecto_desarrollo_interfaces_1\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\libValidacionDatos.xml
 E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyecto_desarrollo_interfaces_1\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.vbprojAssemblyReference.cache
-E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyecto_desarrollo_interfaces_1\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.InicioSesion.resources
 E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyecto_desarrollo_interfaces_1\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.Cobro.resources
 E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyecto_desarrollo_interfaces_1\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.GestionPerfiles.resources
 E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyecto_desarrollo_interfaces_1\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.Resources.resources
@@ -85,3 +84,7 @@ C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchon
 C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\LecturaEscrituraArchivos.xml
 C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Colchonería Cuesta.vbprojAssemblyReference.cache
 C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.PantallaInicio.resources
+E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyecto_desarrollo_interfaces_1\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\LecturaEscrituraArchivos.pdb
+E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyecto_desarrollo_interfaces_1\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\LecturaEscrituraArchivos.xml
+E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyecto_desarrollo_interfaces_1\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.PantallaInicio.resources
+E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\Repositorios\TP_AM_proyecto_desarrollo_interfaces_1\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\obj\Debug\Diseño_base.PantallaNotas.resources
