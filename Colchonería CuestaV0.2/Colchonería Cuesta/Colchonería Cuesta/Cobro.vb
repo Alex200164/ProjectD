@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Drawing.Printing
 
 Public Class Cobro
 
@@ -86,7 +87,51 @@ Public Class Cobro
         ' Borramos el fichero "Cobro_Aux.txt"
         My.Computer.FileSystem.DeleteFile("Cobro_Aux.txt")
 
+    End Sub
 
+    ' Para imprimir
+    Private Sub ticket(ByVal sender As Object, ByVal ev As PrintPageEventArgs)
+
+        ev.Graphics.DrawString("Colchoneria CUESTA", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 120)
+        ev.Graphics.DrawString("Calle Vallehermoso, 42", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 150)
+        ev.Graphics.DrawString("Telef. 91 593 22 15", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 180)
+        ev.Graphics.DrawString("Telef. 605 689 166", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 210)
+        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 240)
+
+        ev.Graphics.DrawString("Fecha: 11-30-2020", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 270)
+        ev.Graphics.DrawString("Hora: 21:15:31", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 300)
+
+        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 330)
+
+        ev.Graphics.DrawString("Cant. Nombre         Precio Total", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 360)
+        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 390)
+
+        ev.Graphics.DrawString("Producto", New Font("Arial", 14, FontStyle.Regular), Brushes.Black, 120, 420)
+
+        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 450)
+
+        ev.Graphics.DrawString("Subtotal:", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 480)
+        ev.Graphics.DrawString("21% IVA", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 510)
+
+        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 540)
+
+        ev.Graphics.DrawString("Total:     43000", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 570)
+
+        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 600)
+
+        ev.Graphics.DrawString("Cantidad entregada:  5000", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 630)
+        ev.Graphics.DrawString("Cambio: 700", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 660)
+
+        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 690)
+        ev.Graphics.DrawString("---- Gracias por su visita ----", New Font("Courier new", 12, FontStyle.Regular), Brushes.Black, 120, 720)
+        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 750)
+        ev.Graphics.DrawString("Colchonería CUESTA S.L.", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 780)
+        ev.Graphics.DrawString("CIF: B83821652", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 810)
+        ev.Graphics.DrawString("C/Fuencaral, 84, 28004", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 840)
+        ev.Graphics.DrawString("Madrid, Madrid", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 870)
+
+
+        ev.HasMorePages = False
 
     End Sub
 
@@ -94,8 +139,10 @@ Public Class Cobro
     Private Sub btn_finalizarImprimir_Click(sender As Object, e As EventArgs) Handles btn_finalizarImprimir.Click
 
 
-
-
+        ' Imprimir
+        AddHandler PrintDocument1.PrintPage, AddressOf Me.ticket
+        PrintDocument1.PrinterSettings.PrintFileName() = "PRUEBA"
+        PrintDocument1.Print()
 
 
         If (Val(Label_devolver.Text) < 0) Then
