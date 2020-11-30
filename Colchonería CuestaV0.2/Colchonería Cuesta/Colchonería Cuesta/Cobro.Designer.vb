@@ -41,6 +41,10 @@ Partial Class Cobro
         Me.btn_ponerPunto = New System.Windows.Forms.Button()
         Me.Label_devolver = New System.Windows.Forms.Label()
         Me.Label_numDevolver = New System.Windows.Forms.Label()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.MenúToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btn_finalizarImprimir
@@ -84,7 +88,7 @@ Partial Class Cobro
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(12, 12)
+        Me.ComboBox1.Location = New System.Drawing.Point(64, 224)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox1.TabIndex = 5
@@ -229,10 +233,33 @@ Partial Class Cobro
         Me.Label_numDevolver.TabIndex = 19
         Me.Label_numDevolver.Text = "0"
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenúToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(609, 24)
+        Me.MenuStrip1.TabIndex = 20
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'MenúToolStripMenuItem
+        '
+        Me.MenúToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalirToolStripMenuItem})
+        Me.MenúToolStripMenuItem.Name = "MenúToolStripMenuItem"
+        Me.MenúToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
+        Me.MenúToolStripMenuItem.Text = "Menú"
+        '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(96, 22)
+        Me.SalirToolStripMenuItem.Text = "Salir"
+        '
         'Cobro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(609, 410)
         Me.Controls.Add(Me.Label_numDevolver)
         Me.Controls.Add(Me.Label_devolver)
@@ -253,9 +280,13 @@ Partial Class Cobro
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btn_finalizarImprimir)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Cobro"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form3"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -280,4 +311,7 @@ Partial Class Cobro
     Friend WithEvents btn_ponerPunto As Button
     Friend WithEvents Label_devolver As Label
     Friend WithEvents Label_numDevolver As Label
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents MenúToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -7,3 +7,12 @@ E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\LecturaEscrituraArchivos\
 E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\LecturaEscrituraArchivos\LecturaEscrituraArchivos\obj\Debug\LecturaEscrituraArchivos.dll
 E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\LecturaEscrituraArchivos\LecturaEscrituraArchivos\obj\Debug\LecturaEscrituraArchivos.xml
 E:\Alx\Grado_superior\2_Curso\Desarrollo de Interfaces\LecturaEscrituraArchivos\LecturaEscrituraArchivos\obj\Debug\LecturaEscrituraArchivos.pdb
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Lectura\LecturaEscrituraArchivos\bin\Debug\LecturaEscrituraArchivos.dll
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Lectura\LecturaEscrituraArchivos\bin\Debug\LecturaEscrituraArchivos.pdb
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Lectura\LecturaEscrituraArchivos\bin\Debug\LecturaEscrituraArchivos.xml
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Lectura\LecturaEscrituraArchivos\obj\Debug\LecturaEscrituraArchivos.Resources.resources
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Lectura\LecturaEscrituraArchivos\obj\Debug\LecturaEscrituraArchivos.vbproj.GenerateResource.cache
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Lectura\LecturaEscrituraArchivos\obj\Debug\LecturaEscrituraArchivos.vbproj.CoreCompileInputs.cache
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Lectura\LecturaEscrituraArchivos\obj\Debug\LecturaEscrituraArchivos.dll
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Lectura\LecturaEscrituraArchivos\obj\Debug\LecturaEscrituraArchivos.xml
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Lectura\LecturaEscrituraArchivos\obj\Debug\LecturaEscrituraArchivos.pdb

@@ -7,14 +7,14 @@ Public Class Escritura
         <VBFixedString(15)> Public Categoria As String
         <VBFixedString(15)> Public NombreProducto As String
         <VBFixedString(8)> Public Tamaño As String
-        Public Precio As Integer
+        Public Precio As Single
 
         ' Método utilizado para inicializar con valores por defecto
         Public Sub defaultProducto()
             Categoria = "null"
             NombreProducto = "null"
             Tamaño = "null"
-            Precio = 0
+            Precio = 0.00
         End Sub
 
     End Structure
@@ -22,7 +22,7 @@ Public Class Escritura
     ' Escribir un registro de producto, en un fichero de nuestra elección
     Public Sub escribirProducto(ByVal numeroRegistro As Integer, ByVal nombreFichero As String,
                                  ByVal categoria As String, ByVal nombre As String,
-                                 ByVal tamaño As String, ByVal precio As Integer)
+                                 ByVal tamaño As String, ByVal precio As Single)
         ' En caso de que no exista el fichero, lo creamos
         Dim fichero As New FileStream(nombreFichero, FileMode.OpenOrCreate, FileAccess.Write)
         ' Cerramos el flujo de datos
@@ -55,14 +55,14 @@ Public Class Lectura
         <VBFixedString(15)> Public Categoria As String
         <VBFixedString(15)> Public NombreProducto As String
         <VBFixedString(8)> Public Tamaño As String
-        Public Precio As Integer
+        Public Precio As Single
 
         ' Método utilizado para inicializar con valores por defecto
         Public Sub defaultProducto()
             Categoria = "null"
             NombreProducto = "null"
             Tamaño = "null"
-            Precio = 0
+            Precio = 0.00
         End Sub
 
     End Structure
@@ -82,7 +82,7 @@ Public Class Lectura
     ' Si en el número de registro introducimos una '*' leera todos 
     Public Sub leerProducto(ByVal numeroRegistro As Integer, ByVal nombreFichero As String,
                                  ByRef categoria As String, ByRef nombre As String,
-                                 ByRef tamaño As String, ByRef precio As Integer)
+                                 ByRef tamaño As String, ByRef precio As Single)
         ' En caso de que no exista el fichero, lo creamos
         Dim fichero As New FileStream(nombreFichero, FileMode.OpenOrCreate, FileAccess.Read)
         ' Cerramos el flujo de datos

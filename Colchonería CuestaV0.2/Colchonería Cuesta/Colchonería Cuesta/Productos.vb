@@ -3,7 +3,7 @@
         <VBFixedString(15)> Public Categoria As String
         <VBFixedString(15)> Public NombreProducto As String
         <VBFixedString(8)> Public Tamaño As String
-        Public Precio As Integer
+        Public Precio As Single
 
         ' Método utilizado para inicializar con valores por defecto
         Public Sub defaultProducto()

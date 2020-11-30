@@ -252,9 +252,9 @@ Partial Class GestionPrecios
         '
         'btnNotas
         '
-        Me.btnNotas.Location = New System.Drawing.Point(253, 442)
+        Me.btnNotas.Location = New System.Drawing.Point(12, 454)
         Me.btnNotas.Name = "btnNotas"
-        Me.btnNotas.Size = New System.Drawing.Size(181, 34)
+        Me.btnNotas.Size = New System.Drawing.Size(124, 34)
         Me.btnNotas.TabIndex = 28
         Me.btnNotas.Text = "Notas"
         Me.btnNotas.UseVisualStyleBackColor = True
@@ -262,7 +262,7 @@ Partial Class GestionPrecios
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Diseño_base.My.Resources.Resources.quill_311597_960_720
-        Me.PictureBox1.Location = New System.Drawing.Point(443, 441)
+        Me.PictureBox1.Location = New System.Drawing.Point(142, 453)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(43, 35)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -273,6 +273,7 @@ Partial Class GestionPrecios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(732, 500)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnNotas)

@@ -36,32 +36,34 @@ Partial Class PantallaVentas
         Me.lbPrecioTotal = New System.Windows.Forms.Label()
         Me.btnCobro = New System.Windows.Forms.Button()
         Me.lbCajaDiaria = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.lbAdmin = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.stripGestionProductos = New System.Windows.Forms.ToolStripMenuItem()
         Me.stripGestionPerfiles = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.stripAbrirCajaDiaria = New System.Windows.Forms.ToolStripMenuItem()
+        Me.stripGuardarCaja = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.stripCerrarSesion = New System.Windows.Forms.ToolStripMenuItem()
         Me.lbCarrito = New System.Windows.Forms.Label()
         Me.lbPrecioTotalText = New System.Windows.Forms.Label()
         Me.btnNotas = New System.Windows.Forms.Button()
+        Me.lbCajaDiariaText = New System.Windows.Forms.Label()
+        Me.lbReloj = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.picboxLogo = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnQuitarProd = New System.Windows.Forms.Button()
         Me.btnAnadirprod = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.stripGuardarCaja = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.lbCajaDiariaText = New System.Windows.Forms.Label()
-        Me.lbTiempoText = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.picboxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'comboCategoria
         '
         Me.comboCategoria.FormattingEnabled = True
-        Me.comboCategoria.Location = New System.Drawing.Point(12, 56)
+        Me.comboCategoria.Location = New System.Drawing.Point(27, 174)
         Me.comboCategoria.Name = "comboCategoria"
         Me.comboCategoria.Size = New System.Drawing.Size(121, 21)
         Me.comboCategoria.TabIndex = 0
@@ -70,9 +72,9 @@ Partial Class PantallaVentas
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.Window
         Me.Button1.Enabled = False
-        Me.Button1.Location = New System.Drawing.Point(139, 213)
+        Me.Button1.Location = New System.Drawing.Point(44, 330)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(384, 223)
+        Me.Button1.Size = New System.Drawing.Size(341, 175)
         Me.Button1.TabIndex = 1
         Me.Button1.UseVisualStyleBackColor = False
         '
@@ -81,22 +83,26 @@ Partial Class PantallaVentas
         Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         Me.ImageList1.Images.SetKeyName(0, "abort-146096_640.png")
-        Me.ImageList1.Images.SetKeyName(1, "design-2381160_960_720.png")
-        Me.ImageList1.Images.SetKeyName(2, "ltipo.png")
+        Me.ImageList1.Images.SetKeyName(1, "ltipo.png")
+        Me.ImageList1.Images.SetKeyName(2, "iconfinder_user-alt_285645.png")
+        Me.ImageList1.Images.SetKeyName(3, "iconfinder_key-lock-unlock-clef_2931164.png")
+        Me.ImageList1.Images.SetKeyName(4, "iconfinder_Cash_register_103062.png")
+        Me.ImageList1.Images.SetKeyName(5, "quill-311597_960_720.png")
         '
         'lbCategoria
         '
         Me.lbCategoria.AutoSize = True
-        Me.lbCategoria.Location = New System.Drawing.Point(9, 34)
+        Me.lbCategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbCategoria.Location = New System.Drawing.Point(25, 147)
         Me.lbCategoria.Name = "lbCategoria"
-        Me.lbCategoria.Size = New System.Drawing.Size(52, 13)
+        Me.lbCategoria.Size = New System.Drawing.Size(90, 24)
         Me.lbCategoria.TabIndex = 2
         Me.lbCategoria.Text = "Categoria"
         '
         'comboNombreProd
         '
         Me.comboNombreProd.FormattingEnabled = True
-        Me.comboNombreProd.Location = New System.Drawing.Point(139, 56)
+        Me.comboNombreProd.Location = New System.Drawing.Point(154, 174)
         Me.comboNombreProd.Name = "comboNombreProd"
         Me.comboNombreProd.Size = New System.Drawing.Size(121, 21)
         Me.comboNombreProd.TabIndex = 3
@@ -104,16 +110,17 @@ Partial Class PantallaVentas
         'lbProducto
         '
         Me.lbProducto.AutoSize = True
-        Me.lbProducto.Location = New System.Drawing.Point(136, 34)
+        Me.lbProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbProducto.Location = New System.Drawing.Point(150, 147)
         Me.lbProducto.Name = "lbProducto"
-        Me.lbProducto.Size = New System.Drawing.Size(50, 13)
+        Me.lbProducto.Size = New System.Drawing.Size(86, 24)
         Me.lbProducto.TabIndex = 4
         Me.lbProducto.Text = "Producto"
         '
         'comboTamano
         '
         Me.comboTamano.FormattingEnabled = True
-        Me.comboTamano.Location = New System.Drawing.Point(266, 56)
+        Me.comboTamano.Location = New System.Drawing.Point(285, 174)
         Me.comboTamano.Name = "comboTamano"
         Me.comboTamano.Size = New System.Drawing.Size(121, 21)
         Me.comboTamano.TabIndex = 5
@@ -121,34 +128,36 @@ Partial Class PantallaVentas
         'lbTamano
         '
         Me.lbTamano.AutoSize = True
-        Me.lbTamano.Location = New System.Drawing.Point(263, 34)
+        Me.lbTamano.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbTamano.Location = New System.Drawing.Point(281, 147)
         Me.lbTamano.Name = "lbTamano"
-        Me.lbTamano.Size = New System.Drawing.Size(46, 13)
+        Me.lbTamano.Size = New System.Drawing.Size(80, 24)
         Me.lbTamano.TabIndex = 6
         Me.lbTamano.Text = "Tamaño"
         '
         'listboxCarrito
         '
         Me.listboxCarrito.FormattingEnabled = True
-        Me.listboxCarrito.Location = New System.Drawing.Point(401, 56)
+        Me.listboxCarrito.Location = New System.Drawing.Point(412, 174)
         Me.listboxCarrito.Name = "listboxCarrito"
-        Me.listboxCarrito.Size = New System.Drawing.Size(286, 121)
+        Me.listboxCarrito.Size = New System.Drawing.Size(293, 95)
         Me.listboxCarrito.TabIndex = 7
         '
         'lbPrecioTotal
         '
         Me.lbPrecioTotal.AutoSize = True
-        Me.lbPrecioTotal.Location = New System.Drawing.Point(546, 180)
+        Me.lbPrecioTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPrecioTotal.Location = New System.Drawing.Point(455, 282)
         Me.lbPrecioTotal.Name = "lbPrecioTotal"
-        Me.lbPrecioTotal.Size = New System.Drawing.Size(67, 13)
+        Me.lbPrecioTotal.Size = New System.Drawing.Size(133, 25)
         Me.lbPrecioTotal.TabIndex = 9
         Me.lbPrecioTotal.Text = "Precio Total:"
         '
         'btnCobro
         '
-        Me.btnCobro.Location = New System.Drawing.Point(529, 392)
+        Me.btnCobro.Location = New System.Drawing.Point(472, 515)
         Me.btnCobro.Name = "btnCobro"
-        Me.btnCobro.Size = New System.Drawing.Size(136, 44)
+        Me.btnCobro.Size = New System.Drawing.Size(116, 27)
         Me.btnCobro.TabIndex = 10
         Me.btnCobro.Text = "Proceder a realizar pago"
         Me.btnCobro.UseVisualStyleBackColor = True
@@ -156,29 +165,11 @@ Partial Class PantallaVentas
         'lbCajaDiaria
         '
         Me.lbCajaDiaria.AutoSize = True
-        Me.lbCajaDiaria.Location = New System.Drawing.Point(263, 529)
+        Me.lbCajaDiaria.Location = New System.Drawing.Point(256, 556)
         Me.lbCajaDiaria.Name = "lbCajaDiaria"
         Me.lbCajaDiaria.Size = New System.Drawing.Size(119, 13)
         Me.lbCajaDiaria.TabIndex = 11
         Me.lbCajaDiaria.Text = "Cuanto hemos vendido:"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(546, 529)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(73, 13)
-        Me.Label6.TabIndex = 12
-        Me.Label6.Text = "Tiempo/Hora:"
-        '
-        'lbAdmin
-        '
-        Me.lbAdmin.AutoSize = True
-        Me.lbAdmin.Location = New System.Drawing.Point(211, 550)
-        Me.lbAdmin.Name = "lbAdmin"
-        Me.lbAdmin.Size = New System.Drawing.Size(0, 13)
-        Me.lbAdmin.TabIndex = 17
-        Me.lbAdmin.Visible = False
         '
         'MenuStrip1
         '
@@ -191,19 +182,21 @@ Partial Class PantallaVentas
         '
         'ArchivoToolStripMenuItem
         '
-        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.stripGestionProductos, Me.stripGestionPerfiles, Me.ToolStripSeparator1, Me.stripGuardarCaja, Me.ToolStripSeparator2, Me.stripCerrarSesion})
+        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.stripGestionProductos, Me.stripGestionPerfiles, Me.ToolStripSeparator1, Me.stripAbrirCajaDiaria, Me.stripGuardarCaja, Me.ToolStripSeparator2, Me.stripCerrarSesion})
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
         Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
         Me.ArchivoToolStripMenuItem.Text = "Menú"
         '
         'stripGestionProductos
         '
+        Me.stripGestionProductos.Image = CType(resources.GetObject("stripGestionProductos.Image"), System.Drawing.Image)
         Me.stripGestionProductos.Name = "stripGestionProductos"
         Me.stripGestionProductos.Size = New System.Drawing.Size(181, 22)
         Me.stripGestionProductos.Text = "Gestionar productos"
         '
         'stripGestionPerfiles
         '
+        Me.stripGestionPerfiles.Image = CType(resources.GetObject("stripGestionPerfiles.Image"), System.Drawing.Image)
         Me.stripGestionPerfiles.Name = "stripGestionPerfiles"
         Me.stripGestionPerfiles.Size = New System.Drawing.Size(181, 22)
         Me.stripGestionPerfiles.Text = "Gestionar perfiles"
@@ -212,6 +205,24 @@ Partial Class PantallaVentas
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(178, 6)
+        '
+        'stripAbrirCajaDiaria
+        '
+        Me.stripAbrirCajaDiaria.Name = "stripAbrirCajaDiaria"
+        Me.stripAbrirCajaDiaria.Size = New System.Drawing.Size(181, 22)
+        Me.stripAbrirCajaDiaria.Text = "Abrir caja diaria"
+        '
+        'stripGuardarCaja
+        '
+        Me.stripGuardarCaja.Image = CType(resources.GetObject("stripGuardarCaja.Image"), System.Drawing.Image)
+        Me.stripGuardarCaja.Name = "stripGuardarCaja"
+        Me.stripGuardarCaja.Size = New System.Drawing.Size(181, 22)
+        Me.stripGuardarCaja.Text = "Guardar caja diaria"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(178, 6)
         '
         'stripCerrarSesion
         '
@@ -222,103 +233,109 @@ Partial Class PantallaVentas
         'lbCarrito
         '
         Me.lbCarrito.AutoSize = True
-        Me.lbCarrito.Location = New System.Drawing.Point(407, 40)
+        Me.lbCarrito.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbCarrito.Location = New System.Drawing.Point(408, 147)
         Me.lbCarrito.Name = "lbCarrito"
-        Me.lbCarrito.Size = New System.Drawing.Size(40, 13)
+        Me.lbCarrito.Size = New System.Drawing.Size(69, 24)
         Me.lbCarrito.TabIndex = 22
         Me.lbCarrito.Text = "Carrito:"
         '
         'lbPrecioTotalText
         '
         Me.lbPrecioTotalText.AutoSize = True
-        Me.lbPrecioTotalText.Location = New System.Drawing.Point(640, 194)
+        Me.lbPrecioTotalText.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbPrecioTotalText.Location = New System.Drawing.Point(594, 282)
         Me.lbPrecioTotalText.Name = "lbPrecioTotalText"
-        Me.lbPrecioTotalText.Size = New System.Drawing.Size(0, 13)
+        Me.lbPrecioTotalText.Size = New System.Drawing.Size(33, 25)
         Me.lbPrecioTotalText.TabIndex = 26
+        Me.lbPrecioTotalText.Text = "---"
         Me.lbPrecioTotalText.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'btnNotas
         '
-        Me.btnNotas.Location = New System.Drawing.Point(266, 491)
+        Me.btnNotas.Location = New System.Drawing.Point(6, 550)
         Me.btnNotas.Name = "btnNotas"
-        Me.btnNotas.Size = New System.Drawing.Size(181, 34)
+        Me.btnNotas.Size = New System.Drawing.Size(128, 34)
         Me.btnNotas.TabIndex = 27
         Me.btnNotas.Text = "Notas"
         Me.btnNotas.UseVisualStyleBackColor = True
         '
-        'btnQuitarProd
+        'lbCajaDiariaText
         '
-        Me.btnQuitarProd.ImageIndex = 0
-        Me.btnQuitarProd.ImageList = Me.ImageList1
-        Me.btnQuitarProd.Location = New System.Drawing.Point(529, 302)
-        Me.btnQuitarProd.Name = "btnQuitarProd"
-        Me.btnQuitarProd.Size = New System.Drawing.Size(136, 62)
-        Me.btnQuitarProd.TabIndex = 13
-        Me.btnQuitarProd.UseVisualStyleBackColor = True
+        Me.lbCajaDiariaText.AutoSize = True
+        Me.lbCajaDiariaText.Location = New System.Drawing.Point(381, 556)
+        Me.lbCajaDiariaText.Name = "lbCajaDiariaText"
+        Me.lbCajaDiariaText.Size = New System.Drawing.Size(66, 13)
+        Me.lbCajaDiariaText.TabIndex = 31
+        Me.lbCajaDiariaText.Text = "Sin caja aún"
         '
-        'btnAnadirprod
+        'lbReloj
         '
-        Me.btnAnadirprod.ImageKey = "design-2381160_960_720.png"
-        Me.btnAnadirprod.ImageList = Me.ImageList1
-        Me.btnAnadirprod.Location = New System.Drawing.Point(529, 213)
-        Me.btnAnadirprod.Name = "btnAnadirprod"
-        Me.btnAnadirprod.Size = New System.Drawing.Size(136, 70)
-        Me.btnAnadirprod.TabIndex = 8
-        Me.btnAnadirprod.UseVisualStyleBackColor = True
+        Me.lbReloj.AutoSize = True
+        Me.lbReloj.Location = New System.Drawing.Point(557, 556)
+        Me.lbReloj.Name = "lbReloj"
+        Me.lbReloj.Size = New System.Drawing.Size(31, 13)
+        Me.lbReloj.TabIndex = 32
+        Me.lbReloj.Text = "Reloj"
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1000
+        '
+        'picboxLogo
+        '
+        Me.picboxLogo.Image = CType(resources.GetObject("picboxLogo.Image"), System.Drawing.Image)
+        Me.picboxLogo.Location = New System.Drawing.Point(208, 43)
+        Me.picboxLogo.Name = "picboxLogo"
+        Me.picboxLogo.Size = New System.Drawing.Size(309, 101)
+        Me.picboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picboxLogo.TabIndex = 33
+        Me.picboxLogo.TabStop = False
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.Diseño_base.My.Resources.Resources.quill_311597_960_720
-        Me.PictureBox1.Location = New System.Drawing.Point(453, 490)
+        Me.PictureBox1.Location = New System.Drawing.Point(144, 550)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(43, 35)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 30
         Me.PictureBox1.TabStop = False
         '
-        'stripGuardarCaja
+        'btnQuitarProd
         '
-        Me.stripGuardarCaja.Name = "stripGuardarCaja"
-        Me.stripGuardarCaja.Size = New System.Drawing.Size(181, 22)
-        Me.stripGuardarCaja.Text = "Guardar caja diaria"
+        Me.btnQuitarProd.ImageIndex = 0
+        Me.btnQuitarProd.ImageList = Me.ImageList1
+        Me.btnQuitarProd.Location = New System.Drawing.Point(472, 434)
+        Me.btnQuitarProd.Name = "btnQuitarProd"
+        Me.btnQuitarProd.Size = New System.Drawing.Size(116, 45)
+        Me.btnQuitarProd.TabIndex = 13
+        Me.btnQuitarProd.UseVisualStyleBackColor = True
         '
-        'ToolStripSeparator2
+        'btnAnadirprod
         '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(178, 6)
-        '
-        'lbCajaDiariaText
-        '
-        Me.lbCajaDiariaText.AutoSize = True
-        Me.lbCajaDiariaText.Location = New System.Drawing.Point(381, 529)
-        Me.lbCajaDiariaText.Name = "lbCajaDiariaText"
-        Me.lbCajaDiariaText.Size = New System.Drawing.Size(66, 13)
-        Me.lbCajaDiariaText.TabIndex = 31
-        Me.lbCajaDiariaText.Text = "Sin caja aún"
-        '
-        'lbTiempoText
-        '
-        Me.lbTiempoText.AutoSize = True
-        Me.lbTiempoText.Location = New System.Drawing.Point(625, 529)
-        Me.lbTiempoText.Name = "lbTiempoText"
-        Me.lbTiempoText.Size = New System.Drawing.Size(0, 13)
-        Me.lbTiempoText.TabIndex = 32
+        Me.btnAnadirprod.ImageKey = "(ninguno)"
+        Me.btnAnadirprod.ImageList = Me.ImageList1
+        Me.btnAnadirprod.Location = New System.Drawing.Point(472, 330)
+        Me.btnAnadirprod.Name = "btnAnadirprod"
+        Me.btnAnadirprod.Size = New System.Drawing.Size(116, 53)
+        Me.btnAnadirprod.TabIndex = 8
+        Me.btnAnadirprod.UseVisualStyleBackColor = True
         '
         'PantallaVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(708, 598)
-        Me.Controls.Add(Me.lbTiempoText)
+        Me.Controls.Add(Me.picboxLogo)
+        Me.Controls.Add(Me.lbReloj)
         Me.Controls.Add(Me.lbCajaDiariaText)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnNotas)
         Me.Controls.Add(Me.lbPrecioTotalText)
         Me.Controls.Add(Me.lbCarrito)
-        Me.Controls.Add(Me.lbAdmin)
         Me.Controls.Add(Me.btnQuitarProd)
-        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.lbCajaDiaria)
         Me.Controls.Add(Me.btnCobro)
         Me.Controls.Add(Me.lbPrecioTotal)
@@ -337,6 +354,7 @@ Partial Class PantallaVentas
         Me.Text = "Form1"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.picboxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -356,9 +374,7 @@ Partial Class PantallaVentas
     Friend WithEvents lbPrecioTotal As Label
     Friend WithEvents btnCobro As Button
     Friend WithEvents lbCajaDiaria As Label
-    Friend WithEvents Label6 As Label
     Friend WithEvents btnQuitarProd As Button
-    Friend WithEvents lbAdmin As Label
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents ArchivoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents stripGestionProductos As ToolStripMenuItem
@@ -372,5 +388,8 @@ Partial Class PantallaVentas
     Friend WithEvents stripGuardarCaja As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents lbCajaDiariaText As Label
-    Friend WithEvents lbTiempoText As Label
+    Friend WithEvents lbReloj As Label
+    Friend WithEvents stripAbrirCajaDiaria As ToolStripMenuItem
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents picboxLogo As PictureBox
 End Class

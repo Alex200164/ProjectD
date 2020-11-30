@@ -2,6 +2,10 @@
 
     ' Método que se ejecuta al cargarse el formulario por primera vez
     Private Sub GestionPrecios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Deshabilitamos los botones hasta que el usuario introduzca algún valor en todos los campos.
+        btnAñadir.Enabled = False
+        btnModificar.Enabled = False
+        btnRetirar.Enabled = False
         ' Variables auxiliares para recoger los datos de lectura
         Dim aux As String = ""
         Dim categoria As String = ""
@@ -182,23 +186,115 @@
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtCategoria.TextChanged
+        Dim validacion As New libValidacionDatos.Validacion
+        Dim valido As Boolean
+        If txtCategoria.Text <> "" Then
+            ' Llamamos al método para validar, y le pasamos el valor 0 como argumento porque estamos comprobando la categoría
+            valido = validacion.validarCampoProducto(txtCategoria.Text, 0)
 
+            If valido Then
+
+                ' Una vez que se comprueba que los caracteres son válidos, solo falta ver si los
+                ' datos introducidos coinciden con algunos de los datos guardados en el fichero.
+
+                ' Si coincide y es usuario, no se cambiará el valor del booleano que indica 
+                ' si el usuario actual es admin a True, se mantendrá en false.
+                ' Si el usuario es admin, se cambiará a true para "enable = true" de los objetos necesarios.
+
+                ' Si los caracteres no son válidos se le indica al usuario con un MsgBox, se limpian los campos txtBox
+                ' Y se pone el focus en el nombre.
+            Else
+
+                MsgBox("Carácter inválido." & Chr(13) & "Por favor, introduzca caracteres en este campo." & Chr(13) & "Evite usar números o caracteres especiales." & Chr(13) & "Por ejemplo: %/()&1274", MsgBoxStyle.Exclamation, "Carácter inválido")
+                ' Limpiamos el campo de texto. Si me da tiempo, borrar solamente el último carácter para que el usuario
+                ' no tenga que volver a escribir todo.
+                txtCategoria.Clear()
+
+                ' Ponemos el focus en el nombre para que le sea cómodo al usuario volver a escribir.
+                txtCategoria.Focus()
+
+            End If
+        End If
     End Sub
 
     Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles txtNombre.TextChanged
+        Dim validacion As New libValidacionDatos.Validacion
+        Dim valido As Boolean
+        If txtCategoria.Text <> "" Then
+            ' Llamamos al método para validar, y le pasamos el valor 1 como argumento porque estamos comprobando el nombre.
+            valido = validacion.validarCampoProducto(txtCategoria.Text, 1)
 
+            If valido Then
+
+                ' Una vez que se comprueba que los caracteres son válidos, solo falta ver si los
+                ' datos introducidos coinciden con algunos de los datos guardados en el fichero.
+
+                ' Si coincide y es usuario, no se cambiará el valor del booleano que indica 
+                ' si el usuario actual es admin a True, se mantendrá en false.
+                ' Si el usuario es admin, se cambiará a true para "enable = true" de los objetos necesarios.
+
+                ' Si los caracteres no son válidos se le indica al usuario con un MsgBox, se limpian los campos txtBox
+                ' Y se pone el focus en el nombre.
+            Else
+
+                MsgBox("Carácter inválido." & Chr(13) & "Por favor, introduzca caracteres en este campo." & Chr(13) & "Evite usar números o caracteres especiales." & Chr(13) & "Por ejemplo: %/()&1274", MsgBoxStyle.Exclamation, "Carácter inválido")
+                ' Limpiamos el campo de texto. Si me da tiempo, borrar solamente el último carácter para que el usuario
+                ' no tenga que volver a escribir todo.
+                txtCategoria.Clear()
+
+                ' Ponemos el focus en el nombre para que le sea cómodo al usuario volver a escribir.
+                txtCategoria.Focus()
+
+            End If
+        End If
     End Sub
 
     Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles txtTamano.TextChanged
+        Dim validacion As New libValidacionDatos.Validacion
+        Dim valido As Boolean
+        If txtCategoria.Text <> "" Then
+            ' Llamamos al método para validar, y le pasamos el valor 2 como argumento porque estamos comprobando el tamaño.
+            valido = validacion.validarCampoProducto(txtCategoria.Text, 2)
 
+            If valido Then
+
+                ' Una vez que se comprueba que los caracteres son válidos, solo falta ver si los
+                ' datos introducidos coinciden con algunos de los datos guardados en el fichero.
+
+                ' Si coincide y es usuario, no se cambiará el valor del booleano que indica 
+                ' si el usuario actual es admin a True, se mantendrá en false.
+                ' Si el usuario es admin, se cambiará a true para "enable = true" de los objetos necesarios.
+
+                ' Si los caracteres no son válidos se le indica al usuario con un MsgBox, se limpian los campos txtBox
+                ' Y se pone el focus en el nombre.
+            Else
+
+                MsgBox("Carácter inválido." & Chr(13) & "Por favor, introduzca caracteres en este campo." & Chr(13) & "Evite usar números o caracteres especiales." & Chr(13) & "Por ejemplo: %/()&1274", MsgBoxStyle.Exclamation, "Carácter inválido")
+                ' Limpiamos el campo de texto. Si me da tiempo, borrar solamente el último carácter para que el usuario
+                ' no tenga que volver a escribir todo.
+                txtCategoria.Clear()
+
+                ' Ponemos el focus en el nombre para que le sea cómodo al usuario volver a escribir.
+                txtCategoria.Focus()
+
+            End If
+        End If
     End Sub
 
     Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles txtPrecio.TextChanged
+        If Not txtPrecio.Text.Equals("") And txtCategoria.Text.Equals("") And txtNombre.Text.Equals("") And txtTamano.Text.Equals("") Then
+            btnAñadir.Enabled = True
+            btnModificar.Enabled = True
+            btnRetirar.Enabled = True
+        End If
 
     End Sub
 
     Private Sub comboTamano_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboTamano.SelectedIndexChanged
 
+        If Not (comboTamano.GetItemText(comboTamano.SelectedItem).Equals("")) And (comboCategoria.GetItemText(comboCategoria.SelectedItem).Equals("") And comboProducto.GetItemText(comboProducto.SelectedItem).Equals("")) Then
+            btnModificar.Enabled = True
+        End If
         ' Introducimos en el tercer TextBox el valor seleccionado
         txtTamano.Text = comboTamano.SelectedItem
 
@@ -503,6 +599,7 @@
         txtPrecio.Clear()
         txtTamano.Clear()
         txtPrecio.Clear()
+        btnAñadir.Enabled = False
     End Sub
 
     Private Sub VolverAVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VolverAVentasToolStripMenuItem.Click

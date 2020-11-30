@@ -47,8 +47,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LecturaEscrituraArchivos">
-      <HintPath>..\LecturaEscrituraArchivos.dll</HintPath>
+    <Reference Include="LecturaEscrituraArchivos, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lectura\LecturaEscrituraArchivos\bin\Debug\LecturaEscrituraArchivos.dll</HintPath>
     </Reference>
     <Reference Include="libValidacionDatos">
       <HintPath>..\libValidacionDatos\libValidacionDatos\bin\Debug\libValidacionDatos.dll</HintPath>
@@ -90,10 +91,15 @@
     <Compile Include="GestionPrecios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InicioSesion.Designer.vb">
-      <DependentUpon>InicioSesion.vb</DependentUpon>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="InicioSesion.vb">
+    <Compile Include="PantallaInicio.Designer.vb">
+      <DependentUpon>PantallaInicio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PantallaInicio.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PantallaNotas.Designer.vb">
@@ -126,11 +132,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -146,8 +147,8 @@
     <EmbeddedResource Include="GestionPrecios.resx">
       <DependentUpon>GestionPrecios.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InicioSesion.resx">
-      <DependentUpon>InicioSesion.vb</DependentUpon>
+    <EmbeddedResource Include="PantallaInicio.resx">
+      <DependentUpon>PantallaInicio.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PantallaNotas.resx">
       <DependentUpon>PantallaNotas.vb</DependentUpon>
@@ -163,9 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +192,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\quill-311597_960_720.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ltipo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_user-alt_285645.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_key-lock-unlock-clef_2931164.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_Cash_register_103062.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -86,4 +86,11 @@ Public Class Cobro
         ' Volvemos a la pantalla de ventas.
         PantallaVentas.Show()
     End Sub
+
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        Me.Close()
+        PantallaVentas.Show()
+
+
+    End Sub
 End Class

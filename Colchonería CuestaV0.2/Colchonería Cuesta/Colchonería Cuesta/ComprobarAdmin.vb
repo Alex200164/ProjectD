@@ -6,21 +6,12 @@ Public Class ComprobarAdmin
     ' Textbox usuario
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtUsuario.TextChanged
         ' Podemos instanciar una clase de la biblioteca libValidaciones de al siguiente manera
-        Dim validarNombre As New libValidacionDatos.Validacion
+        Dim validarUsuario As New libValidacionDatos.Validacion
         Dim valido As Boolean
         'Primero vemos que ni el campo del nombre ni el campo del código estén vacíos.
 
-
-        ' Si no ponemos esta estructura condicional, al hacer txtNombre.Clear se ejecuta de nuevo el método
-        ' validarNombre, y al haber colocado un espacio en blanco (para dejar el campo nombre vacío) salta error. 
-        ' (El espacio en blanco no está incluido en el String(campo de la clase validarNombre) con todos los caracteres
-        ' permitidos en el campo nombre).
-        ' Si ponemos este "si el campo está vacío no se ejecute el método" evitamos que nos salga dos veces un mensaje de error.
         If txtUsuario.Text <> "" Then
-            ' Tomamos el último carácter introducido (hay que poner -1 o da Overflow exception)
-            ' para compararlo con la lista de caracteres permitidos.
-            ' valido = validarNombre.validarNombre(txtNombre.Text.Chars(txtNombre.Text.Length - 1))
-            valido = validarNombre.validarNombre(txtUsuario.Text)
+            valido = validarUsuario.validarUsuario(txtUsuario.Text, 0)
             ' Aún se puede introducir esto: "Hola" volver atrás e introducir un número entre los caracteres,
             ' Así que hay que solucionarlo.
             If valido Then
@@ -67,7 +58,7 @@ Public Class ComprobarAdmin
 
         If txtCodigo.Text <> "" Then
             Try
-                valido = validarCodigo.validarCodigo(txtCodigo.Text)
+                valido = validarCodigo.validarCodigo(txtCodigo.Text, 0)
             Catch ex As Exception
                 MsgBox("Se ha producido una excepción." & Chr(13) & ex.Message & Chr(13) & "Es probable que haya intentado introducir un carácter. Por favor, introduzca un número.")
             End Try

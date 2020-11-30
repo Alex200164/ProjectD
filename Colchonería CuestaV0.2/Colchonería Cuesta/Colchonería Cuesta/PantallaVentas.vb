@@ -9,7 +9,7 @@ Public Class PantallaVentas
     ' se añadó al listbox. Al darle al botón de añadir de nuevo, se reinicia el código asociado a ése botón
     ' y la variable está a 0 otra vez, por tanto no se produce la suma.
     ' HAY QUE CAMBIAR EL PRECIO A SINGLE, NO OLVIDAR!!!
-    Dim precioTotal As Integer = 0
+    Dim precioTotal As Single = 0
     Dim arrayPreciosLista As New ArrayList
 
 
@@ -26,26 +26,24 @@ Public Class PantallaVentas
     ' Método que se ejecuta al cargarse el formulario por primera vez
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Activamos el reloj.
-        lbTiempoText.Text = Now
+        lbReloj.Text = Now
 
         ' Dependiendo de si el usuario inicia como admin o no, se habilitan ciertas órdenes del menu strip 
         '(opciones en la barra de herramientas)
         ' Por ejemplo: el guardar caja y gestión de perfiles.
-        If lbAdmin.Text.Equals("*") Then
+        If PantallaInicio.lbAdmin.Text.Equals("*") Then
             ' Habilitamos botón de gestión
             stripGestionPerfiles.Enabled = True
 
             ' Si se inició la sesión como admin, permitimos guardar.
             stripGuardarCaja.Enabled = True
+            stripAbrirCajaDiaria.Enabled = True
         Else
             ' Deshabilitamos botón de gestión y guardar caja.
             stripGuardarCaja.Enabled = False
             stripGestionPerfiles.Enabled = False
+            stripAbrirCajaDiaria.Enabled = False
         End If
-
-        '
-
-
 
         ' Cargamos el comboBox1 con las categorías actualmente disponibles de productos del fichero "Productos.txt"
         ' Instanciamos la clase Escritura para acceder a los métodos que nos permiten escribir en ficheros.
@@ -68,7 +66,7 @@ Public Class PantallaVentas
         Dim categoria As String = ""
         Dim nombre As String = ""
         Dim tamaño As String = ""
-        Dim precio As Integer = 0
+        Dim precio As Single = 0
 
         ' Instanciamos la clase Lectura para acceder a los métodos que nos permitirán leer desde ficheros
         Dim lectura As New LecturaEscrituraArchivos.Lectura
@@ -134,61 +132,74 @@ Public Class PantallaVentas
         ' Accedemos al archivo auxiliar "PedidoDatosAuxiliar"
         ' Dim fichero As New FileStream("PedidoDatosAuxiliar.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite)
         ' Dim sw As New StreamWriter(fichero)
-        FileOpen(1, "Productos.txt", OpenMode.Random, OpenShare.Shared, OpenAccess.Read, 42)
-        Dim lectura As New LecturaEscrituraArchivos.Lectura
-        Dim posicion As Integer = 0
-        Dim categoria As String = comboCategoria.GetItemText(comboCategoria.SelectedItem)
-        Dim linea As String = ""
+        Try
+            FileOpen(1, "Productos.txt", OpenMode.Random, OpenShare.Shared, OpenAccess.Read, 42)
+            Dim lectura As New LecturaEscrituraArchivos.Lectura
+            Dim posicion As Integer = 0
+            Dim categoria As String = comboCategoria.GetItemText(comboCategoria.SelectedItem)
+            Dim linea As String = ""
 
-        While Not EOF(1)
-            ' No hace falta poner el último parámetro 
-            FileGet(1, producto)
-            '  MsgBox(comboCategoria.GetItemText(comboCategoria.SelectedItem))
-            '   MsgBox("categoria: " & producto.Categoria)
-            '  MsgBox("nombre producto: " & producto.NombreProducto)
-            '  MsgBox("tamaño: " & producto.Tamaño)
-            '  MsgBox("precio: " & producto.Precio)
+            While Not EOF(1)
+                ' No hace falta poner el último parámetro 
+                FileGet(1, producto)
+                '  MsgBox(comboCategoria.GetItemText(comboCategoria.SelectedItem))
+                '   MsgBox("categoria: " & producto.Categoria)
+                '  MsgBox("nombre producto: " & producto.NombreProducto)
+                '  MsgBox("tamaño: " & producto.Tamaño)
+                '  MsgBox("precio: " & producto.Precio)
 
-            If producto.Categoria.Equals(comboCategoria.GetItemText(comboCategoria.SelectedItem)) Then
-                If producto.NombreProducto.Equals(comboNombreProd.GetItemText(comboNombreProd.SelectedItem)) Then
-                    If producto.Tamaño = comboTamano.GetItemText(comboTamano.SelectedItem) Then
-                        ' Guardamos todos los campos del producto en un string
-                        linea = linea & producto.Categoria & " "
-                        linea = linea & producto.NombreProducto & " "
-                        linea = linea & producto.Tamaño & " "
-                        linea = linea & producto.Precio & " "
-                        ' que es lo que añadiremos al listbox.
+                If producto.Categoria.Equals(comboCategoria.GetItemText(comboCategoria.SelectedItem)) Then
+                    If producto.NombreProducto.Equals(comboNombreProd.GetItemText(comboNombreProd.SelectedItem)) Then
+                        If producto.Tamaño = comboTamano.GetItemText(comboTamano.SelectedItem) Then
+                            ' Guardamos todos los campos del producto en un string
+                            linea = linea & producto.Categoria & " "
+                            linea = linea & producto.NombreProducto & " "
+                            linea = linea & producto.Tamaño & " "
+                            linea = linea & producto.Precio & " "
+                            ' que es lo que añadiremos al listbox.
 
-                        ' Como lo que se guarda en el listbox es una linea de producto
-                        ' como string, con varios campos, creamos un arrayList solo para los productos.
-                        ' Para cuando tengamos que eliminar items del listbox.
+                            ' Como lo que se guarda en el listbox es una linea de producto
+                            ' como string, con varios campos, creamos un arrayList solo para los productos.
+                            ' Para cuando tengamos que eliminar items del listbox.
 
-                        ' Añadimos al arrayList el precio. Como los productos
-                        ' y por tanto sus precios se añaden de forma paralela
-                        ' en el array se guardan los precios con el índice
-                        ' correspondiente al producto en el listbox.
-                        arrayPreciosLista.Add(producto.Precio)
+                            ' Añadimos al arrayList el precio. Como los productos
+                            ' y por tanto sus precios se añaden de forma paralela
+                            ' en el array se guardan los precios con el índice
+                            ' correspondiente al producto en el listbox.
+                            arrayPreciosLista.Add(Math.Round(producto.Precio, 2))
 
-                        ' Añadimos el item al listbox, con el string con todos los datos del producto elegido.
-                        listboxCarrito.Items.Add(linea)
+                            ' Añadimos el item al listbox, con el string con todos los datos del producto elegido.
+                            listboxCarrito.Items.Add(linea)
 
-                        ' comentado:
-                        ' listboxCarrito.Items.Add(producto.Categoria)
-                        ' listboxCarrito.Items.Add(producto.NombreProducto)
-                        ' listboxCarrito.Items.Add(producto.Tamaño)
-                        ' listboxCarrito.Items.Add(producto.Precio)
+                            ' comentado:
+                            ' listboxCarrito.Items.Add(producto.Categoria)
+                            ' listboxCarrito.Items.Add(producto.NombreProducto)
+                            ' listboxCarrito.Items.Add(producto.Tamaño)
+                            ' listboxCarrito.Items.Add(producto.Precio)
 
-                        ' Actualizamos la variable precioTotal.
-                        precioTotal = precioTotal + producto.Precio
-                        ' Usamos la variable precioTotal para poner texto acualizado en el label donde se muestra
-                        ' el precio total de los productos sumados en el carrito.
-                        lbPrecioTotalText.Text = precioTotal
+                            ' Actualizamos la variable precioTotal.
+                            precioTotal = precioTotal + producto.Precio
+                            Math.Round(precioTotal, 2)
+                            ' Usamos la variable precioTotal para poner texto acualizado en el label donde se muestra
+                            ' el precio total de los productos sumados en el carrito.
+                            lbPrecioTotalText.Text = precioTotal
+                        End If
                     End If
                 End If
-            End If
-        End While
+            End While
 
-        FileClose(1)
+            FileClose(1)
+        Catch ex As Exception
+            MsgBox("Error al intentar abrir el fichero de productos para poder añadir item al carrito.", MsgBoxStyle.Exclamation, "Aviso")
+            Dim fichero = "Errorlog.txt"
+            Dim fich As New FileStream(fichero, FileMode.Append, FileAccess.Write)
+            Dim rs As New StreamWriter(fich)
+            rs.WriteLine(Now & "---> " & "Error al intentar abrir el fichero para lectura de productos." & Chr(13) & "Detalle: " & Err.Description & Chr(13) & "Número de error: " & Err.Number)
+
+            rs.Close()
+            fich.Close()
+        End Try
+
     End Sub
 
     Private Sub listboxProductos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles listboxCarrito.SelectedIndexChanged
@@ -315,7 +326,7 @@ Public Class PantallaVentas
     End Sub
 
     Private Sub GestionarProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles stripGestionProductos.Click
-
+        Me.Close()
         GestionPrecios.Show()
 
     End Sub
@@ -327,9 +338,9 @@ Public Class PantallaVentas
     End Sub
 
     Private Sub stripCerrarSesion_Click(sender As Object, e As EventArgs) Handles stripCerrarSesion.Click
-        lbAdmin.Text = ""
+        PantallaInicio.lbAdmin.Text = ""
         Me.Close()
-        InicioSesion.Show()
+        PantallaInicio.Show()
     End Sub
 
 
@@ -339,7 +350,7 @@ Public Class PantallaVentas
         If listboxCarrito.Items.Count > 0 And listboxCarrito.SelectedIndex >= 0 Then
             ' Actualizamos el precio total y el label donde mostramos el texto:        
             precioTotal = precioTotal - arrayPreciosLista(listboxCarrito.SelectedIndex)
-            lbPrecioTotalText.Text = precioTotal
+            lbPrecioTotalText.Text = Math.Round(precioTotal, 2)
             ' Quitamos el precio del arraylist también, dado que el item ya no estará en el listbox.
             arrayPreciosLista.RemoveAt(listboxCarrito.SelectedIndex)
             ' Quiamos el producto del listbox, efectivamente quitando un item.
@@ -368,8 +379,21 @@ Public Class PantallaVentas
             sw.Close()
             datosAcceso.Close()
             MsgBox("Caja diaria guardada correctamente.")
-        Catch ex As exception
+        Catch ex As Exception
         End Try
 
+    End Sub
+
+    Private Sub stripAbrirCajaDiaria_Click(sender As Object, e As EventArgs) Handles stripAbrirCajaDiaria.Click
+        Try
+            System.Diagnostics.Process.Start("cajaDiaria.txt", System.IO.Directory.GetCurrentDirectory)
+        Catch ex As Exception
+            MsgBox("No se puede abrir el archivo, es posible que no exista.", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "Aviso")
+        End Try
+
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        lbReloj.Text = DateTime.Now.ToString
     End Sub
 End Class
