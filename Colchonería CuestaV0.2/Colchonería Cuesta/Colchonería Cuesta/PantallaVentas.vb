@@ -37,14 +37,16 @@ Public Class PantallaVentas
             ' Habilitamos botón de gestión
             stripGestionPerfiles.Enabled = True
 
-            ' Si se inició la sesión como admin, permitimos guardar.
+            ' Si se inició la sesión como admin, permitimos guardar,e tc.
             stripGuardarCaja.Enabled = True
             stripAbrirCajaDiaria.Enabled = True
+            stripGestionProductos.Enabled = True
         Else
             ' Deshabilitamos botón de gestión y guardar caja.
             stripGuardarCaja.Enabled = False
             stripGestionPerfiles.Enabled = False
             stripAbrirCajaDiaria.Enabled = False
+            stripGestionProductos.Enabled = False
         End If
 
         ' Cargamos el comboBox1 con las categorías actualmente disponibles de productos del fichero "Productos.txt"

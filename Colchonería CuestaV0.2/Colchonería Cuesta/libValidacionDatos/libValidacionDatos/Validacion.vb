@@ -111,11 +111,13 @@ Public Class Validacion
     Public Function validarCodigo(codigo As String, tipo As Integer) As Boolean
         ' Si se recibe 0 se está validando contraseña en inicio de sesión. (se permiten 4 dígitos)
         ' Si se recibe 1 se está validando teléfono. (se permite 9 dígitos).
+        ' Si se recibe 2 se está validando precios en productos
 
         ' Se opta de nuevo por la solución de poner en un String los valores permitidos.
         Dim charsPosibles As String = "0123456789"
         ' Para el campo de teléfono se permite usar el carácter especial +.
         Dim charsPosiblesTelefono As String = "0123456789+"
+        Dim charsPosiblesPrecio As String = "0123456789."
         Dim valido As Boolean = False
         Dim coincidencias As Integer = 0
         Dim valorMaximo As Integer
@@ -144,6 +146,16 @@ Public Class Validacion
                 ElseIf tipo = 1 Then
                     For j = 1 To charsPosiblesTelefono.Length
                         If (GetChar(codigo, i) <> GetChar(charsPosiblesTelefono, j)) Then
+
+                        Else
+                            ' Si se encuentran el mismo número de coincidencias que caracteres contrastados hay
+                            ' entonces los datos se validan.
+                            coincidencias = coincidencias + 1
+                        End If
+                    Next j
+                ElseIf tipo = 2 Then
+                    For j = 1 To charsPosiblesPrecio.Length
+                        If (GetChar(codigo, i) <> GetChar(charsPosiblesPrecio, j)) Then
 
                         Else
                             ' Si se encuentran el mismo número de coincidencias que caracteres contrastados hay
