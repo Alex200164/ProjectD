@@ -63,7 +63,7 @@ Partial Class PantallaVentas
         'comboCategoria
         '
         Me.comboCategoria.FormattingEnabled = True
-        Me.comboCategoria.Location = New System.Drawing.Point(27, 174)
+        Me.comboCategoria.Location = New System.Drawing.Point(43, 137)
         Me.comboCategoria.Name = "comboCategoria"
         Me.comboCategoria.Size = New System.Drawing.Size(121, 21)
         Me.comboCategoria.TabIndex = 0
@@ -72,9 +72,9 @@ Partial Class PantallaVentas
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.Window
         Me.Button1.Enabled = False
-        Me.Button1.Location = New System.Drawing.Point(44, 330)
+        Me.Button1.Location = New System.Drawing.Point(57, 190)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(341, 175)
+        Me.Button1.Size = New System.Drawing.Size(320, 172)
         Me.Button1.TabIndex = 1
         Me.Button1.UseVisualStyleBackColor = False
         '
@@ -82,18 +82,19 @@ Partial Class PantallaVentas
         '
         Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "abort-146096_640.png")
-        Me.ImageList1.Images.SetKeyName(1, "ltipo.png")
-        Me.ImageList1.Images.SetKeyName(2, "iconfinder_user-alt_285645.png")
-        Me.ImageList1.Images.SetKeyName(3, "iconfinder_key-lock-unlock-clef_2931164.png")
-        Me.ImageList1.Images.SetKeyName(4, "iconfinder_Cash_register_103062.png")
-        Me.ImageList1.Images.SetKeyName(5, "quill-311597_960_720.png")
+        Me.ImageList1.Images.SetKeyName(0, "ltipo.png")
+        Me.ImageList1.Images.SetKeyName(1, "iconfinder_user-alt_285645.png")
+        Me.ImageList1.Images.SetKeyName(2, "iconfinder_key-lock-unlock-clef_2931164.png")
+        Me.ImageList1.Images.SetKeyName(3, "iconfinder_Cash_register_103062.png")
+        Me.ImageList1.Images.SetKeyName(4, "quill-311597_960_720.png")
+        Me.ImageList1.Images.SetKeyName(5, "design-2381160_960_720.png")
+        Me.ImageList1.Images.SetKeyName(6, "abort-146096_640.png")
         '
         'lbCategoria
         '
         Me.lbCategoria.AutoSize = True
         Me.lbCategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbCategoria.Location = New System.Drawing.Point(25, 147)
+        Me.lbCategoria.Location = New System.Drawing.Point(41, 110)
         Me.lbCategoria.Name = "lbCategoria"
         Me.lbCategoria.Size = New System.Drawing.Size(90, 24)
         Me.lbCategoria.TabIndex = 2
@@ -102,7 +103,7 @@ Partial Class PantallaVentas
         'comboNombreProd
         '
         Me.comboNombreProd.FormattingEnabled = True
-        Me.comboNombreProd.Location = New System.Drawing.Point(154, 174)
+        Me.comboNombreProd.Location = New System.Drawing.Point(170, 137)
         Me.comboNombreProd.Name = "comboNombreProd"
         Me.comboNombreProd.Size = New System.Drawing.Size(121, 21)
         Me.comboNombreProd.TabIndex = 3
@@ -111,7 +112,7 @@ Partial Class PantallaVentas
         '
         Me.lbProducto.AutoSize = True
         Me.lbProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbProducto.Location = New System.Drawing.Point(150, 147)
+        Me.lbProducto.Location = New System.Drawing.Point(166, 110)
         Me.lbProducto.Name = "lbProducto"
         Me.lbProducto.Size = New System.Drawing.Size(86, 24)
         Me.lbProducto.TabIndex = 4
@@ -120,7 +121,7 @@ Partial Class PantallaVentas
         'comboTamano
         '
         Me.comboTamano.FormattingEnabled = True
-        Me.comboTamano.Location = New System.Drawing.Point(285, 174)
+        Me.comboTamano.Location = New System.Drawing.Point(301, 137)
         Me.comboTamano.Name = "comboTamano"
         Me.comboTamano.Size = New System.Drawing.Size(121, 21)
         Me.comboTamano.TabIndex = 5
@@ -129,7 +130,7 @@ Partial Class PantallaVentas
         '
         Me.lbTamano.AutoSize = True
         Me.lbTamano.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbTamano.Location = New System.Drawing.Point(281, 147)
+        Me.lbTamano.Location = New System.Drawing.Point(297, 110)
         Me.lbTamano.Name = "lbTamano"
         Me.lbTamano.Size = New System.Drawing.Size(80, 24)
         Me.lbTamano.TabIndex = 6
@@ -138,7 +139,7 @@ Partial Class PantallaVentas
         'listboxCarrito
         '
         Me.listboxCarrito.FormattingEnabled = True
-        Me.listboxCarrito.Location = New System.Drawing.Point(412, 174)
+        Me.listboxCarrito.Location = New System.Drawing.Point(432, 212)
         Me.listboxCarrito.Name = "listboxCarrito"
         Me.listboxCarrito.Size = New System.Drawing.Size(293, 95)
         Me.listboxCarrito.TabIndex = 7
@@ -147,7 +148,7 @@ Partial Class PantallaVentas
         '
         Me.lbPrecioTotal.AutoSize = True
         Me.lbPrecioTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbPrecioTotal.Location = New System.Drawing.Point(455, 282)
+        Me.lbPrecioTotal.Location = New System.Drawing.Point(537, 310)
         Me.lbPrecioTotal.Name = "lbPrecioTotal"
         Me.lbPrecioTotal.Size = New System.Drawing.Size(133, 25)
         Me.lbPrecioTotal.TabIndex = 9
@@ -155,9 +156,9 @@ Partial Class PantallaVentas
         '
         'btnCobro
         '
-        Me.btnCobro.Location = New System.Drawing.Point(472, 515)
+        Me.btnCobro.Location = New System.Drawing.Point(488, 349)
         Me.btnCobro.Name = "btnCobro"
-        Me.btnCobro.Size = New System.Drawing.Size(116, 27)
+        Me.btnCobro.Size = New System.Drawing.Size(155, 50)
         Me.btnCobro.TabIndex = 10
         Me.btnCobro.Text = "Proceder a realizar pago"
         Me.btnCobro.UseVisualStyleBackColor = True
@@ -165,7 +166,7 @@ Partial Class PantallaVentas
         'lbCajaDiaria
         '
         Me.lbCajaDiaria.AutoSize = True
-        Me.lbCajaDiaria.Location = New System.Drawing.Point(256, 556)
+        Me.lbCajaDiaria.Location = New System.Drawing.Point(300, 466)
         Me.lbCajaDiaria.Name = "lbCajaDiaria"
         Me.lbCajaDiaria.Size = New System.Drawing.Size(119, 13)
         Me.lbCajaDiaria.TabIndex = 11
@@ -176,7 +177,7 @@ Partial Class PantallaVentas
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(708, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(739, 24)
         Me.MenuStrip1.TabIndex = 18
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -226,6 +227,7 @@ Partial Class PantallaVentas
         '
         'stripCerrarSesion
         '
+        Me.stripCerrarSesion.Image = CType(resources.GetObject("stripCerrarSesion.Image"), System.Drawing.Image)
         Me.stripCerrarSesion.Name = "stripCerrarSesion"
         Me.stripCerrarSesion.Size = New System.Drawing.Size(181, 22)
         Me.stripCerrarSesion.Text = "Cerrar sesión"
@@ -234,7 +236,7 @@ Partial Class PantallaVentas
         '
         Me.lbCarrito.AutoSize = True
         Me.lbCarrito.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbCarrito.Location = New System.Drawing.Point(408, 147)
+        Me.lbCarrito.Location = New System.Drawing.Point(428, 185)
         Me.lbCarrito.Name = "lbCarrito"
         Me.lbCarrito.Size = New System.Drawing.Size(69, 24)
         Me.lbCarrito.TabIndex = 22
@@ -244,7 +246,7 @@ Partial Class PantallaVentas
         '
         Me.lbPrecioTotalText.AutoSize = True
         Me.lbPrecioTotalText.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbPrecioTotalText.Location = New System.Drawing.Point(594, 282)
+        Me.lbPrecioTotalText.Location = New System.Drawing.Point(676, 310)
         Me.lbPrecioTotalText.Name = "lbPrecioTotalText"
         Me.lbPrecioTotalText.Size = New System.Drawing.Size(33, 25)
         Me.lbPrecioTotalText.TabIndex = 26
@@ -253,7 +255,7 @@ Partial Class PantallaVentas
         '
         'btnNotas
         '
-        Me.btnNotas.Location = New System.Drawing.Point(6, 550)
+        Me.btnNotas.Location = New System.Drawing.Point(45, 455)
         Me.btnNotas.Name = "btnNotas"
         Me.btnNotas.Size = New System.Drawing.Size(128, 34)
         Me.btnNotas.TabIndex = 27
@@ -263,7 +265,7 @@ Partial Class PantallaVentas
         'lbCajaDiariaText
         '
         Me.lbCajaDiariaText.AutoSize = True
-        Me.lbCajaDiariaText.Location = New System.Drawing.Point(381, 556)
+        Me.lbCajaDiariaText.Location = New System.Drawing.Point(416, 466)
         Me.lbCajaDiariaText.Name = "lbCajaDiariaText"
         Me.lbCajaDiariaText.Size = New System.Drawing.Size(66, 13)
         Me.lbCajaDiariaText.TabIndex = 31
@@ -272,7 +274,7 @@ Partial Class PantallaVentas
         'lbReloj
         '
         Me.lbReloj.AutoSize = True
-        Me.lbReloj.Location = New System.Drawing.Point(557, 556)
+        Me.lbReloj.Location = New System.Drawing.Point(568, 466)
         Me.lbReloj.Name = "lbReloj"
         Me.lbReloj.Size = New System.Drawing.Size(31, 13)
         Me.lbReloj.TabIndex = 32
@@ -286,16 +288,17 @@ Partial Class PantallaVentas
         'picboxLogo
         '
         Me.picboxLogo.Image = CType(resources.GetObject("picboxLogo.Image"), System.Drawing.Image)
-        Me.picboxLogo.Location = New System.Drawing.Point(208, 43)
+        Me.picboxLogo.Location = New System.Drawing.Point(233, 27)
         Me.picboxLogo.Name = "picboxLogo"
-        Me.picboxLogo.Size = New System.Drawing.Size(309, 101)
+        Me.picboxLogo.Size = New System.Drawing.Size(278, 83)
         Me.picboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picboxLogo.TabIndex = 33
         Me.picboxLogo.TabStop = False
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(144, 550)
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(179, 455)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(43, 35)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -304,21 +307,22 @@ Partial Class PantallaVentas
         '
         'btnQuitarProd
         '
-        Me.btnQuitarProd.ImageIndex = 0
+        Me.btnQuitarProd.ImageKey = "abort-146096_640.png"
         Me.btnQuitarProd.ImageList = Me.ImageList1
-        Me.btnQuitarProd.Location = New System.Drawing.Point(472, 434)
+        Me.btnQuitarProd.Location = New System.Drawing.Point(625, 126)
         Me.btnQuitarProd.Name = "btnQuitarProd"
-        Me.btnQuitarProd.Size = New System.Drawing.Size(116, 45)
+        Me.btnQuitarProd.Size = New System.Drawing.Size(72, 56)
         Me.btnQuitarProd.TabIndex = 13
         Me.btnQuitarProd.UseVisualStyleBackColor = True
         '
         'btnAnadirprod
         '
-        Me.btnAnadirprod.ImageKey = "(ninguno)"
+        Me.btnAnadirprod.BackgroundImage = CType(resources.GetObject("btnAnadirprod.BackgroundImage"), System.Drawing.Image)
+        Me.btnAnadirprod.ImageKey = "design-2381160_960_720.png"
         Me.btnAnadirprod.ImageList = Me.ImageList1
-        Me.btnAnadirprod.Location = New System.Drawing.Point(472, 330)
+        Me.btnAnadirprod.Location = New System.Drawing.Point(517, 126)
         Me.btnAnadirprod.Name = "btnAnadirprod"
-        Me.btnAnadirprod.Size = New System.Drawing.Size(116, 53)
+        Me.btnAnadirprod.Size = New System.Drawing.Size(69, 56)
         Me.btnAnadirprod.TabIndex = 8
         Me.btnAnadirprod.UseVisualStyleBackColor = True
         '
@@ -327,7 +331,7 @@ Partial Class PantallaVentas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.ClientSize = New System.Drawing.Size(708, 598)
+        Me.ClientSize = New System.Drawing.Size(739, 496)
         Me.Controls.Add(Me.picboxLogo)
         Me.Controls.Add(Me.lbReloj)
         Me.Controls.Add(Me.lbCajaDiariaText)
@@ -351,7 +355,7 @@ Partial Class PantallaVentas
         Me.Controls.Add(Me.MenuStrip1)
         Me.Name = "PantallaVentas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form1"
+        Me.Text = "Gestión de ventas"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.picboxLogo, System.ComponentModel.ISupportInitialize).EndInit()

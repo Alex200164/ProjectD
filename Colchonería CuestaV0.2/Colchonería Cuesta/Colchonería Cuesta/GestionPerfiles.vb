@@ -450,4 +450,8 @@ Public Class GestionPerfiles
         End If
 
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        MsgBox("Caracteres permitidos: ,'ªº\- espacios y números. ", MsgBoxStyle.Information, "Caracteres permitidos.")
+    End Sub
 End Class

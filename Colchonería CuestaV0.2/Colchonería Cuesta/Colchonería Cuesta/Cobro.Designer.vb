@@ -284,7 +284,7 @@ Partial Class Cobro
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Cobro"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form3"
+        Me.Text = "Pantalla de cobro"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)

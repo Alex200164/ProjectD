@@ -25,6 +25,8 @@ Public Class PantallaVentas
 
     ' Método que se ejecuta al cargarse el formulario por primera vez
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
         ' Activamos el reloj.
         lbReloj.Text = Now
 

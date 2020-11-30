@@ -105,7 +105,7 @@ Partial Class ComprobarAdmin
         Me.Controls.Add(Me.lbUsuario)
         Me.Name = "ComprobarAdmin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "ComprobarAdmin"
+        Me.Text = "Autenticación"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

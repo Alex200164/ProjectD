@@ -283,7 +283,7 @@ Partial Class GestionPrecios
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "GestionPrecios"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form4"
+        Me.Text = "Gestión de productos"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)

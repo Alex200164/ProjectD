@@ -24,7 +24,6 @@ Partial Class PantallaInicio
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PantallaInicio))
-        Me.picboxLogo = New System.Windows.Forms.PictureBox()
         Me.lbUsuario = New System.Windows.Forms.Label()
         Me.lbContrasena = New System.Windows.Forms.Label()
         Me.lbReloj = New System.Windows.Forms.Label()
@@ -35,17 +34,10 @@ Partial Class PantallaInicio
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.lbAdmin = New System.Windows.Forms.Label()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
+        Me.picboxLogo = New System.Windows.Forms.PictureBox()
+        Me.HelpProvider2 = New System.Windows.Forms.HelpProvider()
         CType(Me.picboxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'picboxLogo
-        '
-        Me.picboxLogo.Image = CType(resources.GetObject("picboxLogo.Image"), System.Drawing.Image)
-        Me.picboxLogo.Location = New System.Drawing.Point(98, 12)
-        Me.picboxLogo.Name = "picboxLogo"
-        Me.picboxLogo.Size = New System.Drawing.Size(647, 220)
-        Me.picboxLogo.TabIndex = 0
-        Me.picboxLogo.TabStop = False
         '
         'lbUsuario
         '
@@ -78,21 +70,21 @@ Partial Class PantallaInicio
         '
         Me.txtUsuario.Location = New System.Drawing.Point(358, 272)
         Me.txtUsuario.Name = "txtUsuario"
-        Me.txtUsuario.Size = New System.Drawing.Size(100, 20)
+        Me.txtUsuario.Size = New System.Drawing.Size(87, 20)
         Me.txtUsuario.TabIndex = 4
         '
         'txtContrasena
         '
         Me.txtContrasena.Location = New System.Drawing.Point(358, 307)
         Me.txtContrasena.Name = "txtContrasena"
-        Me.txtContrasena.Size = New System.Drawing.Size(100, 20)
+        Me.txtContrasena.Size = New System.Drawing.Size(64, 20)
         Me.txtContrasena.TabIndex = 5
         '
         'btnIniciarSesion
         '
-        Me.btnIniciarSesion.Location = New System.Drawing.Point(370, 346)
+        Me.btnIniciarSesion.Location = New System.Drawing.Point(358, 351)
         Me.btnIniciarSesion.Name = "btnIniciarSesion"
-        Me.btnIniciarSesion.Size = New System.Drawing.Size(75, 23)
+        Me.btnIniciarSesion.Size = New System.Drawing.Size(103, 42)
         Me.btnIniciarSesion.TabIndex = 6
         Me.btnIniciarSesion.Text = "&Iniciar sesión"
         Me.btnIniciarSesion.UseVisualStyleBackColor = True
@@ -104,7 +96,7 @@ Partial Class PantallaInicio
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(370, 381)
+        Me.btnSalir.Location = New System.Drawing.Point(370, 399)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(75, 23)
         Me.btnSalir.TabIndex = 7
@@ -121,7 +113,22 @@ Partial Class PantallaInicio
         '
         'HelpProvider1
         '
-        Me.HelpProvider1.HelpNamespace = "ayuda.txt"
+        Me.HelpProvider1.HelpNamespace = "C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonerí" &
+    "a Cuesta\Colchonería Cuesta\Resources\ayuda.txt"
+        '
+        'picboxLogo
+        '
+        Me.picboxLogo.Image = CType(resources.GetObject("picboxLogo.Image"), System.Drawing.Image)
+        Me.picboxLogo.Location = New System.Drawing.Point(98, 12)
+        Me.picboxLogo.Name = "picboxLogo"
+        Me.picboxLogo.Size = New System.Drawing.Size(647, 220)
+        Me.picboxLogo.TabIndex = 0
+        Me.picboxLogo.TabStop = False
+        '
+        'HelpProvider2
+        '
+        Me.HelpProvider2.HelpNamespace = "C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonerí" &
+    "a Cuesta\Colchonería Cuesta\Resources\ayuda.txt"
         '
         'PantallaInicio
         '
@@ -142,7 +149,7 @@ Partial Class PantallaInicio
         Me.Name = "PantallaInicio"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "PantallaInicio"
+        Me.Text = "Inicio de sesión"
         CType(Me.picboxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -160,4 +167,5 @@ Partial Class PantallaInicio
     Friend WithEvents btnSalir As Button
     Friend WithEvents lbAdmin As Label
     Friend WithEvents HelpProvider1 As HelpProvider
+    Friend WithEvents HelpProvider2 As HelpProvider
 End Class

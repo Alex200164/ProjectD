@@ -50,8 +50,7 @@ Partial Class GestionPerfiles
         Me.lbAdmin = New System.Windows.Forms.Label()
         Me.btnNotas = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.lbCaracPermitidos = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -267,25 +266,14 @@ Partial Class GestionPerfiles
         Me.PictureBox1.TabIndex = 30
         Me.PictureBox1.TabStop = False
         '
-        'lbCaracPermitidos
+        'Button1
         '
-        Me.lbCaracPermitidos.AutoSize = True
-        Me.lbCaracPermitidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbCaracPermitidos.Location = New System.Drawing.Point(392, 213)
-        Me.lbCaracPermitidos.Name = "lbCaracPermitidos"
-        Me.lbCaracPermitidos.Size = New System.Drawing.Size(219, 16)
-        Me.lbCaracPermitidos.TabIndex = 31
-        Me.lbCaracPermitidos.Text = "Caracteres permitidos en dirección:"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(400, 229)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(185, 20)
-        Me.Label1.TabIndex = 32
-        Me.Label1.Text = ",'ªº\- espacios y números."
+        Me.Button1.Location = New System.Drawing.Point(395, 216)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(217, 41)
+        Me.Button1.TabIndex = 33
+        Me.Button1.Text = "Ver caracteres permitidos para dirección"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'GestionPerfiles
         '
@@ -293,8 +281,7 @@ Partial Class GestionPerfiles
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(664, 399)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.lbCaracPermitidos)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnNotas)
         Me.Controls.Add(Me.lbAdmin)
@@ -317,7 +304,7 @@ Partial Class GestionPerfiles
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "GestionPerfiles"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form4"
+        Me.Text = "Gestión de perfiles"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -353,6 +340,5 @@ Partial Class GestionPerfiles
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
     Friend WithEvents btnNotas As Button
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents lbCaracPermitidos As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents Button1 As Button
 End Class
