@@ -285,7 +285,7 @@
     Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles txtPrecio.TextChanged
         Dim validarCodigo As New libValidacionDatos.Validacion
         Dim valido As Boolean
-        If Not (txtCategoria.Text.Equals("") And txtNombre.Text.Equals("") And txtTamano.Text.Equals("")) Then
+        If Not (txtCategoria.Text.Equals("") AndAlso txtNombre.Text.Equals("") AndAlso txtTamano.Text.Equals("")) Then
             btnAñadir.Enabled = True
             btnModificar.Enabled = True
             btnRetirar.Enabled = True
