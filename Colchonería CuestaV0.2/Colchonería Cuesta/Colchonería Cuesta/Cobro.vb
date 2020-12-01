@@ -87,7 +87,7 @@ Public Class Cobro
         Dim aux As String = columna
 
         ' Asignamos al label el valor de aux (que es el precio total a pagar)
-        Label3.Text = Trim(aux)
+        lbCobrado.Text = Trim(aux)
 
     End Sub
 
@@ -110,9 +110,9 @@ Public Class Cobro
 
         Dim estilo As String = "Arial"
 
-        Dim auxIVA2 As Single = (Val(Label3.Text) * 0.21)
+        Dim auxIVA2 As Single = (Val(lbCobrado.Text) * 0.21)
 
-        Dim auxIVA As Single = Val(Label3.Text) - auxIVA2
+        Dim auxIVA As Single = Val(lbCobrado.Text) - auxIVA2
 
 
         Dim auxStrinIVA As String = auxIVA
@@ -157,7 +157,7 @@ Public Class Cobro
         espacios += incremento
         ev.Graphics.DrawString("----------------------------------------------------------", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
         espacios += incremento
-        ev.Graphics.DrawString("Total:                                                   " + Label3.Text, New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        ev.Graphics.DrawString("Total:                                                   " + lbCobrado.Text, New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
         espacios += incremento
         ev.Graphics.DrawString("----------------------------------------------------------", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
         espacios += incremento
@@ -185,6 +185,8 @@ Public Class Cobro
     ' Botón para finalizar e imprimir el recibo
     Private Sub btn_finalizarImprimir_Click(sender As Object, e As EventArgs) Handles btn_finalizarImprimir.Click
 
+
+
         If (ComboBox1.SelectedItem <> "Tarjeta") Then
             If (ComboBox1.SelectedItem <> "Efectivo") Then
                 MsgBox("Debe seleccionar un método de pago. Operación abortada", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "Aviso")
@@ -199,11 +201,26 @@ Public Class Cobro
 
 
         If (Val(Label_devolver.Text) < 0) Then
-                ' Comprobamos que el cliente ha pagado lo suficiente para cubrir el precio.
-                ' En caso contrario avisamos con un mensaje 
-                MsgBox("El dinero aportado por el cliente es insuficiente.", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "Aviso")
-                Return
-            End If
+            ' Comprobamos que el cliente ha pagado lo suficiente para cubrir el precio.
+            ' En caso contrario avisamos con un mensaje 
+            MsgBox("El dinero aportado por el cliente es insuficiente.", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "Aviso")
+            Return
+        End If
+
+        ' Guardamos lo cobrado en el archivo de recaudacion diaria. 
+        ' Se guarda la línea con la fecha. 
+        Try
+            Dim datosAcceso As New FileStream("cajaDiaria.txt", FileMode.Append, FileAccess.Write)
+            Dim sw As New StreamWriter(datosAcceso)
+            sw.WriteLine(lbCobrado.Text)
+            sw.WriteLine("Guardada la caja diaria en: " & Now)
+            ' Cerramos los flujos para escribir en el log de acceso.
+            sw.Close()
+            datosAcceso.Close()
+            MsgBox("Caja diaria guardada correctamente.")
+        Catch ex As Exception
+            MsgBox("Error al intentar escribir en el archivo de caja diaria", MsgBoxStyle.OkOnly, "Aviso")
+        End Try
 
 
         ' Conexión con el archivo 
@@ -230,7 +247,7 @@ Public Class Cobro
     Private Sub TextBox_importe_TextChanged(sender As Object, e As EventArgs) Handles TextBox_importe.TextChanged
         If (banderaPago = True) Then
             ' Se realiza el calculo del importe a devolver por parte del vendedor
-            Label_numDevolver.Text = Val(TextBox_importe.Text) - Val(Label3.Text)
+            Label_numDevolver.Text = Val(TextBox_importe.Text) - Val(lbCobrado.Text)
         End If
 
     End Sub
@@ -241,7 +258,7 @@ Public Class Cobro
         If (ComboBox1.SelectedItem = "Tarjeta") Then
             Label_numDevolver.Text = "0"
             TextBox_importe.Hide()
-            TextBox_importe.Text = Label3.Text
+            TextBox_importe.Text = lbCobrado.Text
             banderaPago = False
         End If
         ' Pagar con efectivo

@@ -23,6 +23,7 @@ Partial Class Cobro
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Cobro))
         Me.btn_finalizarImprimir = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -45,12 +46,12 @@ Partial Class Cobro
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MenúToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lbCobrado = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -264,14 +265,14 @@ Partial Class Cobro
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(96, 22)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
-        'Label3
+        'lbCobrado
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(150, 67)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(39, 13)
-        Me.Label3.TabIndex = 21
-        Me.Label3.Text = "Label3"
+        Me.lbCobrado.AutoSize = True
+        Me.lbCobrado.Location = New System.Drawing.Point(150, 67)
+        Me.lbCobrado.Name = "lbCobrado"
+        Me.lbCobrado.Size = New System.Drawing.Size(39, 13)
+        Me.lbCobrado.TabIndex = 21
+        Me.lbCobrado.Text = "Label3"
         '
         'Label4
         '
@@ -282,14 +283,6 @@ Partial Class Cobro
         Me.Label4.Size = New System.Drawing.Size(129, 20)
         Me.Label4.TabIndex = 22
         Me.Label4.Text = "Método de pago:"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(0, 213)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(245, 185)
-        Me.TextBox1.TabIndex = 23
         '
         'ImageList1
         '
@@ -307,6 +300,11 @@ Partial Class Cobro
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.Visible = False
         '
+        'HelpProvider1
+        '
+        Me.HelpProvider1.HelpNamespace = "C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonerí" &
+    "a Cuesta\Colchonería Cuesta\Resources\ayuda.txt"
+        '
         'Cobro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -314,9 +312,8 @@ Partial Class Cobro
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(609, 410)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.lbCobrado)
         Me.Controls.Add(Me.Label_numDevolver)
         Me.Controls.Add(Me.Label_devolver)
         Me.Controls.Add(Me.btn_ponerPunto)
@@ -337,8 +334,10 @@ Partial Class Cobro
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btn_finalizarImprimir)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Cobro"
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Pantalla de cobro"
         Me.MenuStrip1.ResumeLayout(False)
@@ -371,10 +370,10 @@ Partial Class Cobro
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents MenúToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lbCobrado As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents ImageList1 As ImageList
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

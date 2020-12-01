@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class PantallaInicio
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class PantallaInicio
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PantallaInicio))
@@ -35,7 +35,6 @@ Partial Class PantallaInicio
         Me.lbAdmin = New System.Windows.Forms.Label()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.picboxLogo = New System.Windows.Forms.PictureBox()
-        Me.HelpProvider2 = New System.Windows.Forms.HelpProvider()
         CType(Me.picboxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -125,11 +124,6 @@ Partial Class PantallaInicio
         Me.picboxLogo.TabIndex = 0
         Me.picboxLogo.TabStop = False
         '
-        'HelpProvider2
-        '
-        Me.HelpProvider2.HelpNamespace = "C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonerí" &
-    "a Cuesta\Colchonería Cuesta\Resources\ayuda.txt"
-        '
         'PantallaInicio
         '
         Me.AcceptButton = Me.btnIniciarSesion
@@ -146,6 +140,7 @@ Partial Class PantallaInicio
         Me.Controls.Add(Me.lbContrasena)
         Me.Controls.Add(Me.lbUsuario)
         Me.Controls.Add(Me.picboxLogo)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "PantallaInicio"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -167,5 +162,4 @@ Partial Class PantallaInicio
     Friend WithEvents btnSalir As Button
     Friend WithEvents lbAdmin As Label
     Friend WithEvents HelpProvider1 As HelpProvider
-    Friend WithEvents HelpProvider2 As HelpProvider
 End Class

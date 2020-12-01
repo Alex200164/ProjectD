@@ -22,6 +22,7 @@ Partial Class GestionPerfiles
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GestionPerfiles))
         Me.lbUsuarios = New System.Windows.Forms.Label()
         Me.listboxUsuarios = New System.Windows.Forms.ListBox()
         Me.txtTelefono = New System.Windows.Forms.TextBox()
@@ -51,6 +52,7 @@ Partial Class GestionPerfiles
         Me.btnNotas = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -132,46 +134,46 @@ Partial Class GestionPerfiles
         'stripNuevo
         '
         Me.stripNuevo.Name = "stripNuevo"
-        Me.stripNuevo.Size = New System.Drawing.Size(151, 22)
+        Me.stripNuevo.Size = New System.Drawing.Size(180, 22)
         Me.stripNuevo.Text = "Nuevo usuario"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(148, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
         '
         'stripAbrir
         '
         Me.stripAbrir.Name = "stripAbrir"
-        Me.stripAbrir.Size = New System.Drawing.Size(151, 22)
+        Me.stripAbrir.Size = New System.Drawing.Size(180, 22)
         Me.stripAbrir.Text = "Abrir"
         '
         'stripEliminar
         '
         Me.stripEliminar.Name = "stripEliminar"
-        Me.stripEliminar.Size = New System.Drawing.Size(151, 22)
+        Me.stripEliminar.Size = New System.Drawing.Size(180, 22)
         Me.stripEliminar.Text = "Eliminar"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(148, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(177, 6)
         '
         'stripGuardar
         '
         Me.stripGuardar.Name = "stripGuardar"
-        Me.stripGuardar.Size = New System.Drawing.Size(151, 22)
+        Me.stripGuardar.Size = New System.Drawing.Size(180, 22)
         Me.stripGuardar.Text = "Guardar"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(148, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(177, 6)
         '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'txtUsuario
@@ -275,6 +277,11 @@ Partial Class GestionPerfiles
         Me.Button1.Text = "Ver caracteres permitidos para dirección"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'HelpProvider1
+        '
+        Me.HelpProvider1.HelpNamespace = "C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonerí" &
+    "a Cuesta\Colchonería Cuesta\Resources\ayuda.txt"
+        '
         'GestionPerfiles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -301,8 +308,10 @@ Partial Class GestionPerfiles
         Me.Controls.Add(Me.listboxUsuarios)
         Me.Controls.Add(Me.lbUsuarios)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "GestionPerfiles"
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gestión de perfiles"
         Me.MenuStrip1.ResumeLayout(False)
@@ -341,4 +350,5 @@ Partial Class GestionPerfiles
     Friend WithEvents btnNotas As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

@@ -1,0 +1,41 @@
+Por favor use cntrl+f o cntrl+b para buscar palabras clave:
+1.- Inicio de sesión
+2.- Gestion ventas
+3.- Gestión productos
+4.- Gestión perfiles
+5.- Cobro
+6.-Notas
+
+1.- Inicio de sesión:
+Consta de campo usuario y código/contraseña.
+-Usuario: permite 12 caracteres y solo permite rangos a-z A-Z. No admite caracteres especiales
+ni números.
+-Contraseña: solo permite 4 dígitos. No permite otros caracteres ni otra longitud.
+
+2.- Gestión ventas
+-Barra de herramientas: Se puede acceder a:
+>gestion de usuarios (hace falta ser administrador)
+>gestión de productos.
+>archivo de recaudación diaria
+>guardar recaudación diaria
+-Combobox/lista desplegable: Hay 3, de categoría, nombre y tamaño. 
+-Botón añadir al carrito: Añade un producto al carrito y suma su precio al total.
+-Botón eliminar: Eliminar un producto del carrito y se resta su precio del total.
+-Botón cobrar: Lleva a la pantalla de cobro.
+
+3.-Gestión de producto:
+-Categoría y nombre tienen un límite de 15 caracteres.
+-Tamaño admite punto y comilla simple, aparte de números. Ejemplo: 1.9, 1'9.
+-Precio: admite 5 dígitos y el carácter punto.
+-Botón añadir: Cuando están todos los campos rellenados, se añade el producto si no hay uno
+idéntico ya creado en el fichero donde se guardan los productos.
+-Botón modificar: al seleccionar todos los combobox, es decir un producto, se puede modificar
+el precio en el campo que se desee, y al darle al modificar, se guardarán los cambios.
+-Boton retirar: Se eliminará el producto seleccionad. Hace falta tener los 3 combobox con un item
+seleccionado.
+
+4.-Gestión de perfiles: Es necesario tener privilegios de administrador para acceder a esta pantalla.
+-El usuario admite 12 caracteres: rangos válidos a-z A-Z. Sin tildes, ni números, ni caracteres especiales
+-El nombre admite 12 caracteres. Permite tildes y espacios en blanco.
+-El apellido permite 30 caracteres. Permite tildes y espacios en blanco.
+-La dirección permite 50 caracteres. Permite algunos caracteres especiales como \, ºª y espaciose en blanco.

@@ -22,6 +22,7 @@ Partial Class GestionPrecios
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GestionPrecios))
         Me.comboCategoria = New System.Windows.Forms.ComboBox()
         Me.comboProducto = New System.Windows.Forms.ComboBox()
         Me.comboTamano = New System.Windows.Forms.ComboBox()
@@ -46,6 +47,7 @@ Partial Class GestionPrecios
         Me.VolverAVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnNotas = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -269,6 +271,11 @@ Partial Class GestionPrecios
         Me.PictureBox1.TabIndex = 29
         Me.PictureBox1.TabStop = False
         '
+        'HelpProvider1
+        '
+        Me.HelpProvider1.HelpNamespace = "C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonerí" &
+    "a Cuesta\Colchonería Cuesta\Resources\ayuda.txt"
+        '
         'GestionPrecios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -280,8 +287,10 @@ Partial Class GestionPrecios
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "GestionPrecios"
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gestión de productos"
         Me.Panel1.ResumeLayout(False)
@@ -320,4 +329,5 @@ Partial Class GestionPrecios
     Friend WithEvents VolverAVentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btnNotas As Button
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

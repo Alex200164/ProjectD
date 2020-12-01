@@ -176,10 +176,4 @@ Public Class Lectura
 
 End Class
 
-' Clase con métodos enfocados a la creación de ficheros
-Public Class Creacion
 
-
-
-
-End Class

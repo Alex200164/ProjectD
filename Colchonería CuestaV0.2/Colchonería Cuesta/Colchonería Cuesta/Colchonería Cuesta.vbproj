@@ -46,6 +46,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>PC01.ICO</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="LecturaEscrituraArchivos, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -204,6 +207,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconfinder_Cash_register_103062.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PC01.ICO" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

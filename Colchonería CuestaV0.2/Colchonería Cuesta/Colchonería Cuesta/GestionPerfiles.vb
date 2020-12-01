@@ -71,7 +71,7 @@ Public Class GestionPerfiles
             FileClose(1)
 
         Catch ex As Exception
-
+            MsgBox("Error al intentar abrir la lista de perfiles.", MsgBoxStyle.OkOnly, "Aviso")
         End Try
 
     End Sub
@@ -110,8 +110,14 @@ Public Class GestionPerfiles
             FileClose(1)
 
             stripAbrir.Enabled = False
+            ' Si los campos no están vacíos, se habilita el botón guardar.
+            If (txtUsuario.Text.Equals("") And txtContrasena.Text.Equals("") And txtNombre.Text.Equals("") And txtApellidos.Text.Equals("") And txtDireccion.Text.Equals("")) Then
+                FileClose(1)
+                stripGuardar.Enabled = True
+            End If
 
         Catch ex As Exception
+            FileClose(1)
             validacion.mensajeErrorDatos()
             validacion.errorLogWrite()
         End Try
@@ -135,7 +141,7 @@ Public Class GestionPerfiles
                 While Not EOF(1)
                     Input(1, coincidencia)
                     ' MsgBox("Coincidencia: " & coincidencia & " lo otro: " & listboxUsuarios.GetItemText(listboxUsuarios.SelectedItem))
-                    If listboxUsuarios.GetItemText(listboxUsuarios.SelectedItem).Equals(coincidencia) Or txtUsuario.Text.Equals(coincidencia) Then
+                    If listboxUsuarios.GetItemText(listboxUsuarios.SelectedItem).Equals(coincidencia) And txtUsuario.Text.Equals(coincidencia) Then
                         MsgBox("El usuario ya existe. Por favor, bórrelo y cree uno nuevo si desea hacer cambios.", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "Aviso")
                         FileClose(1)
                         libre = False
@@ -170,60 +176,74 @@ Public Class GestionPerfiles
     ' Eliminar
     Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles stripEliminar.Click
         FileOpen(1, "usuarios.txt", OpenMode.Input)
-
+        Dim a As Integer = 0 ' usado para recibir el resultado de msgbox que pregunta si estamos seguros de querer borrar un usuario.
         Dim coincidencia As String = ""
         Dim datos As New ArrayList
 
-        While Not EOF(1)
-            Input(1, coincidencia)
-            ' Una vez encontraodo el usuario, empezamos a iterar desde el principio, por eso cerramos
-            ' y volvemos a abrir el archivo.
-            If listboxUsuarios.GetItemText(listboxUsuarios.SelectedItem).Equals(coincidencia) Then
-                ' Nos saltamos el añadir estos datos al nuevo fichero     
-
-                Input(1, usuario.contrasena)
-                Input(1, usuario.nombre)
-                Input(1, usuario.apellidos)
-                Input(1, usuario.direccion)
-                Input(1, usuario.telefono)
-                Input(1, usuario.admin)
-            Else
-                '  MsgBox("Guardando la nueva lista de usuarios.")
-                Input(1, usuario.contrasena)
-                Input(1, usuario.nombre)
-                Input(1, usuario.apellidos)
-                Input(1, usuario.direccion)
-                Input(1, usuario.telefono)
-                Input(1, usuario.admin)
-
-                ' Añadimos los datos al array
-                datos.Add(coincidencia)
-                datos.Add(usuario.contrasena)
-                datos.Add(usuario.nombre)
-                datos.Add(usuario.apellidos)
-                datos.Add(usuario.direccion)
-                datos.Add(usuario.telefono)
-                datos.Add(usuario.admin)
-            End If
+        If listboxUsuarios.GetItemText(listboxUsuarios.SelectedItem).Equals("admin") Then
+            MsgBox("No se puede borrar el administrador", MsgBoxStyle.Information, "Aviso")
+        Else
 
 
-        End While
-        FileClose(1)
+            a = MsgBox("¿Seguro que desea eliminar el usuario?", MsgBoxStyle.YesNo + MsgBoxStyle.Exclamation, "Aviso")
+            If a = 6 Then
 
-        ' Pasamos a sobreescribir el archivo con los datos menos el que se quería borrar.
-        FileOpen(1, "usuarios.txt", OpenMode.Output)
 
-        For i = 0 To datos.Count - 1
+                While Not EOF(1)
+                    Input(1, coincidencia)
+                    ' Una vez encontraodo el usuario, empezamos a iterar desde el principio, por eso cerramos
+                    ' y volvemos a abrir el archivo.
+                    If listboxUsuarios.GetItemText(listboxUsuarios.SelectedItem).Equals(coincidencia) Then
+                        ' Nos saltamos el añadir estos datos al nuevo fichero     
 
-            Write(1, datos.Item(i))
-        Next i
-        FileClose(1)
+                        Input(1, usuario.contrasena)
+                        Input(1, usuario.nombre)
+                        Input(1, usuario.apellidos)
+                        Input(1, usuario.direccion)
+                        Input(1, usuario.telefono)
+                        Input(1, usuario.admin)
+                    Else
+                        '  MsgBox("Guardando la nueva lista de usuarios.")
+                        Input(1, usuario.contrasena)
+                        Input(1, usuario.nombre)
+                        Input(1, usuario.apellidos)
+                        Input(1, usuario.direccion)
+                        Input(1, usuario.telefono)
+                        Input(1, usuario.admin)
 
-        ' Limpiamos el listbox y volvemos a rellenarlo, actualizando la lista de usuarios.
-        listboxUsuarios.Items.Clear()
-        AbrirToolStripMenuItem_Click(sender, e)
+                        ' Añadimos los datos al array
+                        datos.Add(coincidencia)
+                        datos.Add(usuario.contrasena)
+                        datos.Add(usuario.nombre)
+                        datos.Add(usuario.apellidos)
+                        datos.Add(usuario.direccion)
+                        datos.Add(usuario.telefono)
+                        datos.Add(usuario.admin)
+                    End If
 
-        stripEliminar.Enabled = False
+
+                End While
+                FileClose(1)
+
+                ' Pasamos a sobreescribir el archivo con los datos menos el que se quería borrar.
+                FileOpen(1, "usuarios.txt", OpenMode.Output)
+
+                For i = 0 To datos.Count - 1
+
+                    Write(1, datos.Item(i))
+                Next i
+                FileClose(1)
+
+                ' Limpiamos el listbox y volvemos a rellenarlo, actualizando la lista de usuarios.
+                listboxUsuarios.Items.Clear()
+                AbrirToolStripMenuItem_Click(sender, e)
+
+                stripEliminar.Enabled = False
+            ElseIf a = 7 Then
+                MsgBox("No se ha borrado ningún perfil.", 0, "Informaión")
+
+            End If ' fin de la estructura condicional para que el usuario se asegure de si borra o no perfil
+        End If ' fin del primer if, para controlar si se está intentando borrar al admin.
     End Sub
 
     ' Salir
@@ -413,12 +433,13 @@ Public Class GestionPerfiles
         End If
     End Sub
 
+    ' Texto teléfono
     Private Sub txtTelefono_TextChanged(sender As Object, e As EventArgs) Handles txtTelefono.TextChanged
         Dim validarCodigo As New libValidacionDatos.Validacion
         Dim valido As Boolean
 
         ' Si los campos no están vacíos, se habilita el botón guardar.
-        If Not txtUsuario.Text.Equals("") And txtContrasena.Text.Equals("") And txtNombre.Text.Equals("") And txtApellidos.Text.Equals("") And txtDireccion.Text.Equals("") And txtTelefono.Text.Equals("") Then
+        If Not (txtUsuario.Text.Equals("") And txtContrasena.Text.Equals("") And txtNombre.Text.Equals("") And txtApellidos.Text.Equals("") And txtDireccion.Text.Equals("")) And listboxUsuarios.Items.Count > 0 Then
             stripGuardar.Enabled = True
         End If
 

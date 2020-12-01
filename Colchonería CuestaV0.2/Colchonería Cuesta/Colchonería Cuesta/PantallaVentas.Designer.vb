@@ -57,6 +57,7 @@ Partial Class PantallaVentas
         Me.picboxLogo = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picboxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -158,7 +159,7 @@ Partial Class PantallaVentas
         '
         'btnCobro
         '
-        Me.btnCobro.Location = New System.Drawing.Point(488, 349)
+        Me.btnCobro.Location = New System.Drawing.Point(542, 363)
         Me.btnCobro.Name = "btnCobro"
         Me.btnCobro.Size = New System.Drawing.Size(155, 50)
         Me.btnCobro.TabIndex = 10
@@ -211,6 +212,7 @@ Partial Class PantallaVentas
         '
         'stripAbrirCajaDiaria
         '
+        Me.stripAbrirCajaDiaria.Image = CType(resources.GetObject("stripAbrirCajaDiaria.Image"), System.Drawing.Image)
         Me.stripAbrirCajaDiaria.Name = "stripAbrirCajaDiaria"
         Me.stripAbrirCajaDiaria.Size = New System.Drawing.Size(181, 22)
         Me.stripAbrirCajaDiaria.Text = "Abrir caja diaria"
@@ -221,6 +223,7 @@ Partial Class PantallaVentas
         Me.stripGuardarCaja.Name = "stripGuardarCaja"
         Me.stripGuardarCaja.Size = New System.Drawing.Size(181, 22)
         Me.stripGuardarCaja.Text = "Guardar caja diaria"
+        Me.stripGuardarCaja.Visible = False
         '
         'ToolStripSeparator2
         '
@@ -348,6 +351,11 @@ Partial Class PantallaVentas
         Me.Label2.TabIndex = 36
         Me.Label2.Text = "0"
         '
+        'HelpProvider1
+        '
+        Me.HelpProvider1.HelpNamespace = "C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonerí" &
+    "a Cuesta\Colchonería Cuesta\Resources\ayuda.txt"
+        '
         'PantallaVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -377,7 +385,9 @@ Partial Class PantallaVentas
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.comboCategoria)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "PantallaVentas"
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gestión de ventas"
         Me.MenuStrip1.ResumeLayout(False)
@@ -422,4 +432,5 @@ Partial Class PantallaVentas
     Friend WithEvents picboxLogo As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

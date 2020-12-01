@@ -22,6 +22,7 @@ Partial Class PantallaNotas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PantallaNotas))
         Me.txtNotas = New System.Windows.Forms.TextBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MenúToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -32,6 +33,7 @@ Partial Class PantallaNotas
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.lbEspacioNotas = New System.Windows.Forms.Label()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -102,6 +104,11 @@ Partial Class PantallaNotas
         Me.lbEspacioNotas.TabIndex = 2
         Me.lbEspacioNotas.Text = "Espacio para notas:"
         '
+        'HelpProvider1
+        '
+        Me.HelpProvider1.HelpNamespace = "C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonerí" &
+    "a Cuesta\Colchonería Cuesta\Resources\ayuda.txt"
+        '
         'PantallaNotas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -111,8 +118,10 @@ Partial Class PantallaNotas
         Me.Controls.Add(Me.lbEspacioNotas)
         Me.Controls.Add(Me.txtNotas)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "PantallaNotas"
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Notas"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
@@ -131,4 +140,5 @@ Partial Class PantallaNotas
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents AbrirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents lbEspacioNotas As Label
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

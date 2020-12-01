@@ -2,3 +2,5 @@
 29/11/2020 3:37:47---> Error en la comprobación de datos.Detalle: El proceso no puede obtener acceso al archivo 'C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\usuarios.txt' porque está siendo utilizado en otro proceso.Número de error: 75
 29/11/2020 3:37:50---> Error en la comprobación de datos.Detalle: El proceso no puede obtener acceso al archivo 'C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\usuarios.txt' porque está siendo utilizado en otro proceso.Número de error: 75
 29/11/2020 3:37:50---> Error en la comprobación de datos.Detalle: El proceso no puede obtener acceso al archivo 'C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\Colchonería Cuesta\bin\Debug\usuarios.txt' porque está siendo utilizado en otro proceso.Número de error: 75
+01/12/2020 2:10:01---> Error en la comprobación de datos.Detalle: El archivo ya está abierto.Número de error: 55
+01/12/2020 2:10:05---> Error en la comprobación de datos.Detalle: El archivo ya está abierto.Número de error: 55

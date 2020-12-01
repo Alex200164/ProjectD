@@ -406,6 +406,9 @@ Public Class PantallaVentas
     End Sub
 
     Private Sub stripGuardarCaja_Click(sender As Object, e As EventArgs) Handles stripGuardarCaja.Click
+        ' Invisible porque no se ha podido implementar. 
+        ' Actualmente se guarda en el archivo de recaudación diaria al cobrar al cliente. 
+        ' Al pulsar el botón de finalizar en la pantalla de cobro.
         Try
             Dim datosAcceso As New FileStream("cajaDiaria.txt", FileMode.Append, FileAccess.Write)
             Dim sw As New StreamWriter(datosAcceso)
@@ -416,6 +419,7 @@ Public Class PantallaVentas
             datosAcceso.Close()
             MsgBox("Caja diaria guardada correctamente.")
         Catch ex As Exception
+            MsgBox("Error al intentar escribir en el archivo de caja diaria", MsgBoxStyle.OkOnly, "Aviso")
         End Try
 
     End Sub
