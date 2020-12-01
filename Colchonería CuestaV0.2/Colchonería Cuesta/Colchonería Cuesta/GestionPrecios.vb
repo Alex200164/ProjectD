@@ -289,7 +289,7 @@
             btnAñadir.Enabled = True
             btnModificar.Enabled = True
             btnRetirar.Enabled = True
-            MsgBox("hey")
+
         End If
         If txtPrecio.Text <> "" Then
             Try
@@ -374,6 +374,11 @@
         txtTamano.Clear()
         txtPrecio.Clear()
 
+        btnAñadir.Enabled = False
+        btnBorrar.Enabled = False
+        btnModificar.Enabled = False
+        btnRetirar.Enabled = False
+
     End Sub
 
     ' Método que se ejecuta la presionar el botón de "Añadir producto"
@@ -424,10 +429,18 @@
         ' Actualizamos los comboBox
         actualizarDatosComboBox()
 
+
     End Sub
 
     ' Método que se ejecuta al presionar el botón de "Retirar producto"
     Private Sub btnRetirar_Click(sender As Object, e As EventArgs) Handles btnRetirar.Click
+
+        Dim codigoRespuesta As Single = MsgBox("¿Está seguro de que desea retirar el producto?", MsgBoxStyle.OkCancel + MsgBoxStyle.Question, "Confirmación")
+
+        If (codigoRespuesta = 2) Then
+            MsgBox("Operación abortada", MsgBoxStyle.OkOnly + MsgBoxStyle.Information, "Información")
+            Return
+        End If
 
         ' Cogemos los datos y los introducimos en el fichero "Productos_Auxiliar.txt"
 
@@ -497,10 +510,20 @@
         ' Actualizamos los comboBox
         actualizarDatosComboBox()
 
+
+
+
     End Sub
 
     ' Método que se ejecuta al presionar el botón de "Modificar producto"
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+
+        Dim codigoRespuesta As Single = MsgBox("¿Está seguro de que desea modificar el producto?", MsgBoxStyle.OkCancel + MsgBoxStyle.Question, "Confirmación")
+
+        If (codigoRespuesta = 2) Then
+            MsgBox("Operación abortada", MsgBoxStyle.OkOnly + MsgBoxStyle.Information, "Información")
+            Return
+        End If
 
         ' Instanciamos la clase Lectura para acceder a los métodos que nos permitirán leer desde ficheros
         Dim lectura As New LecturaEscrituraArchivos.Lectura
@@ -547,6 +570,7 @@
 
         ' Actualizamos los comboBox con la información nueva
         actualizarDatosComboBox()
+
 
     End Sub
 
@@ -627,7 +651,12 @@
         txtPrecio.Clear()
         txtTamano.Clear()
         txtPrecio.Clear()
+
+        ' Se reinician los botones
         btnAñadir.Enabled = False
+        btnBorrar.Enabled = False
+        btnModificar.Enabled = False
+        btnRetirar.Enabled = False
     End Sub
 
     Private Sub VolverAVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VolverAVentasToolStripMenuItem.Click

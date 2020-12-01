@@ -22,6 +22,7 @@ Partial Class Cobro
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.btn_finalizarImprimir = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -48,7 +49,10 @@ Partial Class Cobro
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btn_finalizarImprimir
@@ -88,6 +92,7 @@ Partial Class Cobro
         Me.TextBox_importe.Name = "TextBox_importe"
         Me.TextBox_importe.Size = New System.Drawing.Size(100, 24)
         Me.TextBox_importe.TabIndex = 4
+        Me.TextBox_importe.Text = "0"
         '
         'ComboBox1
         '
@@ -286,12 +291,29 @@ Partial Class Cobro
         Me.TextBox1.Size = New System.Drawing.Size(245, 185)
         Me.TextBox1.TabIndex = 23
         '
+        'ImageList1
+        '
+        Me.ImageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Diseño_base.My.Resources.Resources.ltipo2
+        Me.PictureBox1.Location = New System.Drawing.Point(89, 259)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(100, 50)
+        Me.PictureBox1.TabIndex = 24
+        Me.PictureBox1.TabStop = False
+        Me.PictureBox1.Visible = False
+        '
         'Cobro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(609, 410)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -321,6 +343,7 @@ Partial Class Cobro
         Me.Text = "Pantalla de cobro"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -352,4 +375,6 @@ Partial Class Cobro
     Friend WithEvents Label4 As Label
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents ImageList1 As ImageList
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

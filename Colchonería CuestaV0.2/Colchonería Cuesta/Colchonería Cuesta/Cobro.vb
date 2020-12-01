@@ -5,6 +5,10 @@ Public Class Cobro
 
     Dim banderaPago As Boolean = False
 
+    Public stringTicket As String = ""
+
+    Public numeroRegistros As Single = 0
+
     ' Botón cero
     Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
         TextBox_importe.Text = TextBox_importe.Text + "0"
@@ -68,11 +72,12 @@ Public Class Cobro
     ' Se ejecuta al cargarse el formulario
     Private Sub Cobro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TextBox_importe.Focus()
+        Label_numDevolver.Text = 0
 
         ' Instanciamos la clase Lectura para acceder a los métodos que nos permitirán leer desde ficheros
         Dim lectura As New LecturaEscrituraArchivos.Lectura
 
-        ' Accedemos al archivo "Productos.txt" y extraemos el número de registros con los que cuenta
+        ' Accedemos al archivo "Cobro_Aux.txt" y extraemos el número de registros con los que cuenta
         Dim numeroRegistros As Integer = lectura.numeroRegistros("Cobro_Aux.txt")
         ' Contendrá el valor de los registros que extraigamos del fichero Cobro_Aux.txt
         Dim columna As String = ""
@@ -84,60 +89,108 @@ Public Class Cobro
         ' Asignamos al label el valor de aux (que es el precio total a pagar)
         Label3.Text = Trim(aux)
 
-        ' Borramos el fichero "Cobro_Aux.txt"
-        My.Computer.FileSystem.DeleteFile("Cobro_Aux.txt")
-
     End Sub
 
     ' Para imprimir
     Private Sub ticket(ByVal sender As Object, ByVal ev As PrintPageEventArgs)
 
-        ev.Graphics.DrawString("Colchoneria CUESTA", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 120)
-        ev.Graphics.DrawString("Calle Vallehermoso, 42", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 150)
-        ev.Graphics.DrawString("Telef. 91 593 22 15", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 180)
-        ev.Graphics.DrawString("Telef. 605 689 166", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 210)
-        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 240)
+        ' Instanciamos la clase Lectura para acceder a los métodos que nos permitirán leer desde ficheros
+        Dim lectura As New LecturaEscrituraArchivos.Lectura
 
-        ev.Graphics.DrawString("Fecha: 11-30-2020", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 270)
-        ev.Graphics.DrawString("Hora: 21:15:31", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 300)
+        ' Accedemos al archivo "Cobro_Aux.txt" y extraemos el número de registros con los que cuenta
+        Dim numeroRegistros As Integer = lectura.numeroRegistros("Cobro_Aux.txt")
 
-        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 330)
+        ' Contendrá el valor de los registros que extraigamos del fichero Cobro_Aux.txt
+        Dim columna As String = ""
+        ' Leemos
+        lectura.leerProducto_ListBox(1, "Cobro_Aux.txt", columna)
 
-        ev.Graphics.DrawString("Cant. Nombre         Precio Total", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 360)
-        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 390)
+        Dim espacios As Single = 120
+        Dim incremento As Single = 25
 
-        ev.Graphics.DrawString("Producto", New Font("Arial", 14, FontStyle.Regular), Brushes.Black, 120, 420)
+        Dim estilo As String = "Arial"
 
-        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 450)
+        Dim auxIVA2 As Single = (Val(Label3.Text) * 0.21)
 
-        ev.Graphics.DrawString("Subtotal:", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 480)
-        ev.Graphics.DrawString("21% IVA", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 510)
+        Dim auxIVA As Single = Val(Label3.Text) - auxIVA2
 
-        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 540)
 
-        ev.Graphics.DrawString("Total:     43000", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 570)
+        Dim auxStrinIVA As String = auxIVA
 
-        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 600)
+        ' Imprimimos Imagen
 
-        ev.Graphics.DrawString("Cantidad entregada:  5000", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 630)
-        ev.Graphics.DrawString("Cambio: 700", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 660)
+        ev.Graphics.DrawImage((PictureBox1.Image), 180, espacios, 220, 60)
 
-        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 690)
-        ev.Graphics.DrawString("---- Gracias por su visita ----", New Font("Courier new", 12, FontStyle.Regular), Brushes.Black, 120, 720)
-        ev.Graphics.DrawString("-------------------", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 750)
-        ev.Graphics.DrawString("Colchonería CUESTA S.L.", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 780)
-        ev.Graphics.DrawString("CIF: B83821652", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 810)
-        ev.Graphics.DrawString("C/Fuencaral, 84, 28004", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 840)
-        ev.Graphics.DrawString("Madrid, Madrid", New Font("Courier new", 14, FontStyle.Regular), Brushes.Black, 120, 870)
-
+        ' Imprimimos Texto
+        espacios += 70
+        ev.Graphics.DrawString("           Colchoneria CUESTA    ", New Font(estilo, 14, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("                Calle Vallehermoso, 42    ", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("                  Telef. 91 593 22 15    ", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("                  Telef. 605 689 166    ", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("----------------------------------------------------------", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("Factura simplificada", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("Fecha: " + Now.ToLocalTime, New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("----------------------------------------------------------", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("Categoria    Nombre              tama.   Precio", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("----------------------------------------------------------", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString(stringTicket, New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        If (numeroRegistros >= 4) Then
+            espacios += numeroRegistros * 18
+        ElseIf (numeroRegistros < 4) Then
+            espacios += numeroRegistros * 15
+        End If
+        ev.Graphics.DrawString("----------------------------------------------------------", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("Subtotal:                                              " + auxStrinIVA, New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("21% IVA", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("----------------------------------------------------------", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("Total:                                                   " + Label3.Text, New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("----------------------------------------------------------", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("Cantidad entregada:                            " + TextBox_importe.Text, New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("Cambio:                                               " + Label_numDevolver.Text, New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("----------------------------------------------------------", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("      -------- Gracias por su visita --------           ", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("----------------------------------------------------------", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("            Colchonería CUESTA S.L.", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("                CIF: B83821652", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("            C/Fuencaral, 84, 28004", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
+        espacios += incremento
+        ev.Graphics.DrawString("                  Madrid, Madrid", New Font(estilo, 12, FontStyle.Regular), Brushes.Black, 120, espacios)
 
         ev.HasMorePages = False
-
     End Sub
 
     ' Botón para finalizar e imprimir el recibo
     Private Sub btn_finalizarImprimir_Click(sender As Object, e As EventArgs) Handles btn_finalizarImprimir.Click
 
+        If (ComboBox1.SelectedItem <> "Tarjeta") Then
+            If (ComboBox1.SelectedItem <> "Efectivo") Then
+                MsgBox("Debe seleccionar un método de pago. Operación abortada", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "Aviso")
+                Return
+            End If
+        End If
 
         ' Imprimir
         AddHandler PrintDocument1.PrintPage, AddressOf Me.ticket
@@ -153,12 +206,15 @@ Public Class Cobro
             End If
 
 
-            ' Conexión con el archivo 
-            ' Dim Variable As New FileStream("")
-            ' Imprimir...
+        ' Conexión con el archivo 
+        ' Dim Variable As New FileStream("")
+        ' Imprimir...
 
-            ' Cerramos la pantalla de gestión de cobros
-            Me.Close()
+        ' Borramos el fichero "Cobro_Aux.txt"
+        My.Computer.FileSystem.DeleteFile("Cobro_Aux.txt")
+
+        ' Cerramos la pantalla de gestión de cobros
+        Me.Close()
         ' Volvemos a la pantalla de ventas.
         PantallaVentas.Show()
     End Sub
@@ -185,6 +241,7 @@ Public Class Cobro
         If (ComboBox1.SelectedItem = "Tarjeta") Then
             Label_numDevolver.Text = "0"
             TextBox_importe.Hide()
+            TextBox_importe.Text = Label3.Text
             banderaPago = False
         End If
         ' Pagar con efectivo

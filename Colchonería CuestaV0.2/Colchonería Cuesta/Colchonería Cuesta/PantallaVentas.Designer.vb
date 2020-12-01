@@ -51,19 +51,21 @@ Partial Class PantallaVentas
         Me.lbCajaDiariaText = New System.Windows.Forms.Label()
         Me.lbReloj = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.picboxLogo = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnQuitarProd = New System.Windows.Forms.Button()
         Me.btnAnadirprod = New System.Windows.Forms.Button()
+        Me.picboxLogo = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
-        CType(Me.picboxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picboxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'comboCategoria
         '
         Me.comboCategoria.FormattingEnabled = True
-        Me.comboCategoria.Location = New System.Drawing.Point(43, 137)
+        Me.comboCategoria.Location = New System.Drawing.Point(14, 137)
         Me.comboCategoria.Name = "comboCategoria"
         Me.comboCategoria.Size = New System.Drawing.Size(121, 21)
         Me.comboCategoria.TabIndex = 0
@@ -94,7 +96,7 @@ Partial Class PantallaVentas
         '
         Me.lbCategoria.AutoSize = True
         Me.lbCategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbCategoria.Location = New System.Drawing.Point(41, 110)
+        Me.lbCategoria.Location = New System.Drawing.Point(12, 110)
         Me.lbCategoria.Name = "lbCategoria"
         Me.lbCategoria.Size = New System.Drawing.Size(90, 24)
         Me.lbCategoria.TabIndex = 2
@@ -103,7 +105,7 @@ Partial Class PantallaVentas
         'comboNombreProd
         '
         Me.comboNombreProd.FormattingEnabled = True
-        Me.comboNombreProd.Location = New System.Drawing.Point(170, 137)
+        Me.comboNombreProd.Location = New System.Drawing.Point(141, 137)
         Me.comboNombreProd.Name = "comboNombreProd"
         Me.comboNombreProd.Size = New System.Drawing.Size(121, 21)
         Me.comboNombreProd.TabIndex = 3
@@ -112,7 +114,7 @@ Partial Class PantallaVentas
         '
         Me.lbProducto.AutoSize = True
         Me.lbProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbProducto.Location = New System.Drawing.Point(166, 110)
+        Me.lbProducto.Location = New System.Drawing.Point(137, 110)
         Me.lbProducto.Name = "lbProducto"
         Me.lbProducto.Size = New System.Drawing.Size(86, 24)
         Me.lbProducto.TabIndex = 4
@@ -121,7 +123,7 @@ Partial Class PantallaVentas
         'comboTamano
         '
         Me.comboTamano.FormattingEnabled = True
-        Me.comboTamano.Location = New System.Drawing.Point(301, 137)
+        Me.comboTamano.Location = New System.Drawing.Point(272, 137)
         Me.comboTamano.Name = "comboTamano"
         Me.comboTamano.Size = New System.Drawing.Size(121, 21)
         Me.comboTamano.TabIndex = 5
@@ -130,7 +132,7 @@ Partial Class PantallaVentas
         '
         Me.lbTamano.AutoSize = True
         Me.lbTamano.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbTamano.Location = New System.Drawing.Point(297, 110)
+        Me.lbTamano.Location = New System.Drawing.Point(268, 110)
         Me.lbTamano.Name = "lbTamano"
         Me.lbTamano.Size = New System.Drawing.Size(80, 24)
         Me.lbTamano.TabIndex = 6
@@ -285,16 +287,6 @@ Partial Class PantallaVentas
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'picboxLogo
-        '
-        Me.picboxLogo.Image = CType(resources.GetObject("picboxLogo.Image"), System.Drawing.Image)
-        Me.picboxLogo.Location = New System.Drawing.Point(233, 27)
-        Me.picboxLogo.Name = "picboxLogo"
-        Me.picboxLogo.Size = New System.Drawing.Size(278, 83)
-        Me.picboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picboxLogo.TabIndex = 33
-        Me.picboxLogo.TabStop = False
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
@@ -326,12 +318,44 @@ Partial Class PantallaVentas
         Me.btnAnadirprod.TabIndex = 8
         Me.btnAnadirprod.UseVisualStyleBackColor = True
         '
+        'picboxLogo
+        '
+        Me.picboxLogo.Image = CType(resources.GetObject("picboxLogo.Image"), System.Drawing.Image)
+        Me.picboxLogo.Location = New System.Drawing.Point(233, 27)
+        Me.picboxLogo.Name = "picboxLogo"
+        Me.picboxLogo.Size = New System.Drawing.Size(278, 83)
+        Me.picboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picboxLogo.TabIndex = 33
+        Me.picboxLogo.TabStop = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(402, 110)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(69, 24)
+        Me.Label1.TabIndex = 35
+        Me.Label1.Text = "Precio "
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(402, 137)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(20, 24)
+        Me.Label2.TabIndex = 36
+        Me.Label2.Text = "0"
+        '
         'PantallaVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(739, 496)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.picboxLogo)
         Me.Controls.Add(Me.lbReloj)
         Me.Controls.Add(Me.lbCajaDiariaText)
@@ -358,8 +382,8 @@ Partial Class PantallaVentas
         Me.Text = "Gestión de ventas"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        CType(Me.picboxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picboxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -396,4 +420,6 @@ Partial Class PantallaVentas
     Friend WithEvents stripAbrirCajaDiaria As ToolStripMenuItem
     Friend WithEvents Timer1 As Timer
     Friend WithEvents picboxLogo As PictureBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class

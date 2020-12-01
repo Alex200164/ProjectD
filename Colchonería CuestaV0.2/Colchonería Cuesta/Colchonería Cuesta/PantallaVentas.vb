@@ -4,28 +4,11 @@ Imports LecturaEscrituraArchivos
 
 Public Class PantallaVentas
 
-    ' No podemos poner este precio en los métodos porque si no se reiniciará cada vez que ejecutemos el método.
-    ' Si declaramos precioTotal en un método, se inica como 0. Luego se le pone el valor del producto que
-    ' se añadó al listbox. Al darle al botón de añadir de nuevo, se reinicia el código asociado a ése botón
-    ' y la variable está a 0 otra vez, por tanto no se produce la suma.
-    ' HAY QUE CAMBIAR EL PRECIO A SINGLE, NO OLVIDAR!!!
     Dim precioTotal As Single = 0
     Dim arrayPreciosLista As New ArrayList
 
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
-    End Sub
-
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles lbPrecioTotal.Click
-
-    End Sub
-
-
-
     ' Método que se ejecuta al cargarse el formulario por primera vez
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
 
         ' Activamos el reloj.
         lbReloj.Text = Now
@@ -119,13 +102,17 @@ Public Class PantallaVentas
 
     End Sub
 
-    ' Botón para pasar al formulario de confirmación ventas. A eliminar y poner en menustrip
+    ' Botón para pasar al formulario de confirmación ventas.
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnCobro.Click
         If (listboxCarrito.Items.Count <> 0) Then
             ' Recogemos los datos del label precio
             Dim precioTotal As Single = lbPrecioTotalText.Text
         End If
 
+        If (listboxCarrito.Items.Count = 0) Then
+            MsgBox("No hay articulos en la cesta. Operación abortada", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "Aviso")
+            Return
+        End If
 
         ' Instanciamos la clase Escritura para acceder a los métodos que nos permiten escribir en ficheros.
         Dim escritura As New LecturaEscrituraArchivos.Escritura
@@ -135,22 +122,53 @@ Public Class PantallaVentas
         ' Utilizado para introducir los valores en las ID correctas
         Dim contadorAux As Single = 1
 
+        Dim datos As String = ""
+
         ' Y los contenidos del listBox y los añadimos a un archivo auxiliar "Cobro_Aux.txt"
         For contador As Integer = 0 To numeroRegistros - 1
 
             ' Recogemos los datos de la columna
             Dim columna As String = listboxCarrito.Items.Item(contador)
-            'Introducimos la columna
-            escritura.escribirListaListBox(contadorAux, "Cobro_Aux.txt", columna)
+            'Introducimos en variable
+            datos = datos & columna & vbCrLf
 
             contadorAux = contadorAux + 1
         Next
 
+        Cobro.numeroRegistros = listboxCarrito.Items.Count
+
+
+
+        ' Y los contenidos del listBox y los añadimos a un archivo auxiliar "Cobro_Aux.txt"
+        'For contador As Integer = 0 To numeroRegistros - 1
+
+        ' Recogemos los datos de la columna
+        'Dim columna As String = listboxCarrito.Items.Item(contador)
+        'Introducimos la columna
+        'escritura.escribirListaListBox(contadorAux, "Cobro_Aux.txt", columna)
+
+        'contadorAux = contadorAux + 1
+        'Next
+
         ' Introducimos el precio total al final del fichero.
         escritura.escribirListaListBox(contadorAux, "Cobro_Aux.txt", precioTotal)
 
+        Cobro.stringTicket = datos
+
         ' Escondemos esté formulario. 
         Me.Hide()
+
+        ' Cambiamos el texto de los comboBox
+        comboCategoria.Text = ""
+        comboNombreProd.Items.Clear()
+        comboNombreProd.Text = ""
+        comboTamano.Items.Clear()
+        comboTamano.Text = ""
+        listboxCarrito.Items.Clear()
+        precioTotal = 0
+        arrayPreciosLista.Clear()
+        lbPrecioTotalText.Text = "---"
+
         ' Mostramos la pantalla de cobro
         Cobro.Show()
     End Sub
@@ -162,7 +180,6 @@ Public Class PantallaVentas
         ' Dim sw As New StreamWriter(fichero)
         Try
             FileOpen(1, "Productos.txt", OpenMode.Random, OpenShare.Shared, OpenAccess.Read, 42)
-            Dim lectura As New LecturaEscrituraArchivos.Lectura
             Dim posicion As Integer = 0
             Dim categoria As String = comboCategoria.GetItemText(comboCategoria.SelectedItem)
             Dim linea As String = ""
@@ -180,10 +197,10 @@ Public Class PantallaVentas
                     If producto.NombreProducto.Equals(comboNombreProd.GetItemText(comboNombreProd.SelectedItem)) Then
                         If producto.Tamaño = comboTamano.GetItemText(comboTamano.SelectedItem) Then
                             ' Guardamos todos los campos del producto en un string
-                            linea = linea & producto.Categoria & " "
-                            linea = linea & producto.NombreProducto & " "
-                            linea = linea & producto.Tamaño & " "
-                            linea = linea & producto.Precio & " "
+                            linea = linea & producto.Categoria & " " & Chr(13)
+                            linea = linea & producto.NombreProducto & " " & Chr(13)
+                            linea = linea & producto.Tamaño & " " & Chr(13)
+                            linea = linea & producto.Precio & " " & Chr(13)
                             ' que es lo que añadiremos al listbox.
 
                             ' Como lo que se guarda en el listbox es una linea de producto
@@ -230,12 +247,6 @@ Public Class PantallaVentas
 
     End Sub
 
-    Private Sub listboxProductos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles listboxCarrito.SelectedIndexChanged
-
-    End Sub
-
-
-
     ' Categoría
     ' Método ejecutado cuando se produce un cambio en el comboBox (Normalmente el usuario seleccionando un indice)
     Private Sub comboCategoria_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboCategoria.SelectedIndexChanged
@@ -245,6 +256,7 @@ Public Class PantallaVentas
         comboNombreProd.Text = ""
         comboTamano.Items.Clear()
         comboTamano.Text = ""
+        Label2.Text = "0"
 
         ' Variables auxiliares para recoger los datos de lectura
         Dim aux As String = ""
@@ -318,6 +330,7 @@ Public Class PantallaVentas
         ' Borramos los items que estuvieran relacionados con el primer combobox debido al cambio de categoria
         comboTamano.Items.Clear()
         comboTamano.Text = ""
+        Label2.Text = "0"
 
         ' Variables auxiliares para recoger los datos de lectura
         Dim aux As String = ""
@@ -345,11 +358,6 @@ Public Class PantallaVentas
             End If
 
         Next
-
-    End Sub
-
-    ' Botón tamaño.
-    Private Sub comboTamano_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboTamano.SelectedIndexChanged
 
     End Sub
 
@@ -424,4 +432,37 @@ Public Class PantallaVentas
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         lbReloj.Text = DateTime.Now.ToString
     End Sub
+
+    Private Sub comboTamano_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboTamano.SelectedIndexChanged
+
+        ' Variables auxiliares para recoger los datos de lectura
+        Dim aux As String = ""
+        Dim categoria As String = comboCategoria.SelectedItem
+        Dim nombre As String = comboNombreProd.SelectedItem
+        Dim tamano As String = ""
+        Dim precio As Integer = 0
+
+        ' Instanciamos la clase Lectura para acceder a los métodos que nos permitirán leer desde ficheros
+        Dim lectura As New LecturaEscrituraArchivos.Lectura
+
+        ' Accedemos al archivo "Productos.txt" y extraemos el número de registros con los que cuenta
+        Dim numeroRegistros As Integer = lectura.numeroRegistros("Productos.txt")
+
+        ' Bucle for para leer e introducir todos las categorias existentes en 
+        For contador As Integer = 1 To numeroRegistros
+            ' Leemos
+            lectura.leerProducto(contador, "Productos.txt", categoria, nombre, tamano, precio)
+            ' Si el nombre coincide, lo introducimos
+            If (categoria = comboCategoria.SelectedItem) Then
+                If (nombre = comboNombreProd.SelectedItem) Then
+                    If (tamano = comboTamano.SelectedItem) Then
+                        Label2.Text = precio
+                    End If
+                End If
+            End If
+
+        Next
+
+    End Sub
+
 End Class
