@@ -1,0 +1,30 @@
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\bin\Debug\libValidacionDatos.dll
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\bin\Debug\libValidacionDatos.pdb
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\bin\Debug\libValidacionDatos.xml
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.Resources.resources
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.vbproj.GenerateResource.cache
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.vbproj.CoreCompileInputs.cache
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.dll
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.xml
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.pdb
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.vbprojAssemblyReference.cache
+C:\Users\Tomás\Desktop\GitHubProyectoBackup\Current\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.vbprojAssemblyReference.cache
+C:\Users\Tomás\Desktop\GitHubProyectoBackup\Current\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.Resources.resources
+C:\Users\Tomás\Desktop\GitHubProyectoBackup\Current\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.vbproj.GenerateResource.cache
+C:\Users\Tomás\Desktop\GitHubProyectoBackup\Current\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.vbproj.CoreCompileInputs.cache
+C:\Users\Tomás\Desktop\GitHubProyectoBackup\Current\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.dll
+C:\Users\Tomás\Desktop\GitHubProyectoBackup\Current\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.xml
+C:\Users\Tomás\Desktop\GitHubProyectoBackup\Current\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.pdb
+C:\Users\Tomás\Desktop\GitHubProyectoBackup\Current\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\bin\Debug\libValidacionDatos.dll
+C:\Users\Tomás\Desktop\GitHubProyectoBackup\Current\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\bin\Debug\libValidacionDatos.pdb
+C:\Users\Tomás\Desktop\GitHubProyectoBackup\Current\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\bin\Debug\libValidacionDatos.xml
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\bin\Debug\libValidacionDatos.dll
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\bin\Debug\libValidacionDatos.pdb
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\bin\Debug\libValidacionDatos.xml
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.vbprojAssemblyReference.cache
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.Resources.resources
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.vbproj.GenerateResource.cache
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.vbproj.CoreCompileInputs.cache
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.dll
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.xml
+C:\Users\Tomás\Desktop\GitHubProyecto\ProyectoD\Colchonería CuestaV0.2\Colchonería Cuesta\libValidacionDatos\libValidacionDatos\obj\Debug\libValidacionDatos.pdb
